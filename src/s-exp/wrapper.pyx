@@ -333,7 +333,8 @@ cdef class SymbolicExpression():
             # if not data_v:
             #     raise GcrSexpError(f"List index #{list_index} out of boundary exception. (@gcry_sexp_nth_data)")
 
-            return data_v[ : data_len]
+            # return data_v[ : data_len]
+            return None
 
         except GcrSexpError as err:
             raise err
@@ -349,4 +350,10 @@ cdef class SymbolicExpression():
 
 
     @staticmethod
-    cpdef 
+    cpdef Self _get_by_index (self, i: int):
+        pass
+
+
+    @staticmethod
+    cpdef Self _get_by_mapping (self, key: str):
+        pass
