@@ -1,13 +1,19 @@
-cimport gcry_s_exp as gcr
+# cython: c_string_type=unicode, c_string_encoding=utf8
+# cython: language_level=3
 
+# cython imports
 from cython.cimports import p_uchar, p_void, p_char
+
 from ..gcry.utils cimport on_err_raise
 
-import cython
+cimport gcry_s_exp as gcr
 
-from cython.cimports.libc.stdlib import malloc, free
 
+# Python imports
 from typing import Iterator, NoReturn, Self
+
+import cython
+from cython.cimports.libc.stdlib import malloc, free
 
 from ..py_gcr_errors import GcrSexpError, GcrSexpFormatError, GcrSexpOutOfBoundaryError
 
@@ -234,8 +240,13 @@ cdef class SymbolicExpression():
             pass
 
         finally:
-            if s_exp:
-                gcr.gcry_sexp_release(s_exp)
+            # if s_exp:
+            #     gcr.gcry_sexp_release(s_exp)
+            pass
+
+
+    def __hasattr__(self, name: str) -> bool:
+        return False
 
     def __getitem__(self, key: str | int = None) -> bytes | Self:
         """
@@ -286,6 +297,9 @@ cdef class SymbolicExpression():
         """
         pass
 
+    def is_atom(self) -> size_t:
+        pass
+
     def size(self) -> size_t:
         """ size() function
 
@@ -330,5 +344,9 @@ cdef class SymbolicExpression():
                 gcr.gcry_sexp_release(tar_s_exp)
 
     @staticmethod
-    cdef p_uchar _get_cdr (s_exp: gcr.gcry_sexp_p, cdr_len: size_t):
+    cpdef p_uchar _get_cdr (s_exp: gcr.gcry_sexp_p, cdr_len: size_t):
         pass
+
+
+    @staticmethod
+    cpdef 
