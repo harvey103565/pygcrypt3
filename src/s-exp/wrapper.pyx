@@ -54,10 +54,11 @@ cdef class SymbolicExpression():
 
         4. Association Lists
         Lists of ordered pairs can be used to associate keys with values. For example the association of keys A, B and C with values 1, 2 and 3 can be represented as follows:
-
-        (	(A 	.	 1)	
-            (B 	.	 2)	
-            (C 	.	 3) )
+        (
+            (A . 1)	
+            (B . 2)	
+            (C . 3)
+        )
 
     Simplify rules; 'S-Expressions' could be simplified by removing dot('.') inside, by obey the rules:
 
@@ -301,7 +302,7 @@ cdef class SymbolicExpression():
         pass
 
     def size(self) -> size_t:
-        """ size() function
+        """ size()
 
             return the S-Expression's memory footprint in bytes
 
