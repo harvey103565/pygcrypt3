@@ -1,2 +1,2 @@
 
-from src.s-exp import SymbolicExpression
+from pygcr.s-exp import SymbolicExpression

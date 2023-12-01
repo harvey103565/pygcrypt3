@@ -25,7 +25,7 @@ more information, such as the ld(1) and ld.so(8) manual pages.
 
 
 py_x_sources =  [
-    "./src/pygcrypt3/core.pyx"
+    "./pygcr/s-exp/wrapper.pyx"
 ]
 
 c_include_dirs = ["./includes"]
@@ -35,7 +35,7 @@ c_library_dirs =["./c_libs"]
 extension = []
 
 setup(ext_modules=cythonize([
-        Extension("pygcrypt", 
+        Extension("pygcr", 
                   py_x_sources, 
                   include_dirs=c_include_dirs, 
                   libraries=c_libraries, 
