@@ -24,19 +24,28 @@ more information, such as the ld(1) and ld.so(8) manual pages.
 """
 
 
-py_x_sources =  [
-    "./pygcr/s-exp/wrapper.pyx"
+grcy_utils_sources =  [
+    "./src/gcr/utils.pyx"
 ]
 
-c_include_dirs = ["./includes"]
+s_exp_sources =  [
+    "./src/s_exp/gcr_demo.pyx"
+]
+
+c_include_dirs = ["/usr/local/include"]
 c_libraries = ["gcrypt"]
 c_library_dirs =["./c_libs"]
 
 extension = []
 
 setup(ext_modules=cythonize([
-        Extension("pygcr", 
-                  py_x_sources, 
+        Extension("src.gcr.utils", 
+                  grcy_utils_sources, 
+                  include_dirs=c_include_dirs, 
+                  libraries=c_libraries, 
+                  library_dirs=c_library_dirs),
+        Extension("src.s_exp.gcr_demo", 
+                  s_exp_sources, 
                   include_dirs=c_include_dirs, 
                   libraries=c_libraries, 
                   library_dirs=c_library_dirs)])

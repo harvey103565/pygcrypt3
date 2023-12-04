@@ -4,7 +4,7 @@
 # cython imports
 from cython.cimports import p_uchar, p_void, p_char
 
-from ..gcry.utils cimport on_err_raise
+from ..src.utils cimport on_err_raise
 
 cimport gcry_s_exp as gcr
 
@@ -13,7 +13,7 @@ cimport gcry_s_exp as gcr
 from typing import Iterator, NoReturn, Self
 
 import cython
-from cython.cimports.libc.stdlib import malloc, free
+from libc.stdlib cimport malloc, free
 
 from ..py_gcr_errors import GcrSexpError, GcrSexpFormatError, GcrSexpOutOfBoundaryError
 

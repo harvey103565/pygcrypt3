@@ -1,6 +1,5 @@
-from ..gcry.commons cimport gcry_error_t
+from ..gcr.commons cimport gcry_error_t, gcry_buffer_t
 from ..mpi.defs cimport gcry_mpi_t
-from ..gcry.commons cimport gcry_buffer_t
 from ..gpg_error.defs cimport gpg_error_t
 
 cdef extern from "gcrypt.h":
