@@ -15,7 +15,7 @@ from libc.string cimport strlen
 from src.pygcr_errors import GcrSexpFormatError
 
 
-cpdef void on_err_raise (err_code: gcry_error_t, str_src: p_uchar):
+cdef void on_err_raise (err_code: gcry_error_t, str_src: p_uchar):
 
     if not err_code:
         return

@@ -3,4 +3,4 @@ from cython import p_uchar
 from .commons cimport gcry_error_t
 
 
-cpdef void on_err_raise (err_code: gcry_error_t, str_src: p_uchar)
+cdef void on_err_raise (gcry_error_t, unsigned char *)
