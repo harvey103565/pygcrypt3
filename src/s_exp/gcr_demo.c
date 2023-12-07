@@ -2102,12 +2102,15 @@ static const char __pyx_k_in_data_2[] = "]   in data{";
   static const char __pyx_k_GcrSexpError[] = "GcrSexpError";
   static const char __pyx_k_is_coroutine[] = "_is_coroutine";
   static const char __pyx_k_pygcr_errors[] = "pygcr_errors";
+  static const char __pyx_k_tmp_tmp_exp_p[] = "tmp_tmp_exp_p";
   static const char __pyx_k_GcrSexpFormatError[] = "GcrSexpFormatError";
   static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
   static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
   static const char __pyx_k_src_s_exp_gcr_demo[] = "src.s_exp.gcr_demo";
   static const char __pyx_k_data_0_in_Expression[] = "--=>      data[0] in Expression[";
   static const char __pyx_k_src_s_exp_gcr_demo_pyx[] = "src/s_exp/gcr_demo.pyx";
+  static const char __pyx_k_car_data_0_in_Expression[] = "--=>          car.data[0] in Expression[";
+  static const char __pyx_k_cdr_data_0_in_Expression[] = "--=>          cdr.data[0] in Expression[";
   static const char __pyx_k_GcrSexpOutOfBoundaryError[] = "GcrSexpOutOfBoundaryError";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
@@ -2176,6 +2179,8 @@ typedef struct {
   PyObject *__pyx_kp_u__4;
   PyObject *__pyx_n_s__7;
   PyObject *__pyx_n_s_asyncio_coroutines;
+  PyObject *__pyx_kp_u_car_data_0_in_Expression;
+  PyObject *__pyx_kp_u_cdr_data_0_in_Expression;
   PyObject *__pyx_n_s_cline_in_traceback;
   PyObject *__pyx_n_s_cnt;
   PyObject *__pyx_kp_u_data_0_in_Expression;
@@ -2203,6 +2208,7 @@ typedef struct {
   PyObject *__pyx_n_s_test;
   PyObject *__pyx_n_s_test_gcr;
   PyObject *__pyx_n_s_tmp_exp_p;
+  PyObject *__pyx_n_s_tmp_tmp_exp_p;
   PyObject *__pyx_n_s_typing;
   PyObject *__pyx_tuple__5;
   PyObject *__pyx_codeobj__6;
@@ -2266,6 +2272,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_u__4);
   Py_CLEAR(clear_module_state->__pyx_n_s__7);
   Py_CLEAR(clear_module_state->__pyx_n_s_asyncio_coroutines);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_car_data_0_in_Expression);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_cdr_data_0_in_Expression);
   Py_CLEAR(clear_module_state->__pyx_n_s_cline_in_traceback);
   Py_CLEAR(clear_module_state->__pyx_n_s_cnt);
   Py_CLEAR(clear_module_state->__pyx_kp_u_data_0_in_Expression);
@@ -2293,6 +2301,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_test);
   Py_CLEAR(clear_module_state->__pyx_n_s_test_gcr);
   Py_CLEAR(clear_module_state->__pyx_n_s_tmp_exp_p);
+  Py_CLEAR(clear_module_state->__pyx_n_s_tmp_tmp_exp_p);
   Py_CLEAR(clear_module_state->__pyx_n_s_typing);
   Py_CLEAR(clear_module_state->__pyx_tuple__5);
   Py_CLEAR(clear_module_state->__pyx_codeobj__6);
@@ -2334,6 +2343,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_u__4);
   Py_VISIT(traverse_module_state->__pyx_n_s__7);
   Py_VISIT(traverse_module_state->__pyx_n_s_asyncio_coroutines);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_car_data_0_in_Expression);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_cdr_data_0_in_Expression);
   Py_VISIT(traverse_module_state->__pyx_n_s_cline_in_traceback);
   Py_VISIT(traverse_module_state->__pyx_n_s_cnt);
   Py_VISIT(traverse_module_state->__pyx_kp_u_data_0_in_Expression);
@@ -2361,6 +2372,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_test);
   Py_VISIT(traverse_module_state->__pyx_n_s_test_gcr);
   Py_VISIT(traverse_module_state->__pyx_n_s_tmp_exp_p);
+  Py_VISIT(traverse_module_state->__pyx_n_s_tmp_tmp_exp_p);
   Py_VISIT(traverse_module_state->__pyx_n_s_typing);
   Py_VISIT(traverse_module_state->__pyx_tuple__5);
   Py_VISIT(traverse_module_state->__pyx_codeobj__6);
@@ -2430,6 +2442,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_u__4 __pyx_mstate_global->__pyx_kp_u__4
 #define __pyx_n_s__7 __pyx_mstate_global->__pyx_n_s__7
 #define __pyx_n_s_asyncio_coroutines __pyx_mstate_global->__pyx_n_s_asyncio_coroutines
+#define __pyx_kp_u_car_data_0_in_Expression __pyx_mstate_global->__pyx_kp_u_car_data_0_in_Expression
+#define __pyx_kp_u_cdr_data_0_in_Expression __pyx_mstate_global->__pyx_kp_u_cdr_data_0_in_Expression
 #define __pyx_n_s_cline_in_traceback __pyx_mstate_global->__pyx_n_s_cline_in_traceback
 #define __pyx_n_s_cnt __pyx_mstate_global->__pyx_n_s_cnt
 #define __pyx_kp_u_data_0_in_Expression __pyx_mstate_global->__pyx_kp_u_data_0_in_Expression
@@ -2457,6 +2471,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_test __pyx_mstate_global->__pyx_n_s_test
 #define __pyx_n_s_test_gcr __pyx_mstate_global->__pyx_n_s_test_gcr
 #define __pyx_n_s_tmp_exp_p __pyx_mstate_global->__pyx_n_s_tmp_exp_p
+#define __pyx_n_s_tmp_tmp_exp_p __pyx_mstate_global->__pyx_n_s_tmp_tmp_exp_p
 #define __pyx_n_s_typing __pyx_mstate_global->__pyx_n_s_typing
 #define __pyx_tuple__5 __pyx_mstate_global->__pyx_tuple__5
 #define __pyx_codeobj__6 __pyx_mstate_global->__pyx_codeobj__6
@@ -2495,6 +2510,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
   size_t __pyx_v_cnt;
   gcry_sexp_t __pyx_v_s_exp_p;
   gcry_sexp_t __pyx_v_tmp_exp_p;
+  gcry_sexp_t __pyx_v_tmp_tmp_exp_p;
   char const *__pyx_v_data_ptr;
   char const *__pyx_v_s_exp_str;
   size_t __pyx_v_i;
@@ -2531,7 +2547,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
  *     cdef gcr.gcry_error_t err_code = 0
  *     cdef size_t err_offset = 0, s_exp_size = 0, lst_cnt = 0, data_len, cnt =0             # <<<<<<<<<<<<<<
  * 
- *     cdef gcr.gcry_sexp_t s_exp_p = NULL, tmp_exp_p = NULL
+ *     cdef gcr.gcry_sexp_t s_exp_p = NULL, tmp_exp_p = NULL, tmp_tmp_exp_p = NULL
  */
   __pyx_v_err_offset = 0;
   __pyx_v_s_exp_size = 0;
@@ -2541,16 +2557,17 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
   /* "src/s_exp/gcr_demo.pyx":25
  *     cdef size_t err_offset = 0, s_exp_size = 0, lst_cnt = 0, data_len, cnt =0
  * 
- *     cdef gcr.gcry_sexp_t s_exp_p = NULL, tmp_exp_p = NULL             # <<<<<<<<<<<<<<
+ *     cdef gcr.gcry_sexp_t s_exp_p = NULL, tmp_exp_p = NULL, tmp_tmp_exp_p = NULL             # <<<<<<<<<<<<<<
  *     cdef const char * data_ptr = NULL
  * 
  */
   __pyx_v_s_exp_p = NULL;
   __pyx_v_tmp_exp_p = NULL;
+  __pyx_v_tmp_tmp_exp_p = NULL;
 
   /* "src/s_exp/gcr_demo.pyx":26
  * 
- *     cdef gcr.gcry_sexp_t s_exp_p = NULL, tmp_exp_p = NULL
+ *     cdef gcr.gcry_sexp_t s_exp_p = NULL, tmp_exp_p = NULL, tmp_tmp_exp_p = NULL
  *     cdef const char * data_ptr = NULL             # <<<<<<<<<<<<<<
  * 
  * 
@@ -2560,14 +2577,14 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
   /* "src/s_exp/gcr_demo.pyx":29
  * 
  * 
- *     cdef const char * s_exp_str = "(a b (c d) e (f g))"             # <<<<<<<<<<<<<<
+ *     cdef const char * s_exp_str = "(a b (c d) e (f g h))"             # <<<<<<<<<<<<<<
  * 
  *     err_code = gcr.gcry_sexp_sscan (&s_exp_p, &err_offset, s_exp_str, cython.cast(size_t, len(s_exp_str)))
  */
-  __pyx_v_s_exp_str = ((char const *)"(a b (c d) e (f g))");
+  __pyx_v_s_exp_str = ((char const *)"(a b (c d) e (f g h))");
 
   /* "src/s_exp/gcr_demo.pyx":31
- *     cdef const char * s_exp_str = "(a b (c d) e (f g))"
+ *     cdef const char * s_exp_str = "(a b (c d) e (f g h))"
  * 
  *     err_code = gcr.gcry_sexp_sscan (&s_exp_p, &err_offset, s_exp_str, cython.cast(size_t, len(s_exp_str)))             # <<<<<<<<<<<<<<
  *     on_err_raise(err_code, cython.cast (p_uchar, s_exp_str[err_offset]))
@@ -2702,7 +2719,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
  *                 data_ptr = gcr.gcry_sexp_nth_data(tmp_exp_p, i, &data_len)
  *                 print (f"--=>      Sub data[{i}] in data{{{cnt}}}:   ++> {cython.cast(str, data_ptr)}")             # <<<<<<<<<<<<<<
  * 
- *         else:
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_car (tmp_exp_p)
  */
         __pyx_t_6 = PyTuple_New(6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 44, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
@@ -2751,6 +2768,128 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       }
 
+      /* "src/s_exp/gcr_demo.pyx":46
+ *                 print (f"--=>      Sub data[{i}] in data{{{cnt}}}:   ++> {cython.cast(str, data_ptr)}")
+ * 
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_car (tmp_exp_p)             # <<<<<<<<<<<<<<
+ *             data_ptr = gcr.gcry_sexp_nth_data(tmp_tmp_exp_p, 0, &data_len)
+ *             print (f"--=>          car.data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")
+ */
+      __pyx_v_tmp_tmp_exp_p = gcry_sexp_car(__pyx_v_tmp_exp_p);
+
+      /* "src/s_exp/gcr_demo.pyx":47
+ * 
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_car (tmp_exp_p)
+ *             data_ptr = gcr.gcry_sexp_nth_data(tmp_tmp_exp_p, 0, &data_len)             # <<<<<<<<<<<<<<
+ *             print (f"--=>          car.data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_cdr (tmp_exp_p)
+ */
+      __pyx_v_data_ptr = gcry_sexp_nth_data(__pyx_v_tmp_tmp_exp_p, 0, (&__pyx_v_data_len));
+
+      /* "src/s_exp/gcr_demo.pyx":48
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_car (tmp_exp_p)
+ *             data_ptr = gcr.gcry_sexp_nth_data(tmp_tmp_exp_p, 0, &data_len)
+ *             print (f"--=>          car.data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")             # <<<<<<<<<<<<<<
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_cdr (tmp_exp_p)
+ *             data_ptr = gcr.gcry_sexp_nth_data(tmp_tmp_exp_p, 0, &data_len)
+ */
+      __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_1 = 0;
+      __pyx_t_7 = 127;
+      __Pyx_INCREF(__pyx_kp_u_car_data_0_in_Expression);
+      __pyx_t_1 += 40;
+      __Pyx_GIVEREF(__pyx_kp_u_car_data_0_in_Expression);
+      PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_car_data_0_in_Expression);
+      __pyx_t_12 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_12);
+      __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_12);
+      __Pyx_GIVEREF(__pyx_t_12);
+      PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_12);
+      __pyx_t_12 = 0;
+      __Pyx_INCREF(__pyx_kp_u__3);
+      __pyx_t_1 += 9;
+      __Pyx_GIVEREF(__pyx_kp_u__3);
+      PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u__3);
+      __pyx_t_12 = __Pyx_PyUnicode_FromString(__pyx_v_data_ptr); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_12);
+      __pyx_t_8 = __Pyx_PyUnicode_Unicode(__pyx_t_12); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
+      __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8) : __pyx_t_7;
+      __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8);
+      __Pyx_GIVEREF(__pyx_t_8);
+      PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_8);
+      __pyx_t_8 = 0;
+      __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_6, 4, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+      /* "src/s_exp/gcr_demo.pyx":49
+ *             data_ptr = gcr.gcry_sexp_nth_data(tmp_tmp_exp_p, 0, &data_len)
+ *             print (f"--=>          car.data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_cdr (tmp_exp_p)             # <<<<<<<<<<<<<<
+ *             data_ptr = gcr.gcry_sexp_nth_data(tmp_tmp_exp_p, 0, &data_len)
+ *             print (f"--=>          cdr.data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")
+ */
+      __pyx_v_tmp_tmp_exp_p = gcry_sexp_cdr(__pyx_v_tmp_exp_p);
+
+      /* "src/s_exp/gcr_demo.pyx":50
+ *             print (f"--=>          car.data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_cdr (tmp_exp_p)
+ *             data_ptr = gcr.gcry_sexp_nth_data(tmp_tmp_exp_p, 0, &data_len)             # <<<<<<<<<<<<<<
+ *             print (f"--=>          cdr.data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")
+ * 
+ */
+      __pyx_v_data_ptr = gcry_sexp_nth_data(__pyx_v_tmp_tmp_exp_p, 0, (&__pyx_v_data_len));
+
+      /* "src/s_exp/gcr_demo.pyx":51
+ *             tmp_tmp_exp_p = gcr.gcry_sexp_cdr (tmp_exp_p)
+ *             data_ptr = gcr.gcry_sexp_nth_data(tmp_tmp_exp_p, 0, &data_len)
+ *             print (f"--=>          cdr.data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")             # <<<<<<<<<<<<<<
+ * 
+ *         else:
+ */
+      __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_1 = 0;
+      __pyx_t_7 = 127;
+      __Pyx_INCREF(__pyx_kp_u_cdr_data_0_in_Expression);
+      __pyx_t_1 += 40;
+      __Pyx_GIVEREF(__pyx_kp_u_cdr_data_0_in_Expression);
+      PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_cdr_data_0_in_Expression);
+      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8);
+      __Pyx_GIVEREF(__pyx_t_8);
+      PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_8);
+      __pyx_t_8 = 0;
+      __Pyx_INCREF(__pyx_kp_u__3);
+      __pyx_t_1 += 9;
+      __Pyx_GIVEREF(__pyx_kp_u__3);
+      PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u__3);
+      __pyx_t_8 = __Pyx_PyUnicode_FromString(__pyx_v_data_ptr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __pyx_t_12 = __Pyx_PyUnicode_Unicode(__pyx_t_8); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_12);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_12) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_12) : __pyx_t_7;
+      __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_12);
+      __Pyx_GIVEREF(__pyx_t_12);
+      PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_12);
+      __pyx_t_12 = 0;
+      __pyx_t_12 = __Pyx_PyUnicode_Join(__pyx_t_6, 4, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_12);
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_12); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
       /* "src/s_exp/gcr_demo.pyx":37
  *     for i in range(lst_cnt):
  *         data_ptr = gcr.gcry_sexp_nth_data(s_exp_p, i, &data_len)
@@ -2761,7 +2900,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       goto __pyx_L5;
     }
 
-    /* "src/s_exp/gcr_demo.pyx":47
+    /* "src/s_exp/gcr_demo.pyx":54
  * 
  *         else:
  *             print (f"--=>    Data[{i}]   in data{{{lst_cnt}}}:   ++> {cython.cast(str, data_ptr)}")             # <<<<<<<<<<<<<<
@@ -2769,7 +2908,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
  *         tmp_exp_p = gcr.gcry_sexp_nth (s_exp_p, i)
  */
     /*else*/ {
-      __pyx_t_6 = PyTuple_New(6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_1 = 0;
       __pyx_t_7 = 127;
@@ -2777,7 +2916,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 13;
       __Pyx_GIVEREF(__pyx_kp_u_Data);
       PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_Data);
-      __pyx_t_12 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_12);
       __Pyx_GIVEREF(__pyx_t_12);
@@ -2787,7 +2926,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 12;
       __Pyx_GIVEREF(__pyx_kp_u_in_data_2);
       PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u_in_data_2);
-      __pyx_t_12 = __Pyx_PyUnicode_From_size_t(__pyx_v_lst_cnt, 0, ' ', 'd'); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyUnicode_From_size_t(__pyx_v_lst_cnt, 0, ' ', 'd'); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_12);
       __Pyx_GIVEREF(__pyx_t_12);
@@ -2797,9 +2936,9 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 9;
       __Pyx_GIVEREF(__pyx_kp_u__2);
       PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_kp_u__2);
-      __pyx_t_12 = __Pyx_PyUnicode_FromString(__pyx_v_data_ptr); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyUnicode_FromString(__pyx_v_data_ptr); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_8 = __Pyx_PyUnicode_Unicode(__pyx_t_12); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_Unicode(__pyx_t_12); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8) : __pyx_t_7;
@@ -2807,17 +2946,17 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __Pyx_GIVEREF(__pyx_t_8);
       PyTuple_SET_ITEM(__pyx_t_6, 5, __pyx_t_8);
       __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_6, 6, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_6, 6, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __pyx_L5:;
 
-    /* "src/s_exp/gcr_demo.pyx":49
+    /* "src/s_exp/gcr_demo.pyx":56
  *             print (f"--=>    Data[{i}]   in data{{{lst_cnt}}}:   ++> {cython.cast(str, data_ptr)}")
  * 
  *         tmp_exp_p = gcr.gcry_sexp_nth (s_exp_p, i)             # <<<<<<<<<<<<<<
@@ -2826,7 +2965,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
  */
     __pyx_v_tmp_exp_p = gcry_sexp_nth(__pyx_v_s_exp_p, __pyx_v_i);
 
-    /* "src/s_exp/gcr_demo.pyx":50
+    /* "src/s_exp/gcr_demo.pyx":57
  * 
  *         tmp_exp_p = gcr.gcry_sexp_nth (s_exp_p, i)
  *         if tmp_exp_p == NULL:             # <<<<<<<<<<<<<<
@@ -2836,14 +2975,14 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
     __pyx_t_5 = (__pyx_v_tmp_exp_p == NULL);
     if (__pyx_t_5) {
 
-      /* "src/s_exp/gcr_demo.pyx":51
+      /* "src/s_exp/gcr_demo.pyx":58
  *         tmp_exp_p = gcr.gcry_sexp_nth (s_exp_p, i)
  *         if tmp_exp_p == NULL:
  *             print (f"--=>      Expression[{i}]: NULL")             # <<<<<<<<<<<<<<
  *         else:
  *             cnt = gcr.gcry_sexp_length (tmp_exp_p)
  */
-      __pyx_t_6 = PyTuple_New(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_1 = 0;
       __pyx_t_7 = 127;
@@ -2851,7 +2990,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 21;
       __Pyx_GIVEREF(__pyx_kp_u_Expression);
       PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_Expression);
-      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_8);
@@ -2861,15 +3000,15 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 7;
       __Pyx_GIVEREF(__pyx_kp_u_NULL);
       PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u_NULL);
-      __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_6, 3, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_6, 3, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "src/s_exp/gcr_demo.pyx":50
+      /* "src/s_exp/gcr_demo.pyx":57
  * 
  *         tmp_exp_p = gcr.gcry_sexp_nth (s_exp_p, i)
  *         if tmp_exp_p == NULL:             # <<<<<<<<<<<<<<
@@ -2879,7 +3018,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       goto __pyx_L8;
     }
 
-    /* "src/s_exp/gcr_demo.pyx":53
+    /* "src/s_exp/gcr_demo.pyx":60
  *             print (f"--=>      Expression[{i}]: NULL")
  *         else:
  *             cnt = gcr.gcry_sexp_length (tmp_exp_p)             # <<<<<<<<<<<<<<
@@ -2889,14 +3028,14 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
     /*else*/ {
       __pyx_v_cnt = gcry_sexp_length(__pyx_v_tmp_exp_p);
 
-      /* "src/s_exp/gcr_demo.pyx":54
+      /* "src/s_exp/gcr_demo.pyx":61
  *         else:
  *             cnt = gcr.gcry_sexp_length (tmp_exp_p)
  *             print (f"--=>      Expression[{i}]: length: {cnt}")             # <<<<<<<<<<<<<<
  *             data_ptr = gcr.gcry_sexp_nth_data(tmp_exp_p, 0, &data_len)
  *             print (f"--=>      data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")
  */
-      __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_1 = 0;
       __pyx_t_7 = 127;
@@ -2904,7 +3043,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 21;
       __Pyx_GIVEREF(__pyx_kp_u_Expression);
       PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_Expression);
-      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 61, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_8);
@@ -2914,21 +3053,21 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 11;
       __Pyx_GIVEREF(__pyx_kp_u_length);
       PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u_length);
-      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_cnt, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_cnt, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 61, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_8);
       PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_8);
       __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_6, 4, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_6, 4, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 61, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "src/s_exp/gcr_demo.pyx":55
+      /* "src/s_exp/gcr_demo.pyx":62
  *             cnt = gcr.gcry_sexp_length (tmp_exp_p)
  *             print (f"--=>      Expression[{i}]: length: {cnt}")
  *             data_ptr = gcr.gcry_sexp_nth_data(tmp_exp_p, 0, &data_len)             # <<<<<<<<<<<<<<
@@ -2937,14 +3076,14 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
  */
       __pyx_v_data_ptr = gcry_sexp_nth_data(__pyx_v_tmp_exp_p, 0, (&__pyx_v_data_len));
 
-      /* "src/s_exp/gcr_demo.pyx":56
+      /* "src/s_exp/gcr_demo.pyx":63
  *             print (f"--=>      Expression[{i}]: length: {cnt}")
  *             data_ptr = gcr.gcry_sexp_nth_data(tmp_exp_p, 0, &data_len)
  *             print (f"--=>      data[0] in Expression[{i}]:   ++> {cython.cast(str, data_ptr)}")             # <<<<<<<<<<<<<<
  * 
  * 
  */
-      __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_1 = 0;
       __pyx_t_7 = 127;
@@ -2952,7 +3091,7 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 32;
       __Pyx_GIVEREF(__pyx_kp_u_data_0_in_Expression);
       PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_data_0_in_Expression);
-      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_From_size_t(__pyx_v_i, 0, ' ', 'd'); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 63, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_1 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_8);
@@ -2962,9 +3101,9 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __pyx_t_1 += 9;
       __Pyx_GIVEREF(__pyx_kp_u__3);
       PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u__3);
-      __pyx_t_8 = __Pyx_PyUnicode_FromString(__pyx_v_data_ptr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyUnicode_FromString(__pyx_v_data_ptr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 63, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_12 = __Pyx_PyUnicode_Unicode(__pyx_t_8); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyUnicode_Unicode(__pyx_t_8); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 63, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_7 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_12) > __pyx_t_7) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_12) : __pyx_t_7;
@@ -2972,10 +3111,10 @@ static PyObject *__pyx_pf_3src_5s_exp_8gcr_demo_test_gcr(CYTHON_UNUSED PyObject 
       __Pyx_GIVEREF(__pyx_t_12);
       PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_12);
       __pyx_t_12 = 0;
-      __pyx_t_12 = __Pyx_PyUnicode_Join(__pyx_t_6, 4, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyUnicode_Join(__pyx_t_6, 4, __pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 63, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_12); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_12); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -3040,6 +3179,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_u__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0, 0},
     {&__pyx_n_s__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 0, 1, 1},
     {&__pyx_n_s_asyncio_coroutines, __pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 0, 1, 1},
+    {&__pyx_kp_u_car_data_0_in_Expression, __pyx_k_car_data_0_in_Expression, sizeof(__pyx_k_car_data_0_in_Expression), 0, 1, 0, 0},
+    {&__pyx_kp_u_cdr_data_0_in_Expression, __pyx_k_cdr_data_0_in_Expression, sizeof(__pyx_k_cdr_data_0_in_Expression), 0, 1, 0, 0},
     {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
     {&__pyx_n_s_cnt, __pyx_k_cnt, sizeof(__pyx_k_cnt), 0, 0, 1, 1},
     {&__pyx_kp_u_data_0_in_Expression, __pyx_k_data_0_in_Expression, sizeof(__pyx_k_data_0_in_Expression), 0, 1, 0, 0},
@@ -3067,6 +3208,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
     {&__pyx_n_s_test_gcr, __pyx_k_test_gcr, sizeof(__pyx_k_test_gcr), 0, 0, 1, 1},
     {&__pyx_n_s_tmp_exp_p, __pyx_k_tmp_exp_p, sizeof(__pyx_k_tmp_exp_p), 0, 0, 1, 1},
+    {&__pyx_n_s_tmp_tmp_exp_p, __pyx_k_tmp_tmp_exp_p, sizeof(__pyx_k_tmp_tmp_exp_p), 0, 0, 1, 1},
     {&__pyx_n_s_typing, __pyx_k_typing, sizeof(__pyx_k_typing), 0, 0, 1, 1},
     {0, 0, 0, 0, 0, 0, 0}
   };
@@ -3093,10 +3235,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     cdef gcr.gcry_error_t err_code = 0
  */
-  __pyx_tuple__5 = PyTuple_Pack(11, __pyx_n_s_err_code, __pyx_n_s_err_offset, __pyx_n_s_s_exp_size, __pyx_n_s_lst_cnt, __pyx_n_s_data_len, __pyx_n_s_cnt, __pyx_n_s_s_exp_p, __pyx_n_s_tmp_exp_p, __pyx_n_s_data_ptr, __pyx_n_s_s_exp_str, __pyx_n_s_i); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(12, __pyx_n_s_err_code, __pyx_n_s_err_offset, __pyx_n_s_s_exp_size, __pyx_n_s_lst_cnt, __pyx_n_s_data_len, __pyx_n_s_cnt, __pyx_n_s_s_exp_p, __pyx_n_s_tmp_exp_p, __pyx_n_s_tmp_tmp_exp_p, __pyx_n_s_data_ptr, __pyx_n_s_s_exp_str, __pyx_n_s_i); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_s_exp_gcr_demo_pyx, __pyx_n_s_test_gcr, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 12, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_s_exp_gcr_demo_pyx, __pyx_n_s_test_gcr, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
