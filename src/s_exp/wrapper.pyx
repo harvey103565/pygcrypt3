@@ -4,7 +4,7 @@
 # cython imports
 from cython.cimports import p_uchar, p_void, p_char
 
-from ..src.utils cimport on_err_raise
+from ..gcr.utils cimport on_err_raise
 
 cimport gcry_s_exp as gcr
 
@@ -15,7 +15,7 @@ from typing import Iterator, NoReturn, Self
 import cython
 from libc.stdlib cimport malloc, free
 
-from ..py_gcr_errors import GcrSexpError, GcrSexpFormatError, GcrSexpOutOfBoundaryError
+from ..pygcr_errors import GcrSexpError, GcrSexpFormatError, GcrSexpOutOfBoundaryError
 
 
 cdef class SymbolicExpression():
@@ -80,7 +80,7 @@ cdef class SymbolicExpression():
     cdef gcr.gcry_sexp_p    _s_exp_t
     cdef p_uchar            _s_exp_str
 
-    def __cinit__(self, s_exp_str: bytes, s_exp_t: gcr.gcry_sexp_p = NULL):
+    def __cinit__(self: Self, s_exp_str: bytes, s_exp_t: gcr.gcry_sexp_p = NULL):
         """ __cinit__
 
         Called after SymbolicExpression object is created but before __init__() is invoked. Only static variables should be initiated, no other actions here.
@@ -118,14 +118,14 @@ cdef class SymbolicExpression():
             self._s_exp_t = NULL
 
 
-    cpdef NoReturn __init__(self, *args: list[bytes], **kwargs: dict[bytes, bytes]):
+    cpdef NoReturn __init__(self: Self, *args: list[bytes], **kwargs: dict[bytes, bytes]):
         """ __init__
 
         Pythonic init function. Dynamic variables should be initialized here.
 
         """
 
-    def __iter__(self) -> Iterator:
+    def __iter__(self: Self) -> Iterator:
 
         cpdef s_exp_generator():
 
@@ -140,7 +140,7 @@ cdef class SymbolicExpression():
             self._iter = s_exp_generator()
 
 
-    def __next__(self, *args, **kwargs) -> str | Self:
+    def __next__(self: Self, *args, **kwargs) -> str | Self:
         
         try:
             assert self._iter
@@ -150,7 +150,7 @@ cdef class SymbolicExpression():
             self._iter = None
             raise stop_sig
 
-    def __repr__(self) -> str:
+    def __repr__(self: Self) -> str:
         """ __repr__() function
 
         Export the string form of the S-Expression.
@@ -183,35 +183,30 @@ cdef class SymbolicExpression():
 
     def __len__(self) -> int:
         """
-
-            return the item count number of the S-Expression, in the list perspect of view (including car)
-
+        return the item count number of the S-Expression, in the list perspect of view (including car)
         """
         cdef int lst_cnt = 0
 
-        assert self._s_exp_t
-        lst_cnt = gcr.gcry_sexp_length (self._s_exp_t)
+        lst_cnt = gcr.gcry_sexp_length(self._s_exp_t)
 
         assert lst_cnt > 0
         return lst_cnt
 
 
-    def __getattr__(self, name: str) -> tuple[bytes]:
+    def __getattr__(self: Self, name: str) -> tuple[bytes]:
         """
             S-Express has a basic form (car . cdr)
             use object.car or object.cdr to get corresponding value
         """
-        cdef gcr.gcry_sexp_p s_exp = NULL
+        cdef size_t lst_cnt = 0, data_len = 0
+        cdef gcr.gcry_sexp_t p_s_exp = NULL
+        cdef const char * p_data = NULL
 
         try:
-            if name == 'car':
-                s_exp =  gcr.gcry_sexp_car (self._s_exp_t)  
-                pass
-            elif name == 'cdr':
-                s_exp = gcr.gcry_sexp_cdr (self._s_exp_t)
-                pass
-            else:
-                raise AttributeError("Invalid attribute", f"{type(self)} don not have attribute '{name}'")
+            p_s_exp = gcr.gcry_sexp_find_token (self._s_exp_t, data_ptr, data_len)
+            lst_cnt = gcr.gcry_sexp_length (p_s_exp)
+
+            raise AttributeError("Invalid attribute", f"{type(self)} don not have attribute '{name}'")
         except:
             pass
 
@@ -222,18 +217,13 @@ cdef class SymbolicExpression():
             if s_exp:
                 gcr.gcry_sexp_release(s_exp)
 
-    def __setattr__(self, name: str, value: bytes) -> tuple[bytes]:
+    def __setattr__(self: Self, name: str, value: bytes) -> tuple[bytes]:
         """
             S-Express has a basic form (car . cdr)
             use object.car = 'some-name' or object.cdr = 'some-value' to set its value
         """
         try:
-            if name == 'car':
-                pass
-            elif name == 'cdr':
-                pass
-            else:
-                raise AttributeError("Invalid attribute", f"{type(self)} don not have attribute '{name}'")
+            raise AttributeError("Invalid attribute", f"{type(self)} don not have attribute '{name}'")
         except:
             pass
 
@@ -246,10 +236,10 @@ cdef class SymbolicExpression():
             pass
 
 
-    def __hasattr__(self, name: str) -> bool:
+    def __hasattr__(self: Self, name: str) -> bool:
         return False
 
-    def __getitem__(self, key: str | int = None) -> bytes | Self:
+    def __getitem__(self: Self, key: str | int = None) -> bytes | Self:
         """
             use object['car-name'] to get cdr
         """
@@ -292,28 +282,70 @@ cdef class SymbolicExpression():
         else:
             raise
 
-    def __setitem__(self) -> tuple[bytes]:
+    def __setitem__(self: Self) -> tuple[bytes]:
         """
             use object['car-name'] = 'cdr-value' to set cdr value
         """
         pass
 
-    def is_atom(self) -> size_t:
-        pass
+    def is_atom(self: Self) -> bool:
+        """
+        If there is only one data bolb contained in expression, it is an atom.
+        """
+        return (1 == len(self))
 
-    def size(self) -> size_t:
+    def size(self: Self) -> int:
         """ size()
-
-            return the S-Expression's memory footprint in bytes
-
+        return the S-Expression's memory footprint in bytes
         """
         cdef size_t len_cnt = 0
 
-        assert self._s_exp_t
         len_cnt = gcr.gcry_sexp_sprint (self._s_exp_t, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
 
         assert len_cnt > 0
         return len_cnt
+
+    def car(self: Self) -> bytes:
+        """ car()
+        Get car data from expression
+        """
+
+        cdef size_t lst_cnt = 0, data_len = 0
+        cdef gcr.gcry_sexp_t p_s_exp = NULL
+        cdef const char * p_data = NULL
+
+        if not self.is_atom():
+            p_s_exp = gcr.gcry_sexp_car (self._s_exp_t)
+            lst_cnt = gcr.gcry_sexp_length (p_s_exp)
+
+            assert lst_cnt < 1
+        else:
+            p_s_exp = self._s_exp_t
+
+        p_data = gcr.gcry_sexp_nth_data(p_s_exp, 0, &data_len)
+
+        return cython.cast(bytes, p_data[:data_len])
+
+    def cdr(self: Self) -> bytes:
+        """ cdr()
+        Get cdr data from expression
+        """
+
+        cdef size_t lst_cnt = 0, data_len = 0
+        cdef gcr.gcry_sexp_t p_s_exp = NULL
+        cdef const char * p_data = NULL
+
+        if not self.is_atom():
+            p_s_exp = gcr.gcry_sexp_cdr (self._s_exp_t)
+            lst_cnt = gcr.gcry_sexp_length (p_s_exp)
+
+            assert lst_cnt < 1
+        else:
+            p_s_exp = self._s_exp_t
+
+        p_data = gcr.gcry_sexp_nth_data(p_s_exp, 0, &data_len)
+
+        return cython.cast(bytes, p_data[:data_len])
 
     @staticmethod
     cdef gcr.gcry_sexp_p _copy_inner_exp_by_car (s_exp: gcr.gcry_sexp_p, car: p_uchar = NULL, key_len: size_t = 0):
@@ -351,10 +383,10 @@ cdef class SymbolicExpression():
 
 
     @staticmethod
-    cpdef Self _get_by_index (self, i: int):
+    cpdef Self _get_by_index (self: Self, i: int):
         pass
 
 
     @staticmethod
-    cpdef Self _get_by_mapping (self, key: str):
+    cpdef Self _get_by_mapping (self: Self, key: str):
         pass

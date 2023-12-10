@@ -29,6 +29,7 @@ grcy_utils_sources =  [
 ]
 
 s_exp_sources =  [
+    # "./src/s_exp/wrapper.pyx", 
     "./src/s_exp/gcr_demo.pyx"
 ]
 
