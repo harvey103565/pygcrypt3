@@ -6,13 +6,16 @@ export LIBDIR=/opt/python/lib/libgpg/lib
 export LD_LIBRARY_PATH=${LIBDIR}
 export LD_RUN_PATH=${LIBDIR}
 
-source ~/python/bin/activate
+source ~/studio/python/bin/activate
 
 echo ' ==>(0): Determine library evnironment.'
 echo 'library: gcrypt could be found and linked via: '
 /opt/python/lib/libgpg/bin/libgcrypt-config --libs
 
 echo ' ==>(1): compile cypthon.'
+rm -rf ./build/ 
+
+echo ' ==>(2): compile cypthon.'
 python setup.py build_ext --inplace
 
 # echo ' ==>(2): compiling cypthon.'

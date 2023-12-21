@@ -8,6 +8,7 @@
             "/usr/local/include/gpg-error.h"
         ],
         "include_dirs": [
+            "/usr/include/python3.11",
             "/usr/local/include"
         ],
         "libraries": [
@@ -16,14 +17,14 @@
         "library_dirs": [
             "./c_libs"
         ],
-        "name": "src.s_exp.gcr_demo",
+        "name": "src.gcr.pygcr",
         "sources": [
             "./src/gcr/cerr.pyx",
             "./src/gcr/mpi.pyx",
             "./src/gcr/s_exp.pyx"
         ]
     },
-    "module_name": "src.s_exp.gcr_demo"
+    "module_name": "src.gcr.pygcr"
 }
 END: Cython Metadata */
 

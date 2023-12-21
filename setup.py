@@ -34,7 +34,7 @@ s_exp_sources =  [
     "./src/gcr/s_exp.pyx",
 ]
 
-c_include_dirs = ["/usr/local/include"]
+c_include_dirs = ["/usr/include/python3.11", "/usr/local/include"]
 c_libraries = ["gcrypt"]
 c_library_dirs =["./c_libs"]
 
@@ -43,15 +43,15 @@ extension = []
 setup(ext_modules=cythonize([
 
         Extension("src.gcr.pygcr", 
-                    grcy_demo_sources, 
+                    s_exp_sources, 
                     include_dirs=c_include_dirs, 
                     libraries=c_libraries, 
                     library_dirs=c_library_dirs),
 
-        Extension("src.gcr.gcr_demo", 
-                    s_exp_sources, 
-                    include_dirs=c_include_dirs, 
-                    libraries=c_libraries, 
-                    library_dirs=c_library_dirs)
+        # Extension("src.gcr.gcr_demo", 
+        #             grcy_demo_sources, 
+        #             include_dirs=c_include_dirs, 
+        #             libraries=c_libraries, 
+        #             library_dirs=c_library_dirs)
       ])
 )
