@@ -1,4 +1,10 @@
-from ..gpg_error.defs cimport gpg_error_t
+
+
+
+cdef extern from "gpg-error.h":
+
+    ctypedef unsigned int gpg_error_t
+
 
 cdef extern from "gcrypt.h":
 
@@ -17,4 +23,8 @@ cdef extern from "gcrypt.h":
     const char *gcry_strerror (gcry_error_t err)
 
     const char *gcry_strsource (gcry_error_t err)
+
+
+cdef void on_err_raise (gcry_error_t, char *)
+
 

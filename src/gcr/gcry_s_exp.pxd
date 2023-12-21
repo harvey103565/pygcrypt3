@@ -1,6 +1,9 @@
-from ..gcr.commons cimport gcry_error_t, gcry_buffer_t
-from ..mpi.defs cimport gcry_mpi_t
-from ..gpg_error.defs cimport gpg_error_t
+from gcry_err cimport gcry_error_t, gcry_buffer_t
+from gcry_mpi cimport gcry_mpi_t
+from gcry_err cimport gpg_error_t
+
+ctypedef unsigned char * s_exp_str_t
+
 
 cdef extern from "gcrypt.h":
 
@@ -8,7 +11,6 @@ cdef extern from "gcrypt.h":
     ctypedef struct gcry_sexp:
         pass
     ctypedef gcry_sexp* gcry_sexp_t
-    ctypedef gcry_sexp_t gcry_sexp_p
 
     ctypedef void (* p_freefnc) (void* )
 
