@@ -6,8 +6,7 @@
 
 from libc.stdlib cimport malloc, free
 
-from gcry_s_exp cimport gcry_sexp_t, \
-    s_exp_str_t, \
+from .gcry_s_exp cimport gcry_sexp_t, \
     gcry_sexp_format, \
     gcry_sexp_sscan, \
     gcry_sexp_length, \
@@ -20,8 +19,8 @@ from gcry_s_exp cimport gcry_sexp_t, \
     gcry_sexp_sprint
 
 
-from gcry_err cimport gcry_error_t, on_err_raise
-from gcry_mpi cimport gcry_mpi_t
+from .gcry_err cimport gcry_error_t, on_err_raise
+from .gcry_mpi cimport gcry_mpi_t
 
 
 ##  Python imports
@@ -30,7 +29,7 @@ from typing import Iterator, NoReturn, Self
 # import cython
 import cython
 
-from mpi cimport MultiPrecisionInteger
+from .mpi cimport MultiPrecisionInteger
 
 from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpOutOfBoundaryError
 

@@ -17,14 +17,14 @@
         "library_dirs": [
             "./c_libs"
         ],
-        "name": "src.gcr.pygcr",
+        "name": "src.gcr",
         "sources": [
             "./src/gcr/cerr.pyx",
             "./src/gcr/mpi.pyx",
             "./src/gcr/s_exp.pyx"
         ]
     },
-    "module_name": "src.gcr.pygcr"
+    "module_name": "src.gcr"
 }
 END: Cython Metadata */
 
@@ -1209,8 +1209,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__s_exp
-#define __PYX_HAVE_API__s_exp
+#define __PYX_HAVE__src__gcr__s_exp
+#define __PYX_HAVE_API__src__gcr__s_exp
 /* Early includes */
 #include <string.h>
 #include <stdlib.h>
@@ -1496,27 +1496,27 @@ static const char *__pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_obj_3mpi_MultiPrecisionInteger;
-struct __pyx_obj_5s_exp_SymbolicExpression;
+struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger;
+struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression;
 
 /* "gcry_s_exp.pxd":5
- * from gcry_err cimport gpg_error_t
+ * from .gcry_err cimport gpg_error_t
  * 
  * ctypedef unsigned char * s_exp_str_t             # <<<<<<<<<<<<<<
  * 
  * 
  */
-typedef unsigned char *__pyx_t_10gcry_s_exp_s_exp_str_t;
-struct __pyx_opt_args_5s_exp_18SymbolicExpression_from_exp_t;
+typedef unsigned char *__pyx_t_3src_3gcr_10gcry_s_exp_s_exp_str_t;
+struct __pyx_opt_args_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t;
 
-/* "s_exp.pyx":288
+/* "src/gcr/s_exp.pyx":287
  * 
  *     @staticmethod
  *     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, hodler: bint = False):             # <<<<<<<<<<<<<<
  *         """Create
  *         """
  */
-struct __pyx_opt_args_5s_exp_18SymbolicExpression_from_exp_t {
+struct __pyx_opt_args_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t {
   int __pyx_n;
   PyObject *hodler;
 };
@@ -1527,32 +1527,32 @@ struct __pyx_opt_args_5s_exp_18SymbolicExpression_from_exp_t {
  * cdef class MultiPrecisionInteger:             # <<<<<<<<<<<<<<
  *     pass
  */
-struct __pyx_obj_3mpi_MultiPrecisionInteger {
+struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger {
   PyObject_HEAD
 };
 
 
-/* "s_exp.pyx":38
+/* "src/gcr/s_exp.pyx":37
  * 
  * 
  * cdef class SymbolicExpression():             # <<<<<<<<<<<<<<
  *     """ class SymbolicExpression
  * 
  */
-struct __pyx_obj_5s_exp_SymbolicExpression {
+struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression {
   PyObject_HEAD
-  struct __pyx_vtabstruct_5s_exp_SymbolicExpression *__pyx_vtab;
+  struct __pyx_vtabstruct_3src_3gcr_5s_exp_SymbolicExpression *__pyx_vtab;
   gcry_sexp_t _s_exp;
   int _holder;
 };
 
 
 
-struct __pyx_vtabstruct_5s_exp_SymbolicExpression {
-  struct __pyx_obj_5s_exp_SymbolicExpression *(*from_exp_t)(gcry_sexp_t, struct __pyx_opt_args_5s_exp_18SymbolicExpression_from_exp_t *__pyx_optional_args);
+struct __pyx_vtabstruct_3src_3gcr_5s_exp_SymbolicExpression {
+  struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *(*from_exp_t)(gcry_sexp_t, struct __pyx_opt_args_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t *__pyx_optional_args);
   void (*_on_null_expression_raise)(gcry_sexp_t);
 };
-static struct __pyx_vtabstruct_5s_exp_SymbolicExpression *__pyx_vtabptr_5s_exp_SymbolicExpression;
+static struct __pyx_vtabstruct_3src_3gcr_5s_exp_SymbolicExpression *__pyx_vtabptr_3src_3gcr_5s_exp_SymbolicExpression;
 /* #### Code section: utility_code_proto ### */
 
 /* --- Runtime support code (head) --- */
@@ -2251,32 +2251,32 @@ static int __Pyx_ImportFunction_3_0_7(PyObject *module, const char *funcname, vo
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* #### Code section: module_declarations ### */
-static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpression_from_exp_t(gcry_sexp_t __pyx_v_s_exp, struct __pyx_opt_args_5s_exp_18SymbolicExpression_from_exp_t *__pyx_optional_args); /* proto*/
-static void __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(gcry_sexp_t __pyx_v_s_exp); /* proto*/
+static struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_f_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t(gcry_sexp_t __pyx_v_s_exp, struct __pyx_opt_args_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t *__pyx_optional_args); /* proto*/
+static void __pyx_f_3src_3gcr_5s_exp_18SymbolicExpression__on_null_expression_raise(gcry_sexp_t __pyx_v_s_exp); /* proto*/
 
 /* Module declarations from "libc.string" */
 
 /* Module declarations from "libc.stdlib" */
 
-/* Module declarations from "gcry_err" */
-static void (*__pyx_f_8gcry_err_on_err_raise)(gcry_error_t, char *); /*proto*/
+/* Module declarations from "src.gcr.gcry_err" */
+static void (*__pyx_f_3src_3gcr_8gcry_err_on_err_raise)(gcry_error_t, char *); /*proto*/
 
-/* Module declarations from "gcry_mpi" */
+/* Module declarations from "src.gcr.gcry_mpi" */
 
-/* Module declarations from "gcry_s_exp" */
+/* Module declarations from "src.gcr.gcry_s_exp" */
 
 /* Module declarations from "cython" */
 
-/* Module declarations from "mpi" */
+/* Module declarations from "src.gcr.mpi" */
 
-/* Module declarations from "s_exp" */
+/* Module declarations from "src.gcr.s_exp" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "s_exp"
-extern int __pyx_module_is_main_s_exp;
-int __pyx_module_is_main_s_exp = 0;
+#define __Pyx_MODULE_NAME "src.gcr.s_exp"
+extern int __pyx_module_is_main_src__gcr__s_exp;
+int __pyx_module_is_main_src__gcr__s_exp = 0;
 
-/* Implementation of "s_exp" */
+/* Implementation of "src.gcr.s_exp" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_AssertionError;
 static PyObject *__pyx_builtin_StopIteration;
@@ -2296,7 +2296,6 @@ static const char __pyx_k_next[] = "__next__";
 static const char __pyx_k_self[] = "self";
 static const char __pyx_k_size[] = "size";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_s_exp[] = "s_exp";
 static const char __pyx_k_utf_8[] = "utf-8";
 static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_encode[] = "encode";
@@ -2325,6 +2324,7 @@ static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_stringsource[] = "<stringsource>";
 static const char __pyx_k_StopIteration[] = "StopIteration";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
+static const char __pyx_k_src_gcr_s_exp[] = "src.gcr.s_exp";
 static const char __pyx_k_AssertionError[] = "AssertionError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_DEFAULT_ENCODING[] = "_DEFAULT_ENCODING_";
@@ -2341,23 +2341,23 @@ static const char __pyx_k_SymbolicExpression___reduce_cyth[] = "SymbolicExpressi
 static const char __pyx_k_SymbolicExpression___setstate_cy[] = "SymbolicExpression.__setstate_cython__";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
 /* #### Code section: decls ### */
-static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_exp_str); /* proto */
-static void __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_name); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_12__hasattr__(CYTHON_UNUSED struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_name); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_index); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_5s_exp_SymbolicExpression(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_exp_str); /* proto */
+static void __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static Py_ssize_t __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_name); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_12__hasattr__(CYTHON_UNUSED struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_name); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_index); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_4data___get__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_3src_3gcr_5s_exp_SymbolicExpression(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2399,11 +2399,11 @@ typedef struct {
   #endif
   #if CYTHON_USE_MODULE_STATE
   #endif
-  PyTypeObject *__pyx_ptype_3mpi_MultiPrecisionInteger;
+  PyTypeObject *__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger;
   #if CYTHON_USE_MODULE_STATE
-  PyObject *__pyx_type_5s_exp_SymbolicExpression;
+  PyObject *__pyx_type_3src_3gcr_5s_exp_SymbolicExpression;
   #endif
-  PyTypeObject *__pyx_ptype_5s_exp_SymbolicExpression;
+  PyTypeObject *__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression;
   PyObject *__pyx_kp_u_;
   PyObject *__pyx_n_s_AssertionError;
   PyObject *__pyx_n_s_DEFAULT_ENCODING;
@@ -2451,11 +2451,11 @@ typedef struct {
   PyObject *__pyx_n_s_reduce_cython;
   PyObject *__pyx_n_s_reduce_ex;
   PyObject *__pyx_n_s_return;
-  PyObject *__pyx_n_s_s_exp;
   PyObject *__pyx_n_s_self;
   PyObject *__pyx_n_s_setstate;
   PyObject *__pyx_n_s_setstate_cython;
   PyObject *__pyx_n_s_size;
+  PyObject *__pyx_n_s_src_gcr_s_exp;
   PyObject *__pyx_kp_s_src_gcr_s_exp_pyx;
   PyObject *__pyx_n_s_str;
   PyObject *__pyx_kp_s_stringsource;
@@ -2513,9 +2513,9 @@ static int __pyx_m_clear(PyObject *m) {
   #ifdef __Pyx_FusedFunction_USED
   Py_CLEAR(clear_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_CLEAR(clear_module_state->__pyx_ptype_3mpi_MultiPrecisionInteger);
-  Py_CLEAR(clear_module_state->__pyx_ptype_5s_exp_SymbolicExpression);
-  Py_CLEAR(clear_module_state->__pyx_type_5s_exp_SymbolicExpression);
+  Py_CLEAR(clear_module_state->__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger);
+  Py_CLEAR(clear_module_state->__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression);
+  Py_CLEAR(clear_module_state->__pyx_type_3src_3gcr_5s_exp_SymbolicExpression);
   Py_CLEAR(clear_module_state->__pyx_kp_u_);
   Py_CLEAR(clear_module_state->__pyx_n_s_AssertionError);
   Py_CLEAR(clear_module_state->__pyx_n_s_DEFAULT_ENCODING);
@@ -2563,11 +2563,11 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_reduce_cython);
   Py_CLEAR(clear_module_state->__pyx_n_s_reduce_ex);
   Py_CLEAR(clear_module_state->__pyx_n_s_return);
-  Py_CLEAR(clear_module_state->__pyx_n_s_s_exp);
   Py_CLEAR(clear_module_state->__pyx_n_s_self);
   Py_CLEAR(clear_module_state->__pyx_n_s_setstate);
   Py_CLEAR(clear_module_state->__pyx_n_s_setstate_cython);
   Py_CLEAR(clear_module_state->__pyx_n_s_size);
+  Py_CLEAR(clear_module_state->__pyx_n_s_src_gcr_s_exp);
   Py_CLEAR(clear_module_state->__pyx_kp_s_src_gcr_s_exp_pyx);
   Py_CLEAR(clear_module_state->__pyx_n_s_str);
   Py_CLEAR(clear_module_state->__pyx_kp_s_stringsource);
@@ -2603,9 +2603,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_VISIT(traverse_module_state->__pyx_ptype_3mpi_MultiPrecisionInteger);
-  Py_VISIT(traverse_module_state->__pyx_ptype_5s_exp_SymbolicExpression);
-  Py_VISIT(traverse_module_state->__pyx_type_5s_exp_SymbolicExpression);
+  Py_VISIT(traverse_module_state->__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger);
+  Py_VISIT(traverse_module_state->__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression);
+  Py_VISIT(traverse_module_state->__pyx_type_3src_3gcr_5s_exp_SymbolicExpression);
   Py_VISIT(traverse_module_state->__pyx_kp_u_);
   Py_VISIT(traverse_module_state->__pyx_n_s_AssertionError);
   Py_VISIT(traverse_module_state->__pyx_n_s_DEFAULT_ENCODING);
@@ -2653,11 +2653,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_reduce_cython);
   Py_VISIT(traverse_module_state->__pyx_n_s_reduce_ex);
   Py_VISIT(traverse_module_state->__pyx_n_s_return);
-  Py_VISIT(traverse_module_state->__pyx_n_s_s_exp);
   Py_VISIT(traverse_module_state->__pyx_n_s_self);
   Py_VISIT(traverse_module_state->__pyx_n_s_setstate);
   Py_VISIT(traverse_module_state->__pyx_n_s_setstate_cython);
   Py_VISIT(traverse_module_state->__pyx_n_s_size);
+  Py_VISIT(traverse_module_state->__pyx_n_s_src_gcr_s_exp);
   Py_VISIT(traverse_module_state->__pyx_kp_s_src_gcr_s_exp_pyx);
   Py_VISIT(traverse_module_state->__pyx_n_s_str);
   Py_VISIT(traverse_module_state->__pyx_kp_s_stringsource);
@@ -2715,11 +2715,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #endif
 #if CYTHON_USE_MODULE_STATE
 #endif
-#define __pyx_ptype_3mpi_MultiPrecisionInteger __pyx_mstate_global->__pyx_ptype_3mpi_MultiPrecisionInteger
+#define __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger __pyx_mstate_global->__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger
 #if CYTHON_USE_MODULE_STATE
-#define __pyx_type_5s_exp_SymbolicExpression __pyx_mstate_global->__pyx_type_5s_exp_SymbolicExpression
+#define __pyx_type_3src_3gcr_5s_exp_SymbolicExpression __pyx_mstate_global->__pyx_type_3src_3gcr_5s_exp_SymbolicExpression
 #endif
-#define __pyx_ptype_5s_exp_SymbolicExpression __pyx_mstate_global->__pyx_ptype_5s_exp_SymbolicExpression
+#define __pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression __pyx_mstate_global->__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression
 #define __pyx_kp_u_ __pyx_mstate_global->__pyx_kp_u_
 #define __pyx_n_s_AssertionError __pyx_mstate_global->__pyx_n_s_AssertionError
 #define __pyx_n_s_DEFAULT_ENCODING __pyx_mstate_global->__pyx_n_s_DEFAULT_ENCODING
@@ -2767,11 +2767,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_reduce_cython __pyx_mstate_global->__pyx_n_s_reduce_cython
 #define __pyx_n_s_reduce_ex __pyx_mstate_global->__pyx_n_s_reduce_ex
 #define __pyx_n_s_return __pyx_mstate_global->__pyx_n_s_return
-#define __pyx_n_s_s_exp __pyx_mstate_global->__pyx_n_s_s_exp
 #define __pyx_n_s_self __pyx_mstate_global->__pyx_n_s_self
 #define __pyx_n_s_setstate __pyx_mstate_global->__pyx_n_s_setstate
 #define __pyx_n_s_setstate_cython __pyx_mstate_global->__pyx_n_s_setstate_cython
 #define __pyx_n_s_size __pyx_mstate_global->__pyx_n_s_size
+#define __pyx_n_s_src_gcr_s_exp __pyx_mstate_global->__pyx_n_s_src_gcr_s_exp
 #define __pyx_kp_s_src_gcr_s_exp_pyx __pyx_mstate_global->__pyx_kp_s_src_gcr_s_exp_pyx
 #define __pyx_n_s_str __pyx_mstate_global->__pyx_n_s_str
 #define __pyx_kp_s_stringsource __pyx_mstate_global->__pyx_kp_s_stringsource
@@ -2789,7 +2789,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__10 __pyx_mstate_global->__pyx_codeobj__10
 /* #### Code section: module_code ### */
 
-/* "s_exp.pyx":102
+/* "src/gcr/s_exp.pyx":101
  *     cdef cython.bint _holder
  * 
  *     def __cinit__(self: Self, exp_str: str = None) -> NoReturn:             # <<<<<<<<<<<<<<
@@ -2798,8 +2798,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
  */
 
 /* Python wrapper */
-static int __pyx_pw_5s_exp_18SymbolicExpression_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_5s_exp_18SymbolicExpression_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_exp_str = 0;
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
@@ -2833,12 +2833,12 @@ static int __pyx_pw_5s_exp_18SymbolicExpression_1__cinit__(PyObject *__pyx_v_sel
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_VARARGS(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_exp_str);
           if (value) { values[0] = __Pyx_Arg_NewRef_VARARGS(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 102, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 102, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__cinit__") < 0)) __PYX_ERR(0, 101, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -2852,7 +2852,7 @@ static int __pyx_pw_5s_exp_18SymbolicExpression_1__cinit__(PyObject *__pyx_v_sel
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 102, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 1, __pyx_nargs); __PYX_ERR(0, 101, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2862,12 +2862,12 @@ static int __pyx_pw_5s_exp_18SymbolicExpression_1__cinit__(PyObject *__pyx_v_sel
       __Pyx_Arg_XDECREF_VARARGS(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exp_str), (&PyUnicode_Type), 1, "exp_str", 1))) __PYX_ERR(0, 102, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression___cinit__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self), __pyx_v_exp_str);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exp_str), (&PyUnicode_Type), 1, "exp_str", 1))) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression___cinit__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self), __pyx_v_exp_str);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2884,7 +2884,7 @@ static int __pyx_pw_5s_exp_18SymbolicExpression_1__cinit__(PyObject *__pyx_v_sel
   return __pyx_r;
 }
 
-static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_exp_str) {
+static int __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_exp_str) {
   size_t __pyx_v_offset;
   gcry_error_t __pyx_v_e_code;
   PyObject *__pyx_v_s_exp_bin_s = 0;
@@ -2903,7 +2903,7 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 1);
 
-  /* "s_exp.pyx":106
+  /* "src/gcr/s_exp.pyx":105
  * 
  *         """
  *         cdef size_t       offset = 0             # <<<<<<<<<<<<<<
@@ -2912,7 +2912,7 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
  */
   __pyx_v_offset = 0;
 
-  /* "s_exp.pyx":107
+  /* "src/gcr/s_exp.pyx":106
  *         """
  *         cdef size_t       offset = 0
  *         cdef gcry_error_t e_code = 0             # <<<<<<<<<<<<<<
@@ -2921,7 +2921,7 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
  */
   __pyx_v_e_code = 0;
 
-  /* "s_exp.pyx":108
+  /* "src/gcr/s_exp.pyx":107
  *         cdef size_t       offset = 0
  *         cdef gcry_error_t e_code = 0
  *         self._s_exp = NULL             # <<<<<<<<<<<<<<
@@ -2930,7 +2930,7 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
  */
   __pyx_v_self->_s_exp = NULL;
 
-  /* "s_exp.pyx":110
+  /* "src/gcr/s_exp.pyx":109
  *         self._s_exp = NULL
  * 
  *         if exp_str:             # <<<<<<<<<<<<<<
@@ -2940,16 +2940,16 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
   __pyx_t_1 = (__pyx_v_exp_str != Py_None)&&(__Pyx_PyUnicode_IS_TRUE(__pyx_v_exp_str) != 0);
   if (__pyx_t_1) {
 
-    /* "s_exp.pyx":111
+    /* "src/gcr/s_exp.pyx":110
  * 
  *         if exp_str:
  *             s_exp_bin_s: bytes = exp_str.encode(SymbolicExpression._DEFAULT_ENCODING_)             # <<<<<<<<<<<<<<
  *             e_code = gcry_sexp_sscan(&self._s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
  * 
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_exp_str, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 111, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_exp_str, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 110, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression), __pyx_n_s_DEFAULT_ENCODING); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression), __pyx_n_s_DEFAULT_ENCODING); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -2970,15 +2970,15 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_6, 1+__pyx_t_6);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
-    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_2))) __PYX_ERR(0, 111, __pyx_L1_error)
+    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None) || __Pyx_RaiseUnexpectedTypeError("bytes", __pyx_t_2))) __PYX_ERR(0, 110, __pyx_L1_error)
     __pyx_v_s_exp_bin_s = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "s_exp.pyx":112
+    /* "src/gcr/s_exp.pyx":111
  *         if exp_str:
  *             s_exp_bin_s: bytes = exp_str.encode(SymbolicExpression._DEFAULT_ENCODING_)
  *             e_code = gcry_sexp_sscan(&self._s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))             # <<<<<<<<<<<<<<
@@ -2987,17 +2987,17 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
  */
     if (unlikely(__pyx_v_s_exp_bin_s == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-      __PYX_ERR(0, 112, __pyx_L1_error)
+      __PYX_ERR(0, 111, __pyx_L1_error)
     }
-    __pyx_t_7 = __Pyx_PyBytes_AsWritableString(__pyx_v_s_exp_bin_s); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 112, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyBytes_AsWritableString(__pyx_v_s_exp_bin_s); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 111, __pyx_L1_error)
     if (unlikely(__pyx_v_s_exp_bin_s == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 112, __pyx_L1_error)
+      __PYX_ERR(0, 111, __pyx_L1_error)
     }
-    __pyx_t_8 = __Pyx_PyBytes_GET_SIZE(__pyx_v_s_exp_bin_s); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 112, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBytes_GET_SIZE(__pyx_v_s_exp_bin_s); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 111, __pyx_L1_error)
     __pyx_v_e_code = gcry_sexp_sscan((&__pyx_v_self->_s_exp), (&__pyx_v_offset), ((char *)__pyx_t_7), __pyx_t_8);
 
-    /* "s_exp.pyx":114
+    /* "src/gcr/s_exp.pyx":113
  *             e_code = gcry_sexp_sscan(&self._s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
  * 
  *             on_err_raise(e_code, s_exp_bin_s[ : offset])             # <<<<<<<<<<<<<<
@@ -3006,15 +3006,15 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
  */
     if (unlikely(__pyx_v_s_exp_bin_s == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 114, __pyx_L1_error)
+      __PYX_ERR(0, 113, __pyx_L1_error)
     }
-    __pyx_t_2 = PySequence_GetSlice(__pyx_v_s_exp_bin_s, 0, __pyx_v_offset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
+    __pyx_t_2 = PySequence_GetSlice(__pyx_v_s_exp_bin_s, 0, __pyx_v_offset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_PyBytes_AsWritableString(__pyx_t_2); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 114, __pyx_L1_error)
-    __pyx_f_8gcry_err_on_err_raise(__pyx_v_e_code, __pyx_t_7); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 114, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyBytes_AsWritableString(__pyx_t_2); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 113, __pyx_L1_error)
+    __pyx_f_3src_3gcr_8gcry_err_on_err_raise(__pyx_v_e_code, __pyx_t_7); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 113, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "s_exp.pyx":116
+    /* "src/gcr/s_exp.pyx":115
  *             on_err_raise(e_code, s_exp_bin_s[ : offset])
  * 
  *             self._holder = True             # <<<<<<<<<<<<<<
@@ -3023,7 +3023,7 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
  */
     __pyx_v_self->_holder = 1;
 
-    /* "s_exp.pyx":110
+    /* "src/gcr/s_exp.pyx":109
  *         self._s_exp = NULL
  * 
  *         if exp_str:             # <<<<<<<<<<<<<<
@@ -3032,7 +3032,7 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
  */
   }
 
-  /* "s_exp.pyx":102
+  /* "src/gcr/s_exp.pyx":101
  *     cdef cython.bint _holder
  * 
  *     def __cinit__(self: Self, exp_str: str = None) -> NoReturn:             # <<<<<<<<<<<<<<
@@ -3048,7 +3048,7 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_s_exp_bin_s);
@@ -3056,7 +3056,7 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
   return __pyx_r;
 }
 
-/* "s_exp.pyx":119
+/* "src/gcr/s_exp.pyx":118
  * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3065,23 +3065,23 @@ static int __pyx_pf_5s_exp_18SymbolicExpression___cinit__(struct __pyx_obj_5s_ex
  */
 
 /* Python wrapper */
-static void __pyx_pw_5s_exp_18SymbolicExpression_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_5s_exp_18SymbolicExpression_3__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3__dealloc__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_2__dealloc__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static void __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   int __pyx_t_1;
   int __pyx_t_2;
 
-  /* "s_exp.pyx":124
+  /* "src/gcr/s_exp.pyx":123
  *         """
  * 
  *         if self._holder and self._s_exp:             # <<<<<<<<<<<<<<
@@ -3098,7 +3098,7 @@ static void __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_5
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "s_exp.pyx":125
+    /* "src/gcr/s_exp.pyx":124
  * 
  *         if self._holder and self._s_exp:
  *             gcry_sexp_release(self._s_exp)             # <<<<<<<<<<<<<<
@@ -3107,7 +3107,7 @@ static void __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_5
  */
     gcry_sexp_release(__pyx_v_self->_s_exp);
 
-    /* "s_exp.pyx":126
+    /* "src/gcr/s_exp.pyx":125
  *         if self._holder and self._s_exp:
  *             gcry_sexp_release(self._s_exp)
  *             self._s_exp = NULL             # <<<<<<<<<<<<<<
@@ -3116,7 +3116,7 @@ static void __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_5
  */
     __pyx_v_self->_s_exp = NULL;
 
-    /* "s_exp.pyx":124
+    /* "src/gcr/s_exp.pyx":123
  *         """
  * 
  *         if self._holder and self._s_exp:             # <<<<<<<<<<<<<<
@@ -3125,7 +3125,7 @@ static void __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_5
  */
   }
 
-  /* "s_exp.pyx":119
+  /* "src/gcr/s_exp.pyx":118
  * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3136,7 +3136,7 @@ static void __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_5
   /* function exit code */
 }
 
-/* "s_exp.pyx":129
+/* "src/gcr/s_exp.pyx":128
  * 
  * 
  *     def __next__(self: Self) -> Self:             # <<<<<<<<<<<<<<
@@ -3145,21 +3145,21 @@ static void __pyx_pf_5s_exp_18SymbolicExpression_2__dealloc__(struct __pyx_obj_5
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_5__next__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_5__next__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_5__next__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_5__next__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__next__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_4__next__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_4__next__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   PyObject *__pyx_v_stop_sig = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3184,7 +3184,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__next__", 1);
 
-  /* "s_exp.pyx":131
+  /* "src/gcr/s_exp.pyx":130
  *     def __next__(self: Self) -> Self:
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -3200,7 +3200,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "s_exp.pyx":132
+      /* "src/gcr/s_exp.pyx":131
  * 
  *         try:
  *             assert self._iter             # <<<<<<<<<<<<<<
@@ -3209,29 +3209,29 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
  */
       #ifndef CYTHON_WITHOUT_ASSERTIONS
       if (unlikely(__pyx_assertions_enabled())) {
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_iter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 132, __pyx_L3_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_iter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 131, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 132, __pyx_L3_error)
+        __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 131, __pyx_L3_error)
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         if (unlikely(!__pyx_t_5)) {
           __Pyx_Raise(__pyx_builtin_AssertionError, 0, 0, 0);
-          __PYX_ERR(0, 132, __pyx_L3_error)
+          __PYX_ERR(0, 131, __pyx_L3_error)
         }
       }
       #else
-      if ((1)); else __PYX_ERR(0, 132, __pyx_L3_error)
+      if ((1)); else __PYX_ERR(0, 131, __pyx_L3_error)
       #endif
 
-      /* "s_exp.pyx":134
+      /* "src/gcr/s_exp.pyx":133
  *             assert self._iter
  * 
  *             self._iter.__next__()             # <<<<<<<<<<<<<<
  *         except StopIteration as stop_sig:
  *             self._iter = None
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_iter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 134, __pyx_L3_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_iter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 133, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_next); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 134, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_next); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 133, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_6 = NULL;
@@ -3252,13 +3252,13 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
         PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+1-__pyx_t_8, 0+__pyx_t_8);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 134, __pyx_L3_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 133, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "s_exp.pyx":131
+      /* "src/gcr/s_exp.pyx":130
  *     def __next__(self: Self) -> Self:
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -3275,7 +3275,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "s_exp.pyx":135
+    /* "src/gcr/s_exp.pyx":134
  * 
  *             self._iter.__next__()
  *         except StopIteration as stop_sig:             # <<<<<<<<<<<<<<
@@ -3284,8 +3284,8 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
  */
     __pyx_t_8 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_StopIteration);
     if (__pyx_t_8) {
-      __Pyx_AddTraceback("s_exp.SymbolicExpression.__next__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_7, &__pyx_t_6) < 0) __PYX_ERR(0, 135, __pyx_L5_except_error)
+      __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__next__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_7, &__pyx_t_6) < 0) __PYX_ERR(0, 134, __pyx_L5_except_error)
       __Pyx_XGOTREF(__pyx_t_4);
       __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_6);
@@ -3293,16 +3293,16 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
       __pyx_v_stop_sig = __pyx_t_7;
       /*try:*/ {
 
-        /* "s_exp.pyx":136
+        /* "src/gcr/s_exp.pyx":135
  *             self._iter.__next__()
  *         except StopIteration as stop_sig:
  *             self._iter = None             # <<<<<<<<<<<<<<
  *             raise stop_sig
  * 
  */
-        if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_iter, Py_None) < 0) __PYX_ERR(0, 136, __pyx_L14_error)
+        if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_iter, Py_None) < 0) __PYX_ERR(0, 135, __pyx_L14_error)
 
-        /* "s_exp.pyx":137
+        /* "src/gcr/s_exp.pyx":136
  *         except StopIteration as stop_sig:
  *             self._iter = None
  *             raise stop_sig             # <<<<<<<<<<<<<<
@@ -3310,10 +3310,10 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
  * 
  */
         __Pyx_Raise(__pyx_v_stop_sig, 0, 0, 0);
-        __PYX_ERR(0, 137, __pyx_L14_error)
+        __PYX_ERR(0, 136, __pyx_L14_error)
       }
 
-      /* "s_exp.pyx":135
+      /* "src/gcr/s_exp.pyx":134
  * 
  *             self._iter.__next__()
  *         except StopIteration as stop_sig:             # <<<<<<<<<<<<<<
@@ -3356,7 +3356,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
     }
     goto __pyx_L5_except_error;
 
-    /* "s_exp.pyx":131
+    /* "src/gcr/s_exp.pyx":130
  *     def __next__(self: Self) -> Self:
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -3372,7 +3372,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
     __pyx_L8_try_end:;
   }
 
-  /* "s_exp.pyx":129
+  /* "src/gcr/s_exp.pyx":128
  * 
  * 
  *     def __next__(self: Self) -> Self:             # <<<<<<<<<<<<<<
@@ -3387,7 +3387,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__next__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__next__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_stop_sig);
@@ -3396,7 +3396,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "s_exp.pyx":140
+/* "src/gcr/s_exp.pyx":139
  * 
  * 
  *     def __repr__(self: Self) -> str:             # <<<<<<<<<<<<<<
@@ -3405,25 +3405,25 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4__next__(struct __pyx_obj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_7__repr__(PyObject *__pyx_v_self); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5s_exp_18SymbolicExpression_6__repr__, " __repr__() function\n\n        Export the string form of the S-Expression.\n\n        ");
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_7__repr__(PyObject *__pyx_v_self); /*proto*/
+PyDoc_STRVAR(__pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__, " __repr__() function\n\n        Export the string form of the S-Expression.\n\n        ");
 #if CYTHON_UPDATE_DESCRIPTOR_DOC
-struct wrapperbase __pyx_wrapperbase_5s_exp_18SymbolicExpression_6__repr__;
+struct wrapperbase __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__;
 #endif
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_7__repr__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_7__repr__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__repr__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_6__repr__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   size_t __pyx_v_len_cnt;
   char *__pyx_v_mem_buf;
   PyObject *__pyx_r = NULL;
@@ -3447,7 +3447,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__repr__", 1);
 
-  /* "s_exp.pyx":146
+  /* "src/gcr/s_exp.pyx":145
  * 
  *         """
  *         cdef size_t len_cnt = 0             # <<<<<<<<<<<<<<
@@ -3456,7 +3456,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
   __pyx_v_len_cnt = 0;
 
-  /* "s_exp.pyx":147
+  /* "src/gcr/s_exp.pyx":146
  *         """
  *         cdef size_t len_cnt = 0
  *         cdef char * mem_buf = NULL             # <<<<<<<<<<<<<<
@@ -3465,7 +3465,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
   __pyx_v_mem_buf = NULL;
 
-  /* "s_exp.pyx":149
+  /* "src/gcr/s_exp.pyx":148
  *         cdef char * mem_buf = NULL
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -3482,14 +3482,14 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
       __Pyx_XGOTREF(__pyx_t_3);
       /*try:*/ {
 
-        /* "s_exp.pyx":150
+        /* "src/gcr/s_exp.pyx":149
  * 
  *         try:
  *             len_cnt = self.size()             # <<<<<<<<<<<<<<
  *             len_cnt = len_cnt + 4
  *             mem_buf = cython.cast(cython.p_char, malloc(len_cnt))
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_size); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 150, __pyx_L6_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_size); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 149, __pyx_L6_error)
         __Pyx_GOTREF(__pyx_t_5);
         __pyx_t_6 = NULL;
         __pyx_t_7 = 0;
@@ -3509,15 +3509,15 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
           PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
           __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 150, __pyx_L6_error)
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 149, __pyx_L6_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         }
-        __pyx_t_8 = __Pyx_PyInt_As_size_t(__pyx_t_4); if (unlikely((__pyx_t_8 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 150, __pyx_L6_error)
+        __pyx_t_8 = __Pyx_PyInt_As_size_t(__pyx_t_4); if (unlikely((__pyx_t_8 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 149, __pyx_L6_error)
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_v_len_cnt = __pyx_t_8;
 
-        /* "s_exp.pyx":151
+        /* "src/gcr/s_exp.pyx":150
  *         try:
  *             len_cnt = self.size()
  *             len_cnt = len_cnt + 4             # <<<<<<<<<<<<<<
@@ -3526,7 +3526,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
         __pyx_v_len_cnt = (__pyx_v_len_cnt + 4);
 
-        /* "s_exp.pyx":152
+        /* "src/gcr/s_exp.pyx":151
  *             len_cnt = self.size()
  *             len_cnt = len_cnt + 4
  *             mem_buf = cython.cast(cython.p_char, malloc(len_cnt))             # <<<<<<<<<<<<<<
@@ -3535,7 +3535,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
         __pyx_v_mem_buf = ((char *)malloc(__pyx_v_len_cnt));
 
-        /* "s_exp.pyx":154
+        /* "src/gcr/s_exp.pyx":153
  *             mem_buf = cython.cast(cython.p_char, malloc(len_cnt))
  * 
  *             len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, mem_buf, len_cnt)             # <<<<<<<<<<<<<<
@@ -3544,7 +3544,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
         __pyx_v_len_cnt = gcry_sexp_sprint(__pyx_v_self->_s_exp, GCRYSEXP_FMT_ADVANCED, __pyx_v_mem_buf, __pyx_v_len_cnt);
 
-        /* "s_exp.pyx":149
+        /* "src/gcr/s_exp.pyx":148
  *         cdef char * mem_buf = NULL
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -3553,7 +3553,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
       }
 
-      /* "s_exp.pyx":163
+      /* "src/gcr/s_exp.pyx":162
  * 
  *         else:
  *             return cython.cast(bytes, mem_buf[:len_cnt])             # <<<<<<<<<<<<<<
@@ -3562,7 +3562,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
       /*else:*/ {
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_4 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_mem_buf + 0, __pyx_v_len_cnt - 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 163, __pyx_L8_except_error)
+        __pyx_t_4 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_mem_buf + 0, __pyx_v_len_cnt - 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 162, __pyx_L8_except_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(((PyObject*)__pyx_t_4));
         __pyx_r = __pyx_t_4;
@@ -3574,7 +3574,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "s_exp.pyx":158
+      /* "src/gcr/s_exp.pyx":157
  *             # TODO: logging
  * 
  *         except:             # <<<<<<<<<<<<<<
@@ -3586,7 +3586,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
         goto __pyx_L7_exception_handled;
       }
 
-      /* "s_exp.pyx":149
+      /* "src/gcr/s_exp.pyx":148
  *         cdef char * mem_buf = NULL
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -3613,7 +3613,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
     }
   }
 
-  /* "s_exp.pyx":167
+  /* "src/gcr/s_exp.pyx":166
  *         finally:
  * 
  *             if mem_buf:             # <<<<<<<<<<<<<<
@@ -3625,7 +3625,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
       __pyx_t_9 = (__pyx_v_mem_buf != 0);
       if (__pyx_t_9) {
 
-        /* "s_exp.pyx":168
+        /* "src/gcr/s_exp.pyx":167
  * 
  *             if mem_buf:
  *                 free(mem_buf)             # <<<<<<<<<<<<<<
@@ -3634,7 +3634,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
         free(__pyx_v_mem_buf);
 
-        /* "s_exp.pyx":167
+        /* "src/gcr/s_exp.pyx":166
  *         finally:
  * 
  *             if mem_buf:             # <<<<<<<<<<<<<<
@@ -3665,7 +3665,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
         __pyx_t_9 = (__pyx_v_mem_buf != 0);
         if (__pyx_t_9) {
 
-          /* "s_exp.pyx":168
+          /* "src/gcr/s_exp.pyx":167
  * 
  *             if mem_buf:
  *                 free(mem_buf)             # <<<<<<<<<<<<<<
@@ -3674,7 +3674,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
           free(__pyx_v_mem_buf);
 
-          /* "s_exp.pyx":167
+          /* "src/gcr/s_exp.pyx":166
  *         finally:
  * 
  *             if mem_buf:             # <<<<<<<<<<<<<<
@@ -3703,7 +3703,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
       __pyx_t_9 = (__pyx_v_mem_buf != 0);
       if (__pyx_t_9) {
 
-        /* "s_exp.pyx":168
+        /* "src/gcr/s_exp.pyx":167
  * 
  *             if mem_buf:
  *                 free(mem_buf)             # <<<<<<<<<<<<<<
@@ -3712,7 +3712,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
         free(__pyx_v_mem_buf);
 
-        /* "s_exp.pyx":167
+        /* "src/gcr/s_exp.pyx":166
  *         finally:
  * 
  *             if mem_buf:             # <<<<<<<<<<<<<<
@@ -3727,7 +3727,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
     __pyx_L5:;
   }
 
-  /* "s_exp.pyx":140
+  /* "src/gcr/s_exp.pyx":139
  * 
  * 
  *     def __repr__(self: Self) -> str:             # <<<<<<<<<<<<<<
@@ -3742,7 +3742,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3750,7 +3750,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "s_exp.pyx":171
+/* "src/gcr/s_exp.pyx":170
  * 
  * 
  *     def __len__(self) -> int:             # <<<<<<<<<<<<<<
@@ -3759,25 +3759,25 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_6__repr__(struct __pyx_obj
  */
 
 /* Python wrapper */
-static Py_ssize_t __pyx_pw_5s_exp_18SymbolicExpression_9__len__(PyObject *__pyx_v_self); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5s_exp_18SymbolicExpression_8__len__, "\n        return the item count number of the S-Expression, in the list perspect of view (including car)\n        ");
+static Py_ssize_t __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_9__len__(PyObject *__pyx_v_self); /*proto*/
+PyDoc_STRVAR(__pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_8__len__, "\n        return the item count number of the S-Expression, in the list perspect of view (including car)\n        ");
 #if CYTHON_UPDATE_DESCRIPTOR_DOC
-struct wrapperbase __pyx_wrapperbase_5s_exp_18SymbolicExpression_8__len__;
+struct wrapperbase __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_8__len__;
 #endif
-static Py_ssize_t __pyx_pw_5s_exp_18SymbolicExpression_9__len__(PyObject *__pyx_v_self) {
+static Py_ssize_t __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_9__len__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   Py_ssize_t __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__len__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_8__len__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_8__len__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static Py_ssize_t __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   int __pyx_v_lst_cnt;
   Py_ssize_t __pyx_r;
   int __pyx_t_1;
@@ -3785,7 +3785,7 @@ static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "s_exp.pyx":175
+  /* "src/gcr/s_exp.pyx":174
  *         return the item count number of the S-Expression, in the list perspect of view (including car)
  *         """
  *         cdef int lst_cnt = 0             # <<<<<<<<<<<<<<
@@ -3794,7 +3794,7 @@ static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj
  */
   __pyx_v_lst_cnt = 0;
 
-  /* "s_exp.pyx":177
+  /* "src/gcr/s_exp.pyx":176
  *         cdef int lst_cnt = 0
  * 
  *         lst_cnt = gcry_sexp_length(self._s_exp)             # <<<<<<<<<<<<<<
@@ -3803,7 +3803,7 @@ static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj
  */
   __pyx_v_lst_cnt = gcry_sexp_length(__pyx_v_self->_s_exp);
 
-  /* "s_exp.pyx":179
+  /* "src/gcr/s_exp.pyx":178
  *         lst_cnt = gcry_sexp_length(self._s_exp)
  * 
  *         assert lst_cnt > 0             # <<<<<<<<<<<<<<
@@ -3815,14 +3815,14 @@ static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj
     __pyx_t_1 = (__pyx_v_lst_cnt > 0);
     if (unlikely(!__pyx_t_1)) {
       __Pyx_Raise(__pyx_builtin_AssertionError, 0, 0, 0);
-      __PYX_ERR(0, 179, __pyx_L1_error)
+      __PYX_ERR(0, 178, __pyx_L1_error)
     }
   }
   #else
-  if ((1)); else __PYX_ERR(0, 179, __pyx_L1_error)
+  if ((1)); else __PYX_ERR(0, 178, __pyx_L1_error)
   #endif
 
-  /* "s_exp.pyx":180
+  /* "src/gcr/s_exp.pyx":179
  * 
  *         assert lst_cnt > 0
  *         return lst_cnt             # <<<<<<<<<<<<<<
@@ -3832,7 +3832,7 @@ static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj
   __pyx_r = __pyx_v_lst_cnt;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":171
+  /* "src/gcr/s_exp.pyx":170
  * 
  * 
  *     def __len__(self) -> int:             # <<<<<<<<<<<<<<
@@ -3842,13 +3842,13 @@ static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__len__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__len__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   return __pyx_r;
 }
 
-/* "s_exp.pyx":183
+/* "src/gcr/s_exp.pyx":182
  * 
  * 
  *     def __getattr__(self: Self, name: str) -> tuple[bytes]:             # <<<<<<<<<<<<<<
@@ -3857,12 +3857,12 @@ static Py_ssize_t __pyx_pf_5s_exp_18SymbolicExpression_8__len__(struct __pyx_obj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_11__getattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_name); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5s_exp_18SymbolicExpression_10__getattr__, "\n            S-Express has a basic form (car . cdr)\n            use object.car or object.cdr to get corresponding value\n        ");
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_11__getattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_name); /*proto*/
+PyDoc_STRVAR(__pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__, "\n            S-Express has a basic form (car . cdr)\n            use object.car or object.cdr to get corresponding value\n        ");
 #if CYTHON_UPDATE_DESCRIPTOR_DOC
-struct wrapperbase __pyx_wrapperbase_5s_exp_18SymbolicExpression_10__getattr__;
+struct wrapperbase __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__;
 #endif
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_11__getattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_name) {
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_11__getattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_name) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -3871,8 +3871,8 @@ static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_11__getattr__(PyObject *__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__getattr__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 1))) __PYX_ERR(0, 183, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self), ((PyObject*)__pyx_v_name));
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 1))) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self), ((PyObject*)__pyx_v_name));
 
   /* function exit code */
   goto __pyx_L0;
@@ -3883,7 +3883,7 @@ static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_11__getattr__(PyObject *__
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_name) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_name) {
   size_t __pyx_v_data_len;
   gcry_sexp_t __pyx_v_tar_s_exp;
   PyObject *__pyx_v_c_name_str = 0;
@@ -3896,7 +3896,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__getattr__", 1);
 
-  /* "s_exp.pyx":188
+  /* "src/gcr/s_exp.pyx":187
  *             use object.car or object.cdr to get corresponding value
  *         """
  *         cdef size_t      data_len = 0             # <<<<<<<<<<<<<<
@@ -3905,7 +3905,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx
  */
   __pyx_v_data_len = 0;
 
-  /* "s_exp.pyx":189
+  /* "src/gcr/s_exp.pyx":188
  *         """
  *         cdef size_t      data_len = 0
  *         cdef gcry_sexp_t tar_s_exp = NULL             # <<<<<<<<<<<<<<
@@ -3914,19 +3914,19 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx
  */
   __pyx_v_tar_s_exp = NULL;
 
-  /* "s_exp.pyx":191
+  /* "src/gcr/s_exp.pyx":190
  *         cdef gcry_sexp_t tar_s_exp = NULL
  * 
  *         c_name_str: bytes = name.encode('utf-8')             # <<<<<<<<<<<<<<
  * 
  *         tar_s_exp = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, c_name_str), data_len)
  */
-  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_c_name_str = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "s_exp.pyx":193
+  /* "src/gcr/s_exp.pyx":192
  *         c_name_str: bytes = name.encode('utf-8')
  * 
  *         tar_s_exp = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, c_name_str), data_len)             # <<<<<<<<<<<<<<
@@ -3935,21 +3935,21 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx
  */
   if (unlikely(__pyx_v_c_name_str == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "expected bytes, NoneType found");
-    __PYX_ERR(0, 193, __pyx_L1_error)
+    __PYX_ERR(0, 192, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyBytes_AsWritableString(__pyx_v_c_name_str); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBytes_AsWritableString(__pyx_v_c_name_str); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 192, __pyx_L1_error)
   __pyx_v_tar_s_exp = gcry_sexp_find_token(__pyx_v_self->_s_exp, ((char *)__pyx_t_2), __pyx_v_data_len);
 
-  /* "s_exp.pyx":194
+  /* "src/gcr/s_exp.pyx":193
  * 
  *         tar_s_exp = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, c_name_str), data_len)
  *         SymbolicExpression._on_null_expression_raise(tar_s_exp)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(__pyx_v_tar_s_exp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_f_3src_3gcr_5s_exp_18SymbolicExpression__on_null_expression_raise(__pyx_v_tar_s_exp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 193, __pyx_L1_error)
 
-  /* "s_exp.pyx":183
+  /* "src/gcr/s_exp.pyx":182
  * 
  * 
  *     def __getattr__(self: Self, name: str) -> tuple[bytes]:             # <<<<<<<<<<<<<<
@@ -3962,7 +3962,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__getattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__getattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_c_name_str);
@@ -3971,7 +3971,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx
   return __pyx_r;
 }
 
-/* "s_exp.pyx":197
+/* "src/gcr/s_exp.pyx":196
  * 
  * 
  *     def __hasattr__(self: Self, name: str) -> bool:             # <<<<<<<<<<<<<<
@@ -3980,15 +3980,15 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_10__getattr__(struct __pyx
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_13__hasattr__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_13__hasattr__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_5s_exp_18SymbolicExpression_13__hasattr__ = {"__hasattr__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_13__hasattr__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_13__hasattr__(PyObject *__pyx_v_self, 
+static PyMethodDef __pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_13__hasattr__ = {"__hasattr__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_13__hasattr__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_13__hasattr__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4032,12 +4032,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 197, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 196, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__hasattr__") < 0)) __PYX_ERR(0, 197, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__hasattr__") < 0)) __PYX_ERR(0, 196, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -4048,7 +4048,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__hasattr__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 197, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__hasattr__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 196, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4058,12 +4058,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__hasattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__hasattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 1))) __PYX_ERR(0, 197, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_12__hasattr__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self), __pyx_v_name);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 1))) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_12__hasattr__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self), __pyx_v_name);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4080,12 +4080,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_12__hasattr__(CYTHON_UNUSED struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_name) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_12__hasattr__(CYTHON_UNUSED struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_name) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__hasattr__", 1);
 
-  /* "s_exp.pyx":198
+  /* "src/gcr/s_exp.pyx":197
  * 
  *     def __hasattr__(self: Self, name: str) -> bool:
  *         return False             # <<<<<<<<<<<<<<
@@ -4097,7 +4097,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_12__hasattr__(CYTHON_UNUSE
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":197
+  /* "src/gcr/s_exp.pyx":196
  * 
  * 
  *     def __hasattr__(self: Self, name: str) -> bool:             # <<<<<<<<<<<<<<
@@ -4112,7 +4112,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_12__hasattr__(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "s_exp.pyx":201
+/* "src/gcr/s_exp.pyx":200
  * 
  * 
  *     def __getitem__(self: Self, index: int) -> Self:             # <<<<<<<<<<<<<<
@@ -4121,12 +4121,12 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_12__hasattr__(CYTHON_UNUSE
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_15__getitem__(PyObject *__pyx_v_self, PyObject *__pyx_v_index); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5s_exp_18SymbolicExpression_14__getitem__, "\n            use index to get an expression\n        ");
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_15__getitem__(PyObject *__pyx_v_self, PyObject *__pyx_v_index); /*proto*/
+PyDoc_STRVAR(__pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__, "\n            use index to get an expression\n        ");
 #if CYTHON_UPDATE_DESCRIPTOR_DOC
-struct wrapperbase __pyx_wrapperbase_5s_exp_18SymbolicExpression_14__getitem__;
+struct wrapperbase __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__;
 #endif
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_15__getitem__(PyObject *__pyx_v_self, PyObject *__pyx_v_index) {
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_15__getitem__(PyObject *__pyx_v_self, PyObject *__pyx_v_index) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
@@ -4135,8 +4135,8 @@ static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_15__getitem__(PyObject *__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__getitem__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_index), (&PyInt_Type), 0, "index", 1))) __PYX_ERR(0, 201, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self), ((PyObject*)__pyx_v_index));
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_index), (&PyInt_Type), 0, "index", 1))) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self), ((PyObject*)__pyx_v_index));
 
   /* function exit code */
   goto __pyx_L0;
@@ -4147,7 +4147,7 @@ static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_15__getitem__(PyObject *__
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_index) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, PyObject *__pyx_v_index) {
   gcry_sexp_t __pyx_v_sub_s_exp;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4160,7 +4160,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__getitem__", 1);
 
-  /* "s_exp.pyx":205
+  /* "src/gcr/s_exp.pyx":204
  *             use index to get an expression
  *         """
  *         cdef gcry_sexp_t sub_s_exp = NULL             # <<<<<<<<<<<<<<
@@ -4169,7 +4169,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx
  */
   __pyx_v_sub_s_exp = NULL;
 
-  /* "s_exp.pyx":207
+  /* "src/gcr/s_exp.pyx":206
  *         cdef gcry_sexp_t sub_s_exp = NULL
  * 
  *         assert index and isinstance(index, int)             # <<<<<<<<<<<<<<
@@ -4178,7 +4178,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(__pyx_assertions_enabled())) {
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_index); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 207, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_index); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 206, __pyx_L1_error)
     if (__pyx_t_2) {
     } else {
       __pyx_t_1 = __pyx_t_2;
@@ -4189,33 +4189,33 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx
     __pyx_L3_bool_binop_done:;
     if (unlikely(!__pyx_t_1)) {
       __Pyx_Raise(__pyx_builtin_AssertionError, 0, 0, 0);
-      __PYX_ERR(0, 207, __pyx_L1_error)
+      __PYX_ERR(0, 206, __pyx_L1_error)
     }
   }
   #else
-  if ((1)); else __PYX_ERR(0, 207, __pyx_L1_error)
+  if ((1)); else __PYX_ERR(0, 206, __pyx_L1_error)
   #endif
 
-  /* "s_exp.pyx":209
+  /* "src/gcr/s_exp.pyx":208
  *         assert index and isinstance(index, int)
  * 
  *         sub_s_exp = gcry_sexp_nth(self._s_exp, index)             # <<<<<<<<<<<<<<
  *         SymbolicExpression._on_null_expression_raise(sub_s_exp)
  * 
  */
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_index); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_index); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 208, __pyx_L1_error)
   __pyx_v_sub_s_exp = gcry_sexp_nth(__pyx_v_self->_s_exp, __pyx_t_3);
 
-  /* "s_exp.pyx":210
+  /* "src/gcr/s_exp.pyx":209
  * 
  *         sub_s_exp = gcry_sexp_nth(self._s_exp, index)
  *         SymbolicExpression._on_null_expression_raise(sub_s_exp)             # <<<<<<<<<<<<<<
  * 
  *         return SymbolicExpression.from_exp_t(sub_s_exp)
  */
-  __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(__pyx_v_sub_s_exp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_f_3src_3gcr_5s_exp_18SymbolicExpression__on_null_expression_raise(__pyx_v_sub_s_exp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 209, __pyx_L1_error)
 
-  /* "s_exp.pyx":212
+  /* "src/gcr/s_exp.pyx":211
  *         SymbolicExpression._on_null_expression_raise(sub_s_exp)
  * 
  *         return SymbolicExpression.from_exp_t(sub_s_exp)             # <<<<<<<<<<<<<<
@@ -4223,13 +4223,13 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = ((PyObject *)__pyx_vtabptr_5s_exp_SymbolicExpression->from_exp_t(__pyx_v_sub_s_exp, NULL)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_t_4 = ((PyObject *)__pyx_vtabptr_3src_3gcr_5s_exp_SymbolicExpression->from_exp_t(__pyx_v_sub_s_exp, NULL)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":201
+  /* "src/gcr/s_exp.pyx":200
  * 
  * 
  *     def __getitem__(self: Self, index: int) -> Self:             # <<<<<<<<<<<<<<
@@ -4240,7 +4240,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4248,7 +4248,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx
   return __pyx_r;
 }
 
-/* "s_exp.pyx":215
+/* "src/gcr/s_exp.pyx":214
  * 
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -4257,21 +4257,21 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_14__getitem__(struct __pyx
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_3car_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_3car_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3car_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3car_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_3car___get__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3car___get__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   gcry_sexp_t __pyx_v_sub_s_exp;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4281,7 +4281,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "s_exp.pyx":218
+  /* "src/gcr/s_exp.pyx":217
  *     def car(self: Self) -> Self:
  * 
  *         cdef gcry_sexp_t sub_s_exp = gcry_sexp_car(self._s_exp)             # <<<<<<<<<<<<<<
@@ -4290,16 +4290,16 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_
  */
   __pyx_v_sub_s_exp = gcry_sexp_car(__pyx_v_self->_s_exp);
 
-  /* "s_exp.pyx":219
+  /* "src/gcr/s_exp.pyx":218
  * 
  *         cdef gcry_sexp_t sub_s_exp = gcry_sexp_car(self._s_exp)
  *         SymbolicExpression._on_null_expression_raise(sub_s_exp)             # <<<<<<<<<<<<<<
  * 
  *         return SymbolicExpression.from_exp_t(sub_s_exp)
  */
-  __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(__pyx_v_sub_s_exp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_f_3src_3gcr_5s_exp_18SymbolicExpression__on_null_expression_raise(__pyx_v_sub_s_exp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L1_error)
 
-  /* "s_exp.pyx":221
+  /* "src/gcr/s_exp.pyx":220
  *         SymbolicExpression._on_null_expression_raise(sub_s_exp)
  * 
  *         return SymbolicExpression.from_exp_t(sub_s_exp)             # <<<<<<<<<<<<<<
@@ -4307,13 +4307,13 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_vtabptr_5s_exp_SymbolicExpression->from_exp_t(__pyx_v_sub_s_exp, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_vtabptr_3src_3gcr_5s_exp_SymbolicExpression->from_exp_t(__pyx_v_sub_s_exp, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":215
+  /* "src/gcr/s_exp.pyx":214
  * 
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -4324,7 +4324,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.car.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.car.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4332,7 +4332,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_
   return __pyx_r;
 }
 
-/* "s_exp.pyx":224
+/* "src/gcr/s_exp.pyx":223
  * 
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -4341,21 +4341,21 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3car___get__(struct __pyx_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_3cdr_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_3cdr_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3cdr_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3cdr_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3cdr___get__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   gcry_sexp_t __pyx_v_sub_s_exp;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4365,7 +4365,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "s_exp.pyx":227
+  /* "src/gcr/s_exp.pyx":226
  *     def cdr(self: Self) -> Self:
  * 
  *         cdef gcry_sexp_t sub_s_exp = gcry_sexp_cdr(self._s_exp)             # <<<<<<<<<<<<<<
@@ -4374,16 +4374,16 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_
  */
   __pyx_v_sub_s_exp = gcry_sexp_cdr(__pyx_v_self->_s_exp);
 
-  /* "s_exp.pyx":228
+  /* "src/gcr/s_exp.pyx":227
  * 
  *         cdef gcry_sexp_t sub_s_exp = gcry_sexp_cdr(self._s_exp)
  *         SymbolicExpression._on_null_expression_raise(sub_s_exp)             # <<<<<<<<<<<<<<
  * 
  *         return SymbolicExpression.from_exp_t(sub_s_exp)
  */
-  __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(__pyx_v_sub_s_exp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_f_3src_3gcr_5s_exp_18SymbolicExpression__on_null_expression_raise(__pyx_v_sub_s_exp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 227, __pyx_L1_error)
 
-  /* "s_exp.pyx":230
+  /* "src/gcr/s_exp.pyx":229
  *         SymbolicExpression._on_null_expression_raise(sub_s_exp)
  * 
  *         return SymbolicExpression.from_exp_t(sub_s_exp)             # <<<<<<<<<<<<<<
@@ -4391,13 +4391,13 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_vtabptr_5s_exp_SymbolicExpression->from_exp_t(__pyx_v_sub_s_exp, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_vtabptr_3src_3gcr_5s_exp_SymbolicExpression->from_exp_t(__pyx_v_sub_s_exp, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":224
+  /* "src/gcr/s_exp.pyx":223
  * 
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -4408,7 +4408,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.cdr.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.cdr.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4416,7 +4416,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_
   return __pyx_r;
 }
 
-/* "s_exp.pyx":233
+/* "src/gcr/s_exp.pyx":232
  * 
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -4425,21 +4425,21 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3cdr___get__(struct __pyx_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_4data_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_4data_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_4data___get__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_4data___get__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_4data___get__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   size_t __pyx_v_data_len;
   gcry_sexp_t __pyx_v_p_s_exp;
   char const *__pyx_v_p_data;
@@ -4456,7 +4456,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "s_exp.pyx":239
+  /* "src/gcr/s_exp.pyx":238
  *         """
  * 
  *         cdef size_t data_len = 0             # <<<<<<<<<<<<<<
@@ -4465,7 +4465,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
  */
   __pyx_v_data_len = 0;
 
-  /* "s_exp.pyx":240
+  /* "src/gcr/s_exp.pyx":239
  * 
  *         cdef size_t data_len = 0
  *         cdef gcry_sexp_t p_s_exp = NULL             # <<<<<<<<<<<<<<
@@ -4474,7 +4474,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
  */
   __pyx_v_p_s_exp = NULL;
 
-  /* "s_exp.pyx":241
+  /* "src/gcr/s_exp.pyx":240
  *         cdef size_t data_len = 0
  *         cdef gcry_sexp_t p_s_exp = NULL
  *         cdef const char * p_data = NULL             # <<<<<<<<<<<<<<
@@ -4483,14 +4483,14 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
  */
   __pyx_v_p_data = NULL;
 
-  /* "s_exp.pyx":243
+  /* "src/gcr/s_exp.pyx":242
  *         cdef const char * p_data = NULL
  * 
  *         if not self.is_atom():             # <<<<<<<<<<<<<<
  *             # TODO: raise when this is not a plain data
  *             raise
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_atom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_atom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -4510,25 +4510,25 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = (!__pyx_t_5);
   if (unlikely(__pyx_t_6)) {
 
-    /* "s_exp.pyx":245
+    /* "src/gcr/s_exp.pyx":244
  *         if not self.is_atom():
  *             # TODO: raise when this is not a plain data
  *             raise             # <<<<<<<<<<<<<<
  * 
  *         p_data = gcry_sexp_nth_data(p_s_exp, 0, &data_len)
  */
-    __Pyx_ReraiseException(); __PYX_ERR(0, 245, __pyx_L1_error)
+    __Pyx_ReraiseException(); __PYX_ERR(0, 244, __pyx_L1_error)
 
-    /* "s_exp.pyx":243
+    /* "src/gcr/s_exp.pyx":242
  *         cdef const char * p_data = NULL
  * 
  *         if not self.is_atom():             # <<<<<<<<<<<<<<
@@ -4537,7 +4537,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
  */
   }
 
-  /* "s_exp.pyx":247
+  /* "src/gcr/s_exp.pyx":246
  *             raise
  * 
  *         p_data = gcry_sexp_nth_data(p_s_exp, 0, &data_len)             # <<<<<<<<<<<<<<
@@ -4546,7 +4546,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
  */
   __pyx_v_p_data = gcry_sexp_nth_data(__pyx_v_p_s_exp, 0, (&__pyx_v_data_len));
 
-  /* "s_exp.pyx":248
+  /* "src/gcr/s_exp.pyx":247
  * 
  *         p_data = gcry_sexp_nth_data(p_s_exp, 0, &data_len)
  *         return cython.cast(bytes, p_data[:data_len])             # <<<<<<<<<<<<<<
@@ -4554,14 +4554,14 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_p_data + 0, __pyx_v_data_len - 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_p_data + 0, __pyx_v_data_len - 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject*)__pyx_t_1));
   __pyx_r = __pyx_t_1;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":233
+  /* "src/gcr/s_exp.pyx":232
  * 
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -4574,7 +4574,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4582,7 +4582,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
   return __pyx_r;
 }
 
-/* "s_exp.pyx":251
+/* "src/gcr/s_exp.pyx":250
  * 
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -4591,21 +4591,21 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_4data___get__(struct __pyx
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_3mpi_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_3mpi_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3mpi_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3mpi_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3mpi___get__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   size_t __pyx_v_data_len;
   gcry_sexp_t __pyx_v_p_s_exp;
   char const *__pyx_v_p_data;
@@ -4622,7 +4622,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 1);
 
-  /* "s_exp.pyx":256
+  /* "src/gcr/s_exp.pyx":255
  *         Get data and convert it to MultiPrecisionInteger class object from expression
  *         """
  *         cdef size_t data_len = 0             # <<<<<<<<<<<<<<
@@ -4631,7 +4631,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
  */
   __pyx_v_data_len = 0;
 
-  /* "s_exp.pyx":257
+  /* "src/gcr/s_exp.pyx":256
  *         """
  *         cdef size_t data_len = 0
  *         cdef gcry_sexp_t p_s_exp = NULL             # <<<<<<<<<<<<<<
@@ -4640,7 +4640,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
  */
   __pyx_v_p_s_exp = NULL;
 
-  /* "s_exp.pyx":258
+  /* "src/gcr/s_exp.pyx":257
  *         cdef size_t data_len = 0
  *         cdef gcry_sexp_t p_s_exp = NULL
  *         cdef const char * p_data = NULL             # <<<<<<<<<<<<<<
@@ -4649,14 +4649,14 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
  */
   __pyx_v_p_data = NULL;
 
-  /* "s_exp.pyx":260
+  /* "src/gcr/s_exp.pyx":259
  *         cdef const char * p_data = NULL
  * 
  *         if not self.is_atom():             # <<<<<<<<<<<<<<
  *             # TODO: raise when this is not a plain data
  *             raise
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_atom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_atom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -4676,25 +4676,25 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
     PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 0+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = (!__pyx_t_5);
   if (unlikely(__pyx_t_6)) {
 
-    /* "s_exp.pyx":262
+    /* "src/gcr/s_exp.pyx":261
  *         if not self.is_atom():
  *             # TODO: raise when this is not a plain data
  *             raise             # <<<<<<<<<<<<<<
  * 
  *         p_data = gcry_sexp_nth_data(p_s_exp, 0, &data_len)
  */
-    __Pyx_ReraiseException(); __PYX_ERR(0, 262, __pyx_L1_error)
+    __Pyx_ReraiseException(); __PYX_ERR(0, 261, __pyx_L1_error)
 
-    /* "s_exp.pyx":260
+    /* "src/gcr/s_exp.pyx":259
  *         cdef const char * p_data = NULL
  * 
  *         if not self.is_atom():             # <<<<<<<<<<<<<<
@@ -4703,7 +4703,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
  */
   }
 
-  /* "s_exp.pyx":264
+  /* "src/gcr/s_exp.pyx":263
  *             raise
  * 
  *         p_data = gcry_sexp_nth_data(p_s_exp, 0, &data_len)             # <<<<<<<<<<<<<<
@@ -4712,7 +4712,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
  */
   __pyx_v_p_data = gcry_sexp_nth_data(__pyx_v_p_s_exp, 0, (&__pyx_v_data_len));
 
-  /* "s_exp.pyx":265
+  /* "src/gcr/s_exp.pyx":264
  * 
  *         p_data = gcry_sexp_nth_data(p_s_exp, 0, &data_len)
  *         return MultiPrecisionInteger(p_data)             # <<<<<<<<<<<<<<
@@ -4720,16 +4720,16 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyUnicode_FromString(__pyx_v_p_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_FromString(__pyx_v_p_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_3mpi_MultiPrecisionInteger), __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger), __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":251
+  /* "src/gcr/s_exp.pyx":250
  * 
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -4742,7 +4742,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.mpi.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.mpi.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4750,7 +4750,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
   return __pyx_r;
 }
 
-/* "s_exp.pyx":268
+/* "src/gcr/s_exp.pyx":267
  * 
  * 
  *     def is_atom(self: Self) -> bool:             # <<<<<<<<<<<<<<
@@ -4759,16 +4759,16 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_3mpi___get__(struct __pyx_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_17is_atom(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_17is_atom(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5s_exp_18SymbolicExpression_16is_atom, "\n        If there is only one data bolb contained in expression, it is an atom.\n        ");
-static PyMethodDef __pyx_mdef_5s_exp_18SymbolicExpression_17is_atom = {"is_atom", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_17is_atom, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5s_exp_18SymbolicExpression_16is_atom};
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_17is_atom(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_16is_atom, "\n        If there is only one data bolb contained in expression, it is an atom.\n        ");
+static PyMethodDef __pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_17is_atom = {"is_atom", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_17is_atom, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_16is_atom};
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_17is_atom(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4793,14 +4793,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("is_atom", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "is_atom", 0))) return NULL;
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_16is_atom(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_16is_atom(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   Py_ssize_t __pyx_t_1;
@@ -4810,7 +4810,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("is_atom", 1);
 
-  /* "s_exp.pyx":272
+  /* "src/gcr/s_exp.pyx":271
  *         If there is only one data bolb contained in expression, it is an atom.
  *         """
  *         return (1 == len(self))             # <<<<<<<<<<<<<<
@@ -4818,14 +4818,14 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyObject_Length(((PyObject *)__pyx_v_self)); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 272, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyBool_FromLong((1 == __pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(((PyObject *)__pyx_v_self)); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong((1 == __pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":268
+  /* "src/gcr/s_exp.pyx":267
  * 
  * 
  *     def is_atom(self: Self) -> bool:             # <<<<<<<<<<<<<<
@@ -4836,7 +4836,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.is_atom", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.is_atom", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4844,7 +4844,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "s_exp.pyx":275
+/* "src/gcr/s_exp.pyx":274
  * 
  * 
  *     def size(self: Self) -> int:             # <<<<<<<<<<<<<<
@@ -4853,16 +4853,16 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_16is_atom(struct __pyx_obj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_19size(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_19size(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5s_exp_18SymbolicExpression_18size, " size()\n        return the S-Expression's memory footprint in bytes\n        ");
-static PyMethodDef __pyx_mdef_5s_exp_18SymbolicExpression_19size = {"size", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_19size, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5s_exp_18SymbolicExpression_18size};
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_19size(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_18size, " size()\n        return the S-Expression's memory footprint in bytes\n        ");
+static PyMethodDef __pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_19size = {"size", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_19size, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_18size};
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_19size(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4887,14 +4887,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("size", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "size", 0))) return NULL;
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_18size(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_18size(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   size_t __pyx_v_len_cnt;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4905,7 +4905,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("size", 1);
 
-  /* "s_exp.pyx":279
+  /* "src/gcr/s_exp.pyx":278
  *         return the S-Expression's memory footprint in bytes
  *         """
  *         cdef size_t len_cnt = 0             # <<<<<<<<<<<<<<
@@ -4914,7 +4914,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s
  */
   __pyx_v_len_cnt = 0;
 
-  /* "s_exp.pyx":281
+  /* "src/gcr/s_exp.pyx":280
  *         cdef size_t len_cnt = 0
  * 
  *         len_cnt = gcry_sexp_sprint (self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)             # <<<<<<<<<<<<<<
@@ -4923,7 +4923,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s
  */
   __pyx_v_len_cnt = gcry_sexp_sprint(__pyx_v_self->_s_exp, GCRYSEXP_FMT_ADVANCED, NULL, 0);
 
-  /* "s_exp.pyx":283
+  /* "src/gcr/s_exp.pyx":282
  *         len_cnt = gcry_sexp_sprint (self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
  * 
  *         assert len_cnt > 0             # <<<<<<<<<<<<<<
@@ -4935,14 +4935,14 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s
     __pyx_t_1 = (__pyx_v_len_cnt > 0);
     if (unlikely(!__pyx_t_1)) {
       __Pyx_Raise(__pyx_builtin_AssertionError, 0, 0, 0);
-      __PYX_ERR(0, 283, __pyx_L1_error)
+      __PYX_ERR(0, 282, __pyx_L1_error)
     }
   }
   #else
-  if ((1)); else __PYX_ERR(0, 283, __pyx_L1_error)
+  if ((1)); else __PYX_ERR(0, 282, __pyx_L1_error)
   #endif
 
-  /* "s_exp.pyx":284
+  /* "src/gcr/s_exp.pyx":283
  * 
  *         assert len_cnt > 0
  *         return len_cnt             # <<<<<<<<<<<<<<
@@ -4950,14 +4950,14 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_FromSize_t(__pyx_v_len_cnt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_FromSize_t(__pyx_v_len_cnt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_t_2)) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_t_2))) __PYX_ERR(0, 284, __pyx_L1_error)
+  if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_t_2)) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_t_2))) __PYX_ERR(0, 283, __pyx_L1_error)
   __pyx_r = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":275
+  /* "src/gcr/s_exp.pyx":274
  * 
  * 
  *     def size(self: Self) -> int:             # <<<<<<<<<<<<<<
@@ -4968,7 +4968,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.size", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.size", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4976,7 +4976,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s
   return __pyx_r;
 }
 
-/* "s_exp.pyx":288
+/* "src/gcr/s_exp.pyx":287
  * 
  *     @staticmethod
  *     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, hodler: bint = False):             # <<<<<<<<<<<<<<
@@ -4984,10 +4984,10 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_18size(struct __pyx_obj_5s
  *         """
  */
 
-static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpression_from_exp_t(gcry_sexp_t __pyx_v_s_exp, struct __pyx_opt_args_5s_exp_18SymbolicExpression_from_exp_t *__pyx_optional_args) {
+static struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_f_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t(gcry_sexp_t __pyx_v_s_exp, struct __pyx_opt_args_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t *__pyx_optional_args) {
   PyObject *__pyx_v_hodler = ((PyObject *)Py_False);
-  struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_wrapper_object = 0;
-  struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_r = NULL;
+  struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_wrapper_object = 0;
+  struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
@@ -5001,7 +5001,7 @@ static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpr
     }
   }
 
-  /* "s_exp.pyx":291
+  /* "src/gcr/s_exp.pyx":290
  *         """Create
  *         """
  *         assert s_exp             # <<<<<<<<<<<<<<
@@ -5013,26 +5013,26 @@ static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpr
     __pyx_t_1 = (__pyx_v_s_exp != 0);
     if (unlikely(!__pyx_t_1)) {
       __Pyx_Raise(__pyx_builtin_AssertionError, 0, 0, 0);
-      __PYX_ERR(0, 291, __pyx_L1_error)
+      __PYX_ERR(0, 290, __pyx_L1_error)
     }
   }
   #else
-  if ((1)); else __PYX_ERR(0, 291, __pyx_L1_error)
+  if ((1)); else __PYX_ERR(0, 290, __pyx_L1_error)
   #endif
 
-  /* "s_exp.pyx":293
+  /* "src/gcr/s_exp.pyx":292
  *         assert s_exp
  * 
  *         cdef SymbolicExpression wrapper_object = SymbolicExpression.__new__(SymbolicExpression)             # <<<<<<<<<<<<<<
  * 
  *         wrapper_object._s_exp = s_exp
  */
-  __pyx_t_2 = ((PyObject *)__pyx_tp_new_5s_exp_SymbolicExpression(((PyTypeObject *)__pyx_ptype_5s_exp_SymbolicExpression), __pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_2 = ((PyObject *)__pyx_tp_new_3src_3gcr_5s_exp_SymbolicExpression(((PyTypeObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression), __pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF((PyObject *)__pyx_t_2);
-  __pyx_v_wrapper_object = ((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_t_2);
+  __pyx_v_wrapper_object = ((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "s_exp.pyx":295
+  /* "src/gcr/s_exp.pyx":294
  *         cdef SymbolicExpression wrapper_object = SymbolicExpression.__new__(SymbolicExpression)
  * 
  *         wrapper_object._s_exp = s_exp             # <<<<<<<<<<<<<<
@@ -5041,17 +5041,17 @@ static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpr
  */
   __pyx_v_wrapper_object->_s_exp = __pyx_v_s_exp;
 
-  /* "s_exp.pyx":296
+  /* "src/gcr/s_exp.pyx":295
  * 
  *         wrapper_object._s_exp = s_exp
  *         wrapper_object._holder = hodler             # <<<<<<<<<<<<<<
  * 
  *         return wrapper_object
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_hodler); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_hodler); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 295, __pyx_L1_error)
   __pyx_v_wrapper_object->_holder = __pyx_t_1;
 
-  /* "s_exp.pyx":298
+  /* "src/gcr/s_exp.pyx":297
  *         wrapper_object._holder = hodler
  * 
  *         return wrapper_object             # <<<<<<<<<<<<<<
@@ -5063,7 +5063,7 @@ static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpr
   __pyx_r = __pyx_v_wrapper_object;
   goto __pyx_L0;
 
-  /* "s_exp.pyx":288
+  /* "src/gcr/s_exp.pyx":287
  * 
  *     @staticmethod
  *     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, hodler: bint = False):             # <<<<<<<<<<<<<<
@@ -5074,7 +5074,7 @@ static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpr
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.from_exp_t", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.from_exp_t", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_wrapper_object);
@@ -5083,7 +5083,7 @@ static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpr
   return __pyx_r;
 }
 
-/* "s_exp.pyx":302
+/* "src/gcr/s_exp.pyx":301
  * 
  *     @staticmethod
  *     cdef void _on_null_expression_raise(gcry_sexp_t s_exp):             # <<<<<<<<<<<<<<
@@ -5091,13 +5091,13 @@ static struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_f_5s_exp_18SymbolicExpr
  *             # TODO: raise proper Exception
  */
 
-static void __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(gcry_sexp_t __pyx_v_s_exp) {
+static void __pyx_f_3src_3gcr_5s_exp_18SymbolicExpression__on_null_expression_raise(gcry_sexp_t __pyx_v_s_exp) {
   int __pyx_t_1;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "s_exp.pyx":303
+  /* "src/gcr/s_exp.pyx":302
  *     @staticmethod
  *     cdef void _on_null_expression_raise(gcry_sexp_t s_exp):
  *         if s_exp == NULL:             # <<<<<<<<<<<<<<
@@ -5107,15 +5107,15 @@ static void __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(gcry_s
   __pyx_t_1 = (__pyx_v_s_exp == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "s_exp.pyx":305
+    /* "src/gcr/s_exp.pyx":304
  *         if s_exp == NULL:
  *             # TODO: raise proper Exception
  *             raise             # <<<<<<<<<<<<<<
  * 
  */
-    __Pyx_ReraiseException(); __PYX_ERR(0, 305, __pyx_L1_error)
+    __Pyx_ReraiseException(); __PYX_ERR(0, 304, __pyx_L1_error)
 
-    /* "s_exp.pyx":303
+    /* "src/gcr/s_exp.pyx":302
  *     @staticmethod
  *     cdef void _on_null_expression_raise(gcry_sexp_t s_exp):
  *         if s_exp == NULL:             # <<<<<<<<<<<<<<
@@ -5124,7 +5124,7 @@ static void __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(gcry_s
  */
   }
 
-  /* "s_exp.pyx":302
+  /* "src/gcr/s_exp.pyx":301
  * 
  *     @staticmethod
  *     cdef void _on_null_expression_raise(gcry_sexp_t s_exp):             # <<<<<<<<<<<<<<
@@ -5135,7 +5135,7 @@ static void __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(gcry_s
   /* function exit code */
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("s_exp.SymbolicExpression._on_null_expression_raise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression._on_null_expression_raise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
 }
 
@@ -5146,15 +5146,15 @@ static void __pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise(gcry_s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_21__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_21__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_5s_exp_18SymbolicExpression_21__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_21__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_21__reduce_cython__(PyObject *__pyx_v_self, 
+static PyMethodDef __pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_21__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_21__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_21__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5179,14 +5179,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("__reduce_cython__", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__reduce_cython__", 0))) return NULL;
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_20__reduce_cython__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_20__reduce_cython__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_20__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -5211,7 +5211,7 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_20__reduce_cython__(CYTHON
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -5226,15 +5226,15 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_20__reduce_cython__(CYTHON
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_23__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_23__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_5s_exp_18SymbolicExpression_23__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_23__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5s_exp_18SymbolicExpression_23__setstate_cython__(PyObject *__pyx_v_self, 
+static PyMethodDef __pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_23__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_23__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_23__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5304,11 +5304,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_5s_exp_18SymbolicExpression_22__setstate_cython__(((struct __pyx_obj_5s_exp_SymbolicExpression *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_22__setstate_cython__(((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   {
@@ -5321,7 +5321,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5s_exp_SymbolicExpression *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_3src_3gcr_5s_exp_18SymbolicExpression_22__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -5346,16 +5346,16 @@ static PyObject *__pyx_pf_5s_exp_18SymbolicExpression_22__setstate_cython__(CYTH
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("s_exp.SymbolicExpression.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.s_exp.SymbolicExpression.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static struct __pyx_vtabstruct_5s_exp_SymbolicExpression __pyx_vtable_5s_exp_SymbolicExpression;
+static struct __pyx_vtabstruct_3src_3gcr_5s_exp_SymbolicExpression __pyx_vtable_3src_3gcr_5s_exp_SymbolicExpression;
 
-static PyObject *__pyx_tp_new_5s_exp_SymbolicExpression(PyTypeObject *t, PyObject *a, PyObject *k) {
-  struct __pyx_obj_5s_exp_SymbolicExpression *p;
+static PyObject *__pyx_tp_new_3src_3gcr_5s_exp_SymbolicExpression(PyTypeObject *t, PyObject *a, PyObject *k) {
+  struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *p;
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
@@ -5368,19 +5368,19 @@ static PyObject *__pyx_tp_new_5s_exp_SymbolicExpression(PyTypeObject *t, PyObjec
   }
   if (unlikely(!o)) return 0;
   #endif
-  p = ((struct __pyx_obj_5s_exp_SymbolicExpression *)o);
-  p->__pyx_vtab = __pyx_vtabptr_5s_exp_SymbolicExpression;
-  if (unlikely(__pyx_pw_5s_exp_18SymbolicExpression_1__cinit__(o, a, k) < 0)) goto bad;
+  p = ((struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *)o);
+  p->__pyx_vtab = __pyx_vtabptr_3src_3gcr_5s_exp_SymbolicExpression;
+  if (unlikely(__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_1__cinit__(o, a, k) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_5s_exp_SymbolicExpression(PyObject *o) {
+static void __pyx_tp_dealloc_3src_3gcr_5s_exp_SymbolicExpression(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_5s_exp_SymbolicExpression) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_3src_3gcr_5s_exp_SymbolicExpression) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -5389,7 +5389,7 @@ static void __pyx_tp_dealloc_5s_exp_SymbolicExpression(PyObject *o) {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_5s_exp_18SymbolicExpression_3__dealloc__(o);
+    __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
@@ -5402,7 +5402,7 @@ static void __pyx_tp_dealloc_5s_exp_SymbolicExpression(PyObject *o) {
   }
   #endif
 }
-static PyObject *__pyx_sq_item_5s_exp_SymbolicExpression(PyObject *o, Py_ssize_t i) {
+static PyObject *__pyx_sq_item_3src_3gcr_5s_exp_SymbolicExpression(PyObject *o, Py_ssize_t i) {
   PyObject *r;
   PyObject *x = PyInt_FromSsize_t(i); if(!x) return 0;
   r = Py_TYPE(o)->tp_as_mapping->mp_subscript(o, x);
@@ -5410,89 +5410,89 @@ static PyObject *__pyx_sq_item_5s_exp_SymbolicExpression(PyObject *o, Py_ssize_t
   return r;
 }
 
-static PyObject *__pyx_tp_getattro_5s_exp_SymbolicExpression(PyObject *o, PyObject *n) {
+static PyObject *__pyx_tp_getattro_3src_3gcr_5s_exp_SymbolicExpression(PyObject *o, PyObject *n) {
   PyObject *v = __Pyx_PyObject_GenericGetAttr(o, n);
   if (!v && PyErr_ExceptionMatches(PyExc_AttributeError)) {
     PyErr_Clear();
-    v = __pyx_pw_5s_exp_18SymbolicExpression_11__getattr__(o, n);
+    v = __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_11__getattr__(o, n);
   }
   return v;
 }
 
-static PyObject *__pyx_getprop_5s_exp_18SymbolicExpression_car(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_5s_exp_18SymbolicExpression_3car_1__get__(o);
+static PyObject *__pyx_getprop_3src_3gcr_5s_exp_18SymbolicExpression_car(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3car_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_5s_exp_18SymbolicExpression_cdr(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_5s_exp_18SymbolicExpression_3cdr_1__get__(o);
+static PyObject *__pyx_getprop_3src_3gcr_5s_exp_18SymbolicExpression_cdr(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3cdr_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_5s_exp_18SymbolicExpression_data(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_5s_exp_18SymbolicExpression_4data_1__get__(o);
+static PyObject *__pyx_getprop_3src_3gcr_5s_exp_18SymbolicExpression_data(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_4data_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_5s_exp_18SymbolicExpression_mpi(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_5s_exp_18SymbolicExpression_3mpi_1__get__(o);
+static PyObject *__pyx_getprop_3src_3gcr_5s_exp_18SymbolicExpression_mpi(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_3mpi_1__get__(o);
 }
 
-static PyObject *__pyx_specialmethod___pyx_pw_5s_exp_18SymbolicExpression_5__next__(PyObject *self, CYTHON_UNUSED PyObject *arg) {
-  PyObject *res = __pyx_pw_5s_exp_18SymbolicExpression_5__next__(self);
+static PyObject *__pyx_specialmethod___pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_5__next__(PyObject *self, CYTHON_UNUSED PyObject *arg) {
+  PyObject *res = __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_5__next__(self);
   if (!res && !PyErr_Occurred()) { PyErr_SetNone(PyExc_StopIteration); }
   return res;
 }
-static PyObject *__pyx_specialmethod___pyx_pw_5s_exp_18SymbolicExpression_7__repr__(PyObject *self, CYTHON_UNUSED PyObject *arg) {
-  return __pyx_pw_5s_exp_18SymbolicExpression_7__repr__(self);
+static PyObject *__pyx_specialmethod___pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_7__repr__(PyObject *self, CYTHON_UNUSED PyObject *arg) {
+  return __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_7__repr__(self);
 }
 
-static PyMethodDef __pyx_methods_5s_exp_SymbolicExpression[] = {
-  {"__next__", (PyCFunction)__pyx_specialmethod___pyx_pw_5s_exp_18SymbolicExpression_5__next__, METH_NOARGS|METH_COEXIST, 0},
-  {"__repr__", (PyCFunction)__pyx_specialmethod___pyx_pw_5s_exp_18SymbolicExpression_7__repr__, METH_NOARGS|METH_COEXIST, __pyx_doc_5s_exp_18SymbolicExpression_6__repr__},
-  {"__getattr__", (PyCFunction)__pyx_pw_5s_exp_18SymbolicExpression_11__getattr__, METH_O|METH_COEXIST, __pyx_doc_5s_exp_18SymbolicExpression_10__getattr__},
-  {"__hasattr__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_13__hasattr__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
-  {"is_atom", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_17is_atom, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5s_exp_18SymbolicExpression_16is_atom},
-  {"size", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_19size, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5s_exp_18SymbolicExpression_18size},
-  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_21__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
-  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5s_exp_18SymbolicExpression_23__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
+static PyMethodDef __pyx_methods_3src_3gcr_5s_exp_SymbolicExpression[] = {
+  {"__next__", (PyCFunction)__pyx_specialmethod___pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_5__next__, METH_NOARGS|METH_COEXIST, 0},
+  {"__repr__", (PyCFunction)__pyx_specialmethod___pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_7__repr__, METH_NOARGS|METH_COEXIST, __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__},
+  {"__getattr__", (PyCFunction)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_11__getattr__, METH_O|METH_COEXIST, __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__},
+  {"__hasattr__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_13__hasattr__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
+  {"is_atom", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_17is_atom, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_16is_atom},
+  {"size", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_19size, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_18size},
+  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_21__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
+  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_23__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_5s_exp_SymbolicExpression[] = {
-  {(char *)"car", __pyx_getprop_5s_exp_18SymbolicExpression_car, 0, (char *)0, 0},
-  {(char *)"cdr", __pyx_getprop_5s_exp_18SymbolicExpression_cdr, 0, (char *)0, 0},
-  {(char *)"data", __pyx_getprop_5s_exp_18SymbolicExpression_data, 0, (char *)PyDoc_STR(" data()\n        Get data in bytes from expression\n        "), 0},
-  {(char *)"mpi", __pyx_getprop_5s_exp_18SymbolicExpression_mpi, 0, (char *)PyDoc_STR(" mpi()\n        Get data and convert it to MultiPrecisionInteger class object from expression\n        "), 0},
+static struct PyGetSetDef __pyx_getsets_3src_3gcr_5s_exp_SymbolicExpression[] = {
+  {(char *)"car", __pyx_getprop_3src_3gcr_5s_exp_18SymbolicExpression_car, 0, (char *)0, 0},
+  {(char *)"cdr", __pyx_getprop_3src_3gcr_5s_exp_18SymbolicExpression_cdr, 0, (char *)0, 0},
+  {(char *)"data", __pyx_getprop_3src_3gcr_5s_exp_18SymbolicExpression_data, 0, (char *)PyDoc_STR(" data()\n        Get data in bytes from expression\n        "), 0},
+  {(char *)"mpi", __pyx_getprop_3src_3gcr_5s_exp_18SymbolicExpression_mpi, 0, (char *)PyDoc_STR(" mpi()\n        Get data and convert it to MultiPrecisionInteger class object from expression\n        "), 0},
   {0, 0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_5s_exp_SymbolicExpression_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_5s_exp_SymbolicExpression},
-  {Py_tp_repr, (void *)__pyx_pw_5s_exp_18SymbolicExpression_7__repr__},
-  {Py_sq_length, (void *)__pyx_pw_5s_exp_18SymbolicExpression_9__len__},
-  {Py_sq_item, (void *)__pyx_sq_item_5s_exp_SymbolicExpression},
-  {Py_mp_length, (void *)__pyx_pw_5s_exp_18SymbolicExpression_9__len__},
-  {Py_mp_subscript, (void *)__pyx_pw_5s_exp_18SymbolicExpression_15__getitem__},
-  {Py_tp_getattro, (void *)__pyx_tp_getattro_5s_exp_SymbolicExpression},
+static PyType_Slot __pyx_type_3src_3gcr_5s_exp_SymbolicExpression_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_3src_3gcr_5s_exp_SymbolicExpression},
+  {Py_tp_repr, (void *)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_7__repr__},
+  {Py_sq_length, (void *)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_9__len__},
+  {Py_sq_item, (void *)__pyx_sq_item_3src_3gcr_5s_exp_SymbolicExpression},
+  {Py_mp_length, (void *)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_9__len__},
+  {Py_mp_subscript, (void *)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_15__getitem__},
+  {Py_tp_getattro, (void *)__pyx_tp_getattro_3src_3gcr_5s_exp_SymbolicExpression},
   {Py_tp_doc, (void *)PyDoc_STR(" class SymbolicExpression\n\n    A python wrapper of gcry_sexp_t type, which is widely used in gpg's cryptography.\n\n    Explaintion from [S-Expression.org](https://www.s-expressions.org/home):\n\n        'S-Expressions' which is also known as 'symbolic expressions' are a type of notation used to represent structured data.\n        An S-expression can be defined recursively as one of the following:\n            - An atom (described below)             -or-\n            - An ordered pair of S-expressions\n\n        1. Atoms\n        An atom can represent any valid object other than an ordered pair. \n        Although valid atoms differ by context, they generally comprise numbers and symbols.\n\n        2. Ordered Pairs\n        An ordered pair can be represented by its two members separated by a whitespace delimited '.' enclosed by a pair of parenthesis. \n        For example, an ordered pair of atoms x and y can be represented as:\n            (x . y)\n\n        3. Lists\n        Lists are a special kind of S-expression defined recursively as either:\n            - An empty list                                                           -or-\n            - An ordered pair where the second member is also a list\n            - An empty list can be represented as an empty pair of parenthesis:  ()\n\n        A non-empty list can be represented as a chain of nested pairs. For example, a list containing the atoms x, y and z can be represented as:\n            (x . (y . (z . ())))\n\n        A list can also be represented by its members delimited by whitespace and enclosed by a single pair of parenthesis. \n        For example, the same list from the previous example can be represented as:\n            (x y z)\n\n        4. Association Lists\n        Lists of ordered pairs can be used to associate keys with values. For example the association of keys A, B and C with values 1, 2 and 3 can be represented as follows:\n        (\n            (A . 1)\t\n            (B . 2)\t""\n            (C . 3)\n        )\n\n    Simplify rules; 'S-Expressions' could be simplified by removing dot('.') inside, by obey the rules:\n\n        - If a dot is to the left side of the left-bracket, such as '(a . (b . c))' form, the dot and these brackets could be omitted. \n            For example: '(a . (b . c))' <=> '(a b . c)'; ** NOTE ** dot between 'b' and 'c' still exists.\n        - If a dot is to the left side of nil, such as '(a . (b . nil))' , the dot, the nil value and those brackets wrap it could be omitted.\n            For example: (a . (b . nil)) <=> (a b . nil) <=> (a b)\n\n        Here: nil <=> () <=> 'FALSE'; ** NOTE ** nil do not means nothing, so we can't add a 'nil' to any list.\n            For example above: (x . (y . (z . ()))) <=>  (x y z); And (x y z)  < != > (x y . z) but (x y . z ())\n\n    As of explainations above, the SymbolicExpression should offer 3 ways of accessing data inside a 'S-Expression':\n        - The pair way: Obj.car <=> car: <value> | inner_s_exp; Obj.cdr <=> cdr: <value> | inner_s_exp | 'nil'\n        - The list way: Obj[int] <=> inner_s_exp.car: <value> | inner_s_exp | 'nil'\n        - The dict way: Obj['car'] <=> cdr: <value> | inner_s_exp | 'nil'\n        - Try to get value from 'nil' with any method will always result in an error\n    ")},
-  {Py_tp_iternext, (void *)__pyx_pw_5s_exp_18SymbolicExpression_5__next__},
-  {Py_tp_methods, (void *)__pyx_methods_5s_exp_SymbolicExpression},
-  {Py_tp_getset, (void *)__pyx_getsets_5s_exp_SymbolicExpression},
-  {Py_tp_new, (void *)__pyx_tp_new_5s_exp_SymbolicExpression},
+  {Py_tp_iternext, (void *)__pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_5__next__},
+  {Py_tp_methods, (void *)__pyx_methods_3src_3gcr_5s_exp_SymbolicExpression},
+  {Py_tp_getset, (void *)__pyx_getsets_3src_3gcr_5s_exp_SymbolicExpression},
+  {Py_tp_new, (void *)__pyx_tp_new_3src_3gcr_5s_exp_SymbolicExpression},
   {0, 0},
 };
-static PyType_Spec __pyx_type_5s_exp_SymbolicExpression_spec = {
-  "s_exp.SymbolicExpression",
-  sizeof(struct __pyx_obj_5s_exp_SymbolicExpression),
+static PyType_Spec __pyx_type_3src_3gcr_5s_exp_SymbolicExpression_spec = {
+  "src.gcr.s_exp.SymbolicExpression",
+  sizeof(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
-  __pyx_type_5s_exp_SymbolicExpression_slots,
+  __pyx_type_3src_3gcr_5s_exp_SymbolicExpression_slots,
 };
 #else
 
 static PySequenceMethods __pyx_tp_as_sequence_SymbolicExpression = {
-  __pyx_pw_5s_exp_18SymbolicExpression_9__len__, /*sq_length*/
+  __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_9__len__, /*sq_length*/
   0, /*sq_concat*/
   0, /*sq_repeat*/
-  __pyx_sq_item_5s_exp_SymbolicExpression, /*sq_item*/
+  __pyx_sq_item_3src_3gcr_5s_exp_SymbolicExpression, /*sq_item*/
   0, /*sq_slice*/
   0, /*sq_ass_item*/
   0, /*sq_ass_slice*/
@@ -5502,17 +5502,17 @@ static PySequenceMethods __pyx_tp_as_sequence_SymbolicExpression = {
 };
 
 static PyMappingMethods __pyx_tp_as_mapping_SymbolicExpression = {
-  __pyx_pw_5s_exp_18SymbolicExpression_9__len__, /*mp_length*/
-  __pyx_pw_5s_exp_18SymbolicExpression_15__getitem__, /*mp_subscript*/
+  __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_9__len__, /*mp_length*/
+  __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_15__getitem__, /*mp_subscript*/
   0, /*mp_ass_subscript*/
 };
 
-static PyTypeObject __pyx_type_5s_exp_SymbolicExpression = {
+static PyTypeObject __pyx_type_3src_3gcr_5s_exp_SymbolicExpression = {
   PyVarObject_HEAD_INIT(0, 0)
-  "s_exp.""SymbolicExpression", /*tp_name*/
-  sizeof(struct __pyx_obj_5s_exp_SymbolicExpression), /*tp_basicsize*/
+  "src.gcr.s_exp.""SymbolicExpression", /*tp_name*/
+  sizeof(struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_5s_exp_SymbolicExpression, /*tp_dealloc*/
+  __pyx_tp_dealloc_3src_3gcr_5s_exp_SymbolicExpression, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -5527,14 +5527,14 @@ static PyTypeObject __pyx_type_5s_exp_SymbolicExpression = {
   #if PY_MAJOR_VERSION >= 3
   0, /*tp_as_async*/
   #endif
-  __pyx_pw_5s_exp_18SymbolicExpression_7__repr__, /*tp_repr*/
+  __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_7__repr__, /*tp_repr*/
   0, /*tp_as_number*/
   &__pyx_tp_as_sequence_SymbolicExpression, /*tp_as_sequence*/
   &__pyx_tp_as_mapping_SymbolicExpression, /*tp_as_mapping*/
   0, /*tp_hash*/
   0, /*tp_call*/
   0, /*tp_str*/
-  __pyx_tp_getattro_5s_exp_SymbolicExpression, /*tp_getattro*/
+  __pyx_tp_getattro_3src_3gcr_5s_exp_SymbolicExpression, /*tp_getattro*/
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
@@ -5544,10 +5544,10 @@ static PyTypeObject __pyx_type_5s_exp_SymbolicExpression = {
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
-  __pyx_pw_5s_exp_18SymbolicExpression_5__next__, /*tp_iternext*/
-  __pyx_methods_5s_exp_SymbolicExpression, /*tp_methods*/
+  __pyx_pw_3src_3gcr_5s_exp_18SymbolicExpression_5__next__, /*tp_iternext*/
+  __pyx_methods_3src_3gcr_5s_exp_SymbolicExpression, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_5s_exp_SymbolicExpression, /*tp_getset*/
+  __pyx_getsets_3src_3gcr_5s_exp_SymbolicExpression, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -5557,7 +5557,7 @@ static PyTypeObject __pyx_type_5s_exp_SymbolicExpression = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_5s_exp_SymbolicExpression, /*tp_new*/
+  __pyx_tp_new_3src_3gcr_5s_exp_SymbolicExpression, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -5652,11 +5652,11 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
     {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
     {&__pyx_n_s_return, __pyx_k_return, sizeof(__pyx_k_return), 0, 0, 1, 1},
-    {&__pyx_n_s_s_exp, __pyx_k_s_exp, sizeof(__pyx_k_s_exp), 0, 0, 1, 1},
     {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
     {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
     {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
     {&__pyx_n_s_size, __pyx_k_size, sizeof(__pyx_k_size), 0, 0, 1, 1},
+    {&__pyx_n_s_src_gcr_s_exp, __pyx_k_src_gcr_s_exp, sizeof(__pyx_k_src_gcr_s_exp), 0, 0, 1, 1},
     {&__pyx_kp_s_src_gcr_s_exp_pyx, __pyx_k_src_gcr_s_exp_pyx, sizeof(__pyx_k_src_gcr_s_exp_pyx), 0, 0, 1, 0},
     {&__pyx_n_s_str, __pyx_k_str, sizeof(__pyx_k_str), 0, 0, 1, 1},
     {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
@@ -5669,8 +5669,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_AssertionError = __Pyx_GetBuiltinName(__pyx_n_s_AssertionError); if (!__pyx_builtin_AssertionError) __PYX_ERR(0, 132, __pyx_L1_error)
-  __pyx_builtin_StopIteration = __Pyx_GetBuiltinName(__pyx_n_s_StopIteration); if (!__pyx_builtin_StopIteration) __PYX_ERR(0, 135, __pyx_L1_error)
+  __pyx_builtin_AssertionError = __Pyx_GetBuiltinName(__pyx_n_s_AssertionError); if (!__pyx_builtin_AssertionError) __PYX_ERR(0, 131, __pyx_L1_error)
+  __pyx_builtin_StopIteration = __Pyx_GetBuiltinName(__pyx_n_s_StopIteration); if (!__pyx_builtin_StopIteration) __PYX_ERR(0, 134, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -5682,41 +5682,41 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "s_exp.pyx":197
+  /* "src/gcr/s_exp.pyx":196
  * 
  * 
  *     def __hasattr__(self: Self, name: str) -> bool:             # <<<<<<<<<<<<<<
  *         return False
  * 
  */
-  __pyx_tuple__2 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_name); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_name); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_gcr_s_exp_pyx, __pyx_n_s_hasattr, 197, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_gcr_s_exp_pyx, __pyx_n_s_hasattr, 196, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 196, __pyx_L1_error)
 
-  /* "s_exp.pyx":268
+  /* "src/gcr/s_exp.pyx":267
  * 
  * 
  *     def is_atom(self: Self) -> bool:             # <<<<<<<<<<<<<<
  *         """
  *         If there is only one data bolb contained in expression, it is an atom.
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_gcr_s_exp_pyx, __pyx_n_s_is_atom, 268, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_gcr_s_exp_pyx, __pyx_n_s_is_atom, 267, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 267, __pyx_L1_error)
 
-  /* "s_exp.pyx":275
+  /* "src/gcr/s_exp.pyx":274
  * 
  * 
  *     def size(self: Self) -> int:             # <<<<<<<<<<<<<<
  *         """ size()
  *         return the S-Expression's memory footprint in bytes
  */
-  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_len_cnt); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 275, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_len_cnt); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_gcr_s_exp_pyx, __pyx_n_s_size, 275, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 275, __pyx_L1_error)
+  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_gcr_s_exp_pyx, __pyx_n_s_size, 274, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 274, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -5802,70 +5802,70 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  __pyx_vtabptr_5s_exp_SymbolicExpression = &__pyx_vtable_5s_exp_SymbolicExpression;
-  __pyx_vtable_5s_exp_SymbolicExpression.from_exp_t = (struct __pyx_obj_5s_exp_SymbolicExpression *(*)(gcry_sexp_t, struct __pyx_opt_args_5s_exp_18SymbolicExpression_from_exp_t *__pyx_optional_args))__pyx_f_5s_exp_18SymbolicExpression_from_exp_t;
-  __pyx_vtable_5s_exp_SymbolicExpression._on_null_expression_raise = (void (*)(gcry_sexp_t))__pyx_f_5s_exp_18SymbolicExpression__on_null_expression_raise;
+  __pyx_vtabptr_3src_3gcr_5s_exp_SymbolicExpression = &__pyx_vtable_3src_3gcr_5s_exp_SymbolicExpression;
+  __pyx_vtable_3src_3gcr_5s_exp_SymbolicExpression.from_exp_t = (struct __pyx_obj_3src_3gcr_5s_exp_SymbolicExpression *(*)(gcry_sexp_t, struct __pyx_opt_args_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t *__pyx_optional_args))__pyx_f_3src_3gcr_5s_exp_18SymbolicExpression_from_exp_t;
+  __pyx_vtable_3src_3gcr_5s_exp_SymbolicExpression._on_null_expression_raise = (void (*)(gcry_sexp_t))__pyx_f_3src_3gcr_5s_exp_18SymbolicExpression__on_null_expression_raise;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_5s_exp_SymbolicExpression = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5s_exp_SymbolicExpression_spec, NULL); if (unlikely(!__pyx_ptype_5s_exp_SymbolicExpression)) __PYX_ERR(0, 38, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5s_exp_SymbolicExpression_spec, __pyx_ptype_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_3src_3gcr_5s_exp_SymbolicExpression_spec, NULL); if (unlikely(!__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression)) __PYX_ERR(0, 37, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_3src_3gcr_5s_exp_SymbolicExpression_spec, __pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   #else
-  __pyx_ptype_5s_exp_SymbolicExpression = &__pyx_type_5s_exp_SymbolicExpression;
+  __pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression = &__pyx_type_3src_3gcr_5s_exp_SymbolicExpression;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
-  __pyx_ptype_5s_exp_SymbolicExpression->tp_print = 0;
+  __pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression->tp_print = 0;
   #endif
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression, "__repr__"); if (unlikely(!wrapper)) __PYX_ERR(0, 38, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, "__repr__"); if (unlikely(!wrapper)) __PYX_ERR(0, 37, __pyx_L1_error)
     if (__Pyx_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
-      __pyx_wrapperbase_5s_exp_18SymbolicExpression_6__repr__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_5s_exp_18SymbolicExpression_6__repr__.doc = __pyx_doc_5s_exp_18SymbolicExpression_6__repr__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_5s_exp_18SymbolicExpression_6__repr__;
+      __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__.doc = __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_6__repr__;
     }
   }
   #endif
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression, "__len__"); if (unlikely(!wrapper)) __PYX_ERR(0, 38, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, "__len__"); if (unlikely(!wrapper)) __PYX_ERR(0, 37, __pyx_L1_error)
     if (__Pyx_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
-      __pyx_wrapperbase_5s_exp_18SymbolicExpression_8__len__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_5s_exp_18SymbolicExpression_8__len__.doc = __pyx_doc_5s_exp_18SymbolicExpression_8__len__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_5s_exp_18SymbolicExpression_8__len__;
+      __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_8__len__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_8__len__.doc = __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_8__len__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_8__len__;
     }
   }
   #endif
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression, "__getattr__"); if (unlikely(!wrapper)) __PYX_ERR(0, 38, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, "__getattr__"); if (unlikely(!wrapper)) __PYX_ERR(0, 37, __pyx_L1_error)
     if (__Pyx_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
-      __pyx_wrapperbase_5s_exp_18SymbolicExpression_10__getattr__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_5s_exp_18SymbolicExpression_10__getattr__.doc = __pyx_doc_5s_exp_18SymbolicExpression_10__getattr__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_5s_exp_18SymbolicExpression_10__getattr__;
+      __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__.doc = __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_10__getattr__;
     }
   }
   #endif
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression, "__getitem__"); if (unlikely(!wrapper)) __PYX_ERR(0, 38, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, "__getitem__"); if (unlikely(!wrapper)) __PYX_ERR(0, 37, __pyx_L1_error)
     if (__Pyx_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
-      __pyx_wrapperbase_5s_exp_18SymbolicExpression_14__getitem__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_5s_exp_18SymbolicExpression_14__getitem__.doc = __pyx_doc_5s_exp_18SymbolicExpression_14__getitem__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_5s_exp_18SymbolicExpression_14__getitem__;
+      __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__.doc = __pyx_doc_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_3src_3gcr_5s_exp_18SymbolicExpression_14__getitem__;
     }
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_ptype_5s_exp_SymbolicExpression, __pyx_vtabptr_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, __pyx_vtabptr_3src_3gcr_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_MergeVtables(__pyx_ptype_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SymbolicExpression, (PyObject *) __pyx_ptype_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SymbolicExpression, (PyObject *) __pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   #endif
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -5882,9 +5882,9 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("mpi"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 3, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("src.gcr.mpi"); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_3mpi_MultiPrecisionInteger = __Pyx_ImportType_3_0_7(__pyx_t_1, "mpi", "MultiPrecisionInteger", sizeof(struct __pyx_obj_3mpi_MultiPrecisionInteger), __PYX_GET_STRUCT_ALIGNMENT_3_0_7(struct __pyx_obj_3mpi_MultiPrecisionInteger),__Pyx_ImportType_CheckSize_Warn_3_0_7); if (!__pyx_ptype_3mpi_MultiPrecisionInteger) __PYX_ERR(2, 3, __pyx_L1_error)
+  __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger = __Pyx_ImportType_3_0_7(__pyx_t_1, "src.gcr.mpi", "MultiPrecisionInteger", sizeof(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger), __PYX_GET_STRUCT_ALIGNMENT_3_0_7(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger),__Pyx_ImportType_CheckSize_Warn_3_0_7); if (!__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger) __PYX_ERR(2, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -5910,9 +5910,9 @@ static int __Pyx_modinit_function_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_import_code", 0);
   /*--- Function import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("gcry_err"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("src.gcr.gcry_err"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_ImportFunction_3_0_7(__pyx_t_1, "on_err_raise", (void (**)(void))&__pyx_f_8gcry_err_on_err_raise, "void (gcry_error_t, char *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction_3_0_7(__pyx_t_1, "on_err_raise", (void (**)(void))&__pyx_f_3src_3gcr_8gcry_err_on_err_raise, "void (gcry_error_t, char *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -6173,14 +6173,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_s_exp) {
+  if (__pyx_module_is_main_src__gcr__s_exp) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name_2, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "s_exp")) {
-      if (unlikely((PyDict_SetItemString(modules, "s_exp", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "src.gcr.s_exp")) {
+      if (unlikely((PyDict_SetItemString(modules, "src.gcr.s_exp", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -6201,150 +6201,150 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "s_exp.pyx":28
+  /* "src/gcr/s_exp.pyx":27
  * 
  * ##  Python imports
  * from typing import Iterator, NoReturn, Self             # <<<<<<<<<<<<<<
  * 
  * # import cython
  */
-  __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_Iterator);
   __Pyx_GIVEREF(__pyx_n_s_Iterator);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_Iterator)) __PYX_ERR(0, 28, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_Iterator)) __PYX_ERR(0, 27, __pyx_L1_error);
   __Pyx_INCREF(__pyx_n_s_NoReturn);
   __Pyx_GIVEREF(__pyx_n_s_NoReturn);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_NoReturn)) __PYX_ERR(0, 28, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_NoReturn)) __PYX_ERR(0, 27, __pyx_L1_error);
   __Pyx_INCREF(__pyx_n_s_Self);
   __Pyx_GIVEREF(__pyx_n_s_Self);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 2, __pyx_n_s_Self)) __PYX_ERR(0, 28, __pyx_L1_error);
-  __pyx_t_3 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 2, __pyx_n_s_Self)) __PYX_ERR(0, 27, __pyx_L1_error);
+  __pyx_t_3 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_Iterator); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_Iterator); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Iterator, __pyx_t_2) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Iterator, __pyx_t_2) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_NoReturn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_NoReturn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_NoReturn, __pyx_t_2) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_NoReturn, __pyx_t_2) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_Self); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_Self); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Self, __pyx_t_2) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Self, __pyx_t_2) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "s_exp.pyx":35
- * from mpi cimport MultiPrecisionInteger
+  /* "src/gcr/s_exp.pyx":34
+ * from .mpi cimport MultiPrecisionInteger
  * 
  * from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpOutOfBoundaryError             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_3 = PyList_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_n_s_GcrSexpError);
   __Pyx_GIVEREF(__pyx_n_s_GcrSexpError);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_n_s_GcrSexpError)) __PYX_ERR(0, 35, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_n_s_GcrSexpError)) __PYX_ERR(0, 34, __pyx_L1_error);
   __Pyx_INCREF(__pyx_n_s_GcrSexpFormatError);
   __Pyx_GIVEREF(__pyx_n_s_GcrSexpFormatError);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_n_s_GcrSexpFormatError)) __PYX_ERR(0, 35, __pyx_L1_error);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_n_s_GcrSexpFormatError)) __PYX_ERR(0, 34, __pyx_L1_error);
   __Pyx_INCREF(__pyx_n_s_GcrSexpOutOfBoundaryError);
   __Pyx_GIVEREF(__pyx_n_s_GcrSexpOutOfBoundaryError);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 2, __pyx_n_s_GcrSexpOutOfBoundaryError)) __PYX_ERR(0, 35, __pyx_L1_error);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_errors, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 2, __pyx_n_s_GcrSexpOutOfBoundaryError)) __PYX_ERR(0, 34, __pyx_L1_error);
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_errors, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_GcrSexpError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_GcrSexpError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GcrSexpError, __pyx_t_3) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GcrSexpError, __pyx_t_3) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_GcrSexpFormatError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_GcrSexpFormatError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GcrSexpFormatError, __pyx_t_3) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GcrSexpFormatError, __pyx_t_3) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_GcrSexpOutOfBoundaryError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_GcrSexpOutOfBoundaryError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GcrSexpOutOfBoundaryError, __pyx_t_3) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GcrSexpOutOfBoundaryError, __pyx_t_3) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "s_exp.pyx":97
+  /* "src/gcr/s_exp.pyx":96
  *     """
  * 
  *     _DEFAULT_ENCODING_ = 'utf-8'             # <<<<<<<<<<<<<<
  * 
  *     cdef gcry_sexp_t _s_exp
  */
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression, __pyx_n_s_DEFAULT_ENCODING, __pyx_kp_u_utf_8) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
-  PyType_Modified(__pyx_ptype_5s_exp_SymbolicExpression);
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, __pyx_n_s_DEFAULT_ENCODING, __pyx_kp_u_utf_8) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  PyType_Modified(__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression);
 
-  /* "s_exp.pyx":197
+  /* "src/gcr/s_exp.pyx":196
  * 
  * 
  *     def __hasattr__(self: Self, name: str) -> bool:             # <<<<<<<<<<<<<<
  *         return False
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_self, __pyx_n_s_Self) < 0) __PYX_ERR(0, 197, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_n_s_str) < 0) __PYX_ERR(0, 197, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_s_bool) < 0) __PYX_ERR(0, 197, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5s_exp_18SymbolicExpression_13__hasattr__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression___hasattr, NULL, __pyx_n_s_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_self, __pyx_n_s_Self) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_n_s_str) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_s_bool) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_13__hasattr__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression___hasattr, NULL, __pyx_n_s_src_gcr_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression, __pyx_n_s_hasattr, __pyx_t_3) < 0) __PYX_ERR(0, 197, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, __pyx_n_s_hasattr, __pyx_t_3) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  PyType_Modified(__pyx_ptype_5s_exp_SymbolicExpression);
+  PyType_Modified(__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression);
 
-  /* "s_exp.pyx":268
+  /* "src/gcr/s_exp.pyx":267
  * 
  * 
  *     def is_atom(self: Self) -> bool:             # <<<<<<<<<<<<<<
  *         """
  *         If there is only one data bolb contained in expression, it is an atom.
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_self, __pyx_n_s_Self) < 0) __PYX_ERR(0, 268, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_return, __pyx_n_s_bool) < 0) __PYX_ERR(0, 268, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5s_exp_18SymbolicExpression_17is_atom, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression_is_atom, NULL, __pyx_n_s_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 268, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_self, __pyx_n_s_Self) < 0) __PYX_ERR(0, 267, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_return, __pyx_n_s_bool) < 0) __PYX_ERR(0, 267, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_17is_atom, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression_is_atom, NULL, __pyx_n_s_src_gcr_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression, __pyx_n_s_is_atom, __pyx_t_2) < 0) __PYX_ERR(0, 268, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, __pyx_n_s_is_atom, __pyx_t_2) < 0) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_5s_exp_SymbolicExpression);
+  PyType_Modified(__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression);
 
-  /* "s_exp.pyx":275
+  /* "src/gcr/s_exp.pyx":274
  * 
  * 
  *     def size(self: Self) -> int:             # <<<<<<<<<<<<<<
  *         """ size()
  *         return the S-Expression's memory footprint in bytes
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_self, __pyx_n_s_Self) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_s_int) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5s_exp_18SymbolicExpression_19size, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression_size, NULL, __pyx_n_s_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 275, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_self, __pyx_n_s_Self) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_s_int) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_19size, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression_size, NULL, __pyx_n_s_src_gcr_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_5s_exp_SymbolicExpression, __pyx_n_s_size, __pyx_t_3) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression, __pyx_n_s_size, __pyx_t_3) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  PyType_Modified(__pyx_ptype_5s_exp_SymbolicExpression);
+  PyType_Modified(__pyx_ptype_3src_3gcr_5s_exp_SymbolicExpression);
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5s_exp_18SymbolicExpression_21__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression___reduce_cyth, NULL, __pyx_n_s_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_21__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression___reduce_cyth, NULL, __pyx_n_s_src_gcr_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_3) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6355,12 +6355,12 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5s_exp_18SymbolicExpression_23__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression___setstate_cy, NULL, __pyx_n_s_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_3src_3gcr_5s_exp_18SymbolicExpression_23__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SymbolicExpression___setstate_cy, NULL, __pyx_n_s_src_gcr_s_exp, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_3) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "s_exp.pyx":1
+  /* "src/gcr/s_exp.pyx":1
  * # cython: c_string_type=unicode, c_string_encoding=utf8             # <<<<<<<<<<<<<<
  * # cython: language_level=3
  * 
@@ -6378,7 +6378,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
     if (__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init s_exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init src.gcr.s_exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -6392,7 +6392,7 @@ if (!__Pyx_RefNanny) {
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init s_exp");
+    PyErr_SetString(PyExc_ImportError, "init src.gcr.s_exp");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

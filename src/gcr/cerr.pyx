@@ -3,11 +3,9 @@
 
 from libc.string cimport strlen
 
-from gcry_err cimport gcry_error_t
-from gcry_err cimport gcry_strerror
-from gcry_err cimport gcry_strsource
-
-from gcry_s_exp cimport gcry_sexp_t
+from .gcry_err cimport gcry_error_t
+from .gcry_err cimport gcry_strerror
+from .gcry_err cimport gcry_strsource
 
 from cython import cast, p_uchar, p_char
 

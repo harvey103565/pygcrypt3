@@ -17,14 +17,14 @@
         "library_dirs": [
             "./c_libs"
         ],
-        "name": "src.gcr.pygcr",
+        "name": "src.gcr",
         "sources": [
             "./src/gcr/cerr.pyx",
             "./src/gcr/mpi.pyx",
             "./src/gcr/s_exp.pyx"
         ]
     },
-    "module_name": "src.gcr.pygcr"
+    "module_name": "src.gcr"
 }
 END: Cython Metadata */
 
@@ -1209,8 +1209,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__cerr
-#define __PYX_HAVE_API__cerr
+#define __PYX_HAVE__src__gcr__cerr
+#define __PYX_HAVE_API__src__gcr__cerr
 /* Early includes */
 #include <string.h>
 #include "gpg-error.h"
@@ -1493,15 +1493,6 @@ static const char *__pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-
-/* "gcry_s_exp.pxd":5
- * from gcry_err cimport gpg_error_t
- * 
- * ctypedef unsigned char * s_exp_str_t             # <<<<<<<<<<<<<<
- * 
- * 
- */
-typedef unsigned char *__pyx_t_10gcry_s_exp_s_exp_str_t;
 /* #### Code section: utility_code_proto ### */
 
 /* --- Runtime support code (head) --- */
@@ -1870,20 +1861,16 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from "libc.string" */
 
-/* Module declarations from "gcry_err" */
+/* Module declarations from "src.gcr.gcry_err" */
 
-/* Module declarations from "gcry_mpi" */
-
-/* Module declarations from "gcry_s_exp" */
-
-/* Module declarations from "cerr" */
+/* Module declarations from "src.gcr.cerr" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "cerr"
-extern int __pyx_module_is_main_cerr;
-int __pyx_module_is_main_cerr = 0;
+#define __Pyx_MODULE_NAME "src.gcr.cerr"
+extern int __pyx_module_is_main_src__gcr__cerr;
+int __pyx_module_is_main_src__gcr__cerr = 0;
 
-/* Implementation of "cerr" */
+/* Implementation of "src.gcr.cerr" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = "'";
@@ -1928,10 +1915,6 @@ typedef struct {
   #endif
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
-  #endif
-  #if CYTHON_USE_MODULE_STATE
-  #endif
-  #if CYTHON_USE_MODULE_STATE
   #endif
   #if CYTHON_USE_MODULE_STATE
   #endif
@@ -2080,10 +2063,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #endif
 #if CYTHON_USE_MODULE_STATE
 #endif
-#if CYTHON_USE_MODULE_STATE
-#endif
-#if CYTHON_USE_MODULE_STATE
-#endif
 #define __pyx_kp_u_ __pyx_mstate_global->__pyx_kp_u_
 #define __pyx_kp_u_Caused_by __pyx_mstate_global->__pyx_kp_u_Caused_by
 #define __pyx_n_s_GcrSexpFormatError __pyx_mstate_global->__pyx_n_s_GcrSexpFormatError
@@ -2101,7 +2080,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_u_utf_8 __pyx_mstate_global->__pyx_kp_u_utf_8
 /* #### Code section: module_code ### */
 
-/* "cerr.pyx":17
+/* "src/gcr/cerr.pyx":15
  * 
  * 
  * cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):             # <<<<<<<<<<<<<<
@@ -2109,7 +2088,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
  *     if not err_code:
  */
 
-static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__pyx_v_str_src) {
+static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__pyx_v_str_src) {
   PyObject *__pyx_v_description = NULL;
   PyObject *__pyx_v_err_src = NULL;
   PyObject *__pyx_v_cauz = NULL;
@@ -2130,7 +2109,7 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("on_err_raise", 1);
 
-  /* "cerr.pyx":19
+  /* "src/gcr/cerr.pyx":17
  * cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):
  * 
  *     if not err_code:             # <<<<<<<<<<<<<<
@@ -2140,7 +2119,7 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
   __pyx_t_1 = (!(__pyx_v_err_code != 0));
   if (__pyx_t_1) {
 
-    /* "cerr.pyx":20
+    /* "src/gcr/cerr.pyx":18
  * 
  *     if not err_code:
  *         return             # <<<<<<<<<<<<<<
@@ -2149,7 +2128,7 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
  */
     goto __pyx_L0;
 
-    /* "cerr.pyx":19
+    /* "src/gcr/cerr.pyx":17
  * cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):
  * 
  *     if not err_code:             # <<<<<<<<<<<<<<
@@ -2158,16 +2137,16 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
  */
   }
 
-  /* "cerr.pyx":22
+  /* "src/gcr/cerr.pyx":20
  *         return
  * 
  *     description = cast(bytes, gcry_strerror(err_code)).decode(str,'utf-8')             # <<<<<<<<<<<<<<
  *     err_src = cast(bytes, gcry_strsource(err_code)).decode(str,'utf-8')
  *     cauz = str_src[ : strlen(cast(p_char, str_src))].decode('utf-8')
  */
-  __pyx_t_3 = __Pyx_PyBytes_FromString(gcry_strerror(__pyx_v_err_code)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBytes_FromString(gcry_strerror(__pyx_v_err_code)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_decode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_decode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -2188,23 +2167,23 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
     PyObject *__pyx_callargs[3] = {__pyx_t_3, ((PyObject *)(&PyUnicode_Type)), __pyx_kp_u_utf_8};
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_5, 2+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __pyx_v_description = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cerr.pyx":23
+  /* "src/gcr/cerr.pyx":21
  * 
  *     description = cast(bytes, gcry_strerror(err_code)).decode(str,'utf-8')
  *     err_src = cast(bytes, gcry_strsource(err_code)).decode(str,'utf-8')             # <<<<<<<<<<<<<<
  *     cauz = str_src[ : strlen(cast(p_char, str_src))].decode('utf-8')
  * 
  */
-  __pyx_t_4 = __Pyx_PyBytes_FromString(gcry_strsource(__pyx_v_err_code)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBytes_FromString(gcry_strsource(__pyx_v_err_code)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_decode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_decode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -2225,23 +2204,23 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
     PyObject *__pyx_callargs[3] = {__pyx_t_4, ((PyObject *)(&PyUnicode_Type)), __pyx_kp_u_utf_8};
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 2+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __pyx_v_err_src = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cerr.pyx":24
+  /* "src/gcr/cerr.pyx":22
  *     description = cast(bytes, gcry_strerror(err_code)).decode(str,'utf-8')
  *     err_src = cast(bytes, gcry_strsource(err_code)).decode(str,'utf-8')
  *     cauz = str_src[ : strlen(cast(p_char, str_src))].decode('utf-8')             # <<<<<<<<<<<<<<
  * 
  *     raise GcrSexpFormatError(f"libgcrypt error no: #{err_code}",  f"'{description}' raised from {err_src}.", f"Caused by {cauz}", err_code)
  */
-  __pyx_t_3 = __Pyx_PyUnicode_FromStringAndSize(__pyx_v_str_src + 0, strlen(((char *)__pyx_v_str_src)) - 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyUnicode_FromStringAndSize(__pyx_v_str_src + 0, strlen(((char *)__pyx_v_str_src)) - 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_decode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_decode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -2262,30 +2241,30 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
     PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_kp_u_utf_8};
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __pyx_v_cauz = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "cerr.pyx":26
+  /* "src/gcr/cerr.pyx":24
  *     cauz = str_src[ : strlen(cast(p_char, str_src))].decode('utf-8')
  * 
  *     raise GcrSexpFormatError(f"libgcrypt error no: #{err_code}",  f"'{description}' raised from {err_src}.", f"Caused by {cauz}", err_code)             # <<<<<<<<<<<<<<
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_GcrSexpFormatError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_GcrSexpFormatError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyInt_From_gpg_error_t(__pyx_v_err_code); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_gpg_error_t(__pyx_v_err_code); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_kp_u_libgcrypt_error_no, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_kp_u_libgcrypt_error_no, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyTuple_New(5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = 0;
   __pyx_t_8 = 127;
@@ -2293,7 +2272,7 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
   __pyx_t_7 += 1;
   __Pyx_GIVEREF(__pyx_kp_u_);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_);
-  __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_v_description, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_v_description, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_8 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) > __pyx_t_8) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) : __pyx_t_8;
   __pyx_t_7 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_9);
@@ -2304,7 +2283,7 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
   __pyx_t_7 += 14;
   __Pyx_GIVEREF(__pyx_kp_u_raised_from);
   PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_u_raised_from);
-  __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_v_err_src, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_v_err_src, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_8 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) > __pyx_t_8) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) : __pyx_t_8;
   __pyx_t_7 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_9);
@@ -2315,15 +2294,15 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
   __pyx_t_7 += 1;
   __Pyx_GIVEREF(__pyx_kp_u__2);
   PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_kp_u__2);
-  __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_6, 5, __pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_6, 5, __pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_cauz, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_cauz, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_10 = __Pyx_PyUnicode_Concat(__pyx_kp_u_Caused_by, __pyx_t_6); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyUnicode_Concat(__pyx_kp_u_Caused_by, __pyx_t_6); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyInt_From_gpg_error_t(__pyx_v_err_code); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_From_gpg_error_t(__pyx_v_err_code); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_11 = NULL;
   __pyx_t_5 = 0;
@@ -2347,15 +2326,15 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_Raise(__pyx_t_2, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __PYX_ERR(0, 26, __pyx_L1_error)
+  __PYX_ERR(0, 24, __pyx_L1_error)
 
-  /* "cerr.pyx":17
+  /* "src/gcr/cerr.pyx":15
  * 
  * 
  * cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):             # <<<<<<<<<<<<<<
@@ -2372,7 +2351,7 @@ static void __pyx_f_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__py
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("cerr.on_err_raise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.cerr.on_err_raise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_description);
   __Pyx_XDECREF(__pyx_v_err_src);
@@ -2757,14 +2736,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_cerr) {
+  if (__pyx_module_is_main_src__gcr__cerr) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "cerr")) {
-      if (unlikely((PyDict_SetItemString(modules, "cerr", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "src.gcr.cerr")) {
+      if (unlikely((PyDict_SetItemString(modules, "src.gcr.cerr", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2785,28 +2764,28 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "cerr.pyx":14
+  /* "src/gcr/cerr.pyx":12
  * from cython import cast, p_uchar, p_char
  * 
  * from ..errors import GcrSexpFormatError             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_GcrSexpFormatError);
   __Pyx_GIVEREF(__pyx_n_s_GcrSexpFormatError);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_GcrSexpFormatError)) __PYX_ERR(0, 14, __pyx_L1_error);
-  __pyx_t_3 = __Pyx_Import(__pyx_n_s_errors, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_GcrSexpFormatError)) __PYX_ERR(0, 12, __pyx_L1_error);
+  __pyx_t_3 = __Pyx_Import(__pyx_n_s_errors, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_GcrSexpFormatError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_GcrSexpFormatError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GcrSexpFormatError, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GcrSexpFormatError, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "cerr.pyx":1
+  /* "src/gcr/cerr.pyx":1
  * # cython: c_string_type=unicode, c_string_encoding=utf8             # <<<<<<<<<<<<<<
  * # cython: language_level=3
  * 
@@ -2824,7 +2803,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
     if (__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init cerr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init src.gcr.cerr", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -2838,7 +2817,7 @@ if (!__Pyx_RefNanny) {
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init cerr");
+    PyErr_SetString(PyExc_ImportError, "init src.gcr.cerr");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

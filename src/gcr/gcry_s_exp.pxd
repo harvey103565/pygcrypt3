@@ -1,6 +1,6 @@
-from gcry_err cimport gcry_error_t, gcry_buffer_t
-from gcry_mpi cimport gcry_mpi_t
-from gcry_err cimport gpg_error_t
+from .gcry_err cimport gcry_error_t, gcry_buffer_t
+from .gcry_mpi cimport gcry_mpi_t
+from .gcry_err cimport gpg_error_t
 
 ctypedef unsigned char * s_exp_str_t
 
