@@ -17,14 +17,14 @@
         "library_dirs": [
             "./c_libs"
         ],
-        "name": "src.gcr",
+        "name": "src.gcr.pygcr",
         "sources": [
-            "./src/gcr/cerr.pyx",
+            "./src/gcr/err_utils.pyx",
             "./src/gcr/mpi.pyx",
             "./src/gcr/s_exp.pyx"
         ]
     },
-    "module_name": "src.gcr"
+    "module_name": "src.gcr.pygcr"
 }
 END: Cython Metadata */
 
@@ -1209,12 +1209,12 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__src__gcr__cerr
-#define __PYX_HAVE_API__src__gcr__cerr
+#define __PYX_HAVE__src__gcr__err_utils
+#define __PYX_HAVE_API__src__gcr__err_utils
 /* Early includes */
-#include <string.h>
 #include "gpg-error.h"
 #include "gcrypt.h"
+#include <string.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -1480,7 +1480,7 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char *__pyx_f[] = {
-  "src/gcr/cerr.pyx",
+  "src/gcr/err_utils.pyx",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* ForceInitThreads.proto */
@@ -1854,23 +1854,26 @@ static CYTHON_INLINE int __Pyx_PyErr_GivenExceptionMatches2(PyObject *err, PyObj
 static unsigned long __Pyx_get_runtime_version(void);
 static int __Pyx_check_binary_version(unsigned long ct_version, unsigned long rt_version, int allow_newer);
 
+/* FunctionExport.proto */
+static int __Pyx_ExportFunction(const char *name, void (*f)(void), const char *sig);
+
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* #### Code section: module_declarations ### */
 
-/* Module declarations from "libc.string" */
-
 /* Module declarations from "src.gcr.gcry_err" */
 
-/* Module declarations from "src.gcr.cerr" */
+/* Module declarations from "libc.string" */
+
+/* Module declarations from "src.gcr.err_utils" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "src.gcr.cerr"
-extern int __pyx_module_is_main_src__gcr__cerr;
-int __pyx_module_is_main_src__gcr__cerr = 0;
+#define __Pyx_MODULE_NAME "src.gcr.err_utils"
+extern int __pyx_module_is_main_src__gcr__err_utils;
+int __pyx_module_is_main_src__gcr__err_utils = 0;
 
-/* Implementation of "src.gcr.cerr" */
+/* Implementation of "src.gcr.err_utils" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = "'";
@@ -2080,15 +2083,15 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_u_utf_8 __pyx_mstate_global->__pyx_kp_u_utf_8
 /* #### Code section: module_code ### */
 
-/* "src/gcr/cerr.pyx":15
+/* "src/gcr/err_utils.pyx":15
  * 
  * 
- * cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):             # <<<<<<<<<<<<<<
+ * cdef void on_err_raise (gcry_error_t err_code, char * str_src):             # <<<<<<<<<<<<<<
  * 
  *     if not err_code:
  */
 
-static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, char *__pyx_v_str_src) {
+static void __pyx_f_3src_3gcr_9err_utils_on_err_raise(gcry_error_t __pyx_v_err_code, char *__pyx_v_str_src) {
   PyObject *__pyx_v_description = NULL;
   PyObject *__pyx_v_err_src = NULL;
   PyObject *__pyx_v_cauz = NULL;
@@ -2109,8 +2112,8 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("on_err_raise", 1);
 
-  /* "src/gcr/cerr.pyx":17
- * cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):
+  /* "src/gcr/err_utils.pyx":17
+ * cdef void on_err_raise (gcry_error_t err_code, char * str_src):
  * 
  *     if not err_code:             # <<<<<<<<<<<<<<
  *         return
@@ -2119,7 +2122,7 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
   __pyx_t_1 = (!(__pyx_v_err_code != 0));
   if (__pyx_t_1) {
 
-    /* "src/gcr/cerr.pyx":18
+    /* "src/gcr/err_utils.pyx":18
  * 
  *     if not err_code:
  *         return             # <<<<<<<<<<<<<<
@@ -2128,8 +2131,8 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
  */
     goto __pyx_L0;
 
-    /* "src/gcr/cerr.pyx":17
- * cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):
+    /* "src/gcr/err_utils.pyx":17
+ * cdef void on_err_raise (gcry_error_t err_code, char * str_src):
  * 
  *     if not err_code:             # <<<<<<<<<<<<<<
  *         return
@@ -2137,7 +2140,7 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
  */
   }
 
-  /* "src/gcr/cerr.pyx":20
+  /* "src/gcr/err_utils.pyx":20
  *         return
  * 
  *     description = cast(bytes, gcry_strerror(err_code)).decode(str,'utf-8')             # <<<<<<<<<<<<<<
@@ -2174,7 +2177,7 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
   __pyx_v_description = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "src/gcr/cerr.pyx":21
+  /* "src/gcr/err_utils.pyx":21
  * 
  *     description = cast(bytes, gcry_strerror(err_code)).decode(str,'utf-8')
  *     err_src = cast(bytes, gcry_strsource(err_code)).decode(str,'utf-8')             # <<<<<<<<<<<<<<
@@ -2211,7 +2214,7 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
   __pyx_v_err_src = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "src/gcr/cerr.pyx":22
+  /* "src/gcr/err_utils.pyx":22
  *     description = cast(bytes, gcry_strerror(err_code)).decode(str,'utf-8')
  *     err_src = cast(bytes, gcry_strsource(err_code)).decode(str,'utf-8')
  *     cauz = str_src[ : strlen(cast(p_char, str_src))].decode('utf-8')             # <<<<<<<<<<<<<<
@@ -2248,7 +2251,7 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
   __pyx_v_cauz = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "src/gcr/cerr.pyx":24
+  /* "src/gcr/err_utils.pyx":24
  *     cauz = str_src[ : strlen(cast(p_char, str_src))].decode('utf-8')
  * 
  *     raise GcrSexpFormatError(f"libgcrypt error no: #{err_code}",  f"'{description}' raised from {err_src}.", f"Caused by {cauz}", err_code)             # <<<<<<<<<<<<<<
@@ -2334,10 +2337,10 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __PYX_ERR(0, 24, __pyx_L1_error)
 
-  /* "src/gcr/cerr.pyx":15
+  /* "src/gcr/err_utils.pyx":15
  * 
  * 
- * cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):             # <<<<<<<<<<<<<<
+ * cdef void on_err_raise (gcry_error_t err_code, char * str_src):             # <<<<<<<<<<<<<<
  * 
  *     if not err_code:
  */
@@ -2351,7 +2354,7 @@ static void __pyx_f_3src_3gcr_4cerr_on_err_raise(gcry_error_t __pyx_v_err_code, 
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("src.gcr.cerr.on_err_raise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.err_utils.on_err_raise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_description);
   __Pyx_XDECREF(__pyx_v_err_src);
@@ -2447,10 +2450,17 @@ static int __Pyx_modinit_variable_export_code(void) {
 
 static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
+  if (__Pyx_ExportFunction("on_err_raise", (void (*)(void))__pyx_f_3src_3gcr_9err_utils_on_err_raise, "void (gcry_error_t, char *)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
+  __pyx_L1_error:;
+  __Pyx_RefNannyFinishContext();
+  return -1;
 }
 
 static int __Pyx_modinit_type_init_code(void) {
@@ -2489,10 +2499,10 @@ static int __Pyx_modinit_function_import_code(void) {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_cerr(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_err_utils(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_cerr},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_err_utils},
   {0, NULL}
 };
 #endif
@@ -2505,7 +2515,7 @@ namespace {
   #endif
   {
       PyModuleDef_HEAD_INIT,
-      "cerr",
+      "err_utils",
       0, /* m_doc */
     #if CYTHON_PEP489_MULTI_PHASE_INIT
       0, /* m_size */
@@ -2553,11 +2563,11 @@ namespace {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initcerr(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initcerr(void)
+__Pyx_PyMODINIT_FUNC initerr_utils(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initerr_utils(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_cerr(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_cerr(void)
+__Pyx_PyMODINIT_FUNC PyInit_err_utils(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_err_utils(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -2638,7 +2648,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_cerr(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_err_utils(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -2656,7 +2666,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_cerr(PyObject *__pyx_pyinit_module
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'cerr' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'err_utils' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -2668,13 +2678,13 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_cerr(PyObject *__pyx_pyinit_module
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("cerr", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("err_utils", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   if (unlikely(!__pyx_m)) __PYX_ERR(0, 1, __pyx_L1_error)
   #elif CYTHON_USE_MODULE_STATE
   __pyx_t_1 = PyModule_Create(&__pyx_moduledef); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   {
     int add_module_result = PyState_AddModule(__pyx_t_1, &__pyx_moduledef);
-    __pyx_t_1 = 0; /* transfer ownership from __pyx_t_1 to "cerr" pseudovariable */
+    __pyx_t_1 = 0; /* transfer ownership from __pyx_t_1 to "err_utils" pseudovariable */
     if (unlikely((add_module_result < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     pystate_addmodule_run = 1;
   }
@@ -2698,7 +2708,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_cerr(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_err_utils(void)", 0);
   if (__Pyx_check_binary_version(__PYX_LIMITED_VERSION_HEX, __Pyx_get_runtime_version(), CYTHON_COMPILING_IN_LIMITED_API) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -2736,14 +2746,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_src__gcr__cerr) {
+  if (__pyx_module_is_main_src__gcr__err_utils) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "src.gcr.cerr")) {
-      if (unlikely((PyDict_SetItemString(modules, "src.gcr.cerr", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "src.gcr.err_utils")) {
+      if (unlikely((PyDict_SetItemString(modules, "src.gcr.err_utils", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2754,7 +2764,7 @@ if (!__Pyx_RefNanny) {
   /*--- Global type/function init code ---*/
   (void)__Pyx_modinit_global_init_code();
   (void)__Pyx_modinit_variable_export_code();
-  (void)__Pyx_modinit_function_export_code();
+  if (unlikely((__Pyx_modinit_function_export_code() < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
   (void)__Pyx_modinit_type_init_code();
   (void)__Pyx_modinit_type_import_code();
   (void)__Pyx_modinit_variable_import_code();
@@ -2764,7 +2774,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "src/gcr/cerr.pyx":12
+  /* "src/gcr/err_utils.pyx":12
  * from cython import cast, p_uchar, p_char
  * 
  * from ..errors import GcrSexpFormatError             # <<<<<<<<<<<<<<
@@ -2785,7 +2795,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "src/gcr/cerr.pyx":1
+  /* "src/gcr/err_utils.pyx":1
  * # cython: c_string_type=unicode, c_string_encoding=utf8             # <<<<<<<<<<<<<<
  * # cython: language_level=3
  * 
@@ -2803,7 +2813,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
     if (__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init src.gcr.cerr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init src.gcr.err_utils", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -2817,7 +2827,7 @@ if (!__Pyx_RefNanny) {
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init src.gcr.cerr");
+    PyErr_SetString(PyExc_ImportError, "init src.gcr.err_utils");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -4864,6 +4874,39 @@ static int __Pyx_check_binary_version(unsigned long ct_version, unsigned long rt
        );
         return PyErr_WarnEx(NULL, message, 1);
     }
+}
+
+/* FunctionExport */
+static int __Pyx_ExportFunction(const char *name, void (*f)(void), const char *sig) {
+    PyObject *d = 0;
+    PyObject *cobj = 0;
+    union {
+        void (*fp)(void);
+        void *p;
+    } tmp;
+    d = PyObject_GetAttrString(__pyx_m, (char *)"__pyx_capi__");
+    if (!d) {
+        PyErr_Clear();
+        d = PyDict_New();
+        if (!d)
+            goto bad;
+        Py_INCREF(d);
+        if (PyModule_AddObject(__pyx_m, (char *)"__pyx_capi__", d) < 0)
+            goto bad;
+    }
+    tmp.fp = f;
+    cobj = PyCapsule_New(tmp.p, sig, 0);
+    if (!cobj)
+        goto bad;
+    if (PyDict_SetItemString(d, name, cobj) < 0)
+        goto bad;
+    Py_DECREF(cobj);
+    Py_DECREF(d);
+    return 0;
+bad:
+    Py_XDECREF(cobj);
+    Py_XDECREF(d);
+    return -1;
 }
 
 /* InitStrings */

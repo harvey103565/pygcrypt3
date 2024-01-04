@@ -19,7 +19,7 @@
         ],
         "name": "src.gcr.pygcr",
         "sources": [
-            "./src/gcr/cerr.pyx",
+            "./src/gcr/err_utils.pyx",
             "./src/gcr/mpi.pyx",
             "./src/gcr/s_exp.pyx"
         ]
@@ -1209,8 +1209,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__mpi
-#define __PYX_HAVE_API__mpi
+#define __PYX_HAVE__src__gcr__mpi
+#define __PYX_HAVE_API__src__gcr__mpi
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -1491,15 +1491,15 @@ static const char *__pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_obj_3mpi_MultiPrecisionInteger;
+struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger;
 
-/* "mpi.pxd":3
+/* "src/gcr/mpi.pxd":3
  * 
  * 
  * cdef class MultiPrecisionInteger:             # <<<<<<<<<<<<<<
  *     pass
  */
-struct __pyx_obj_3mpi_MultiPrecisionInteger {
+struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger {
   PyObject_HEAD
 };
 
@@ -2147,21 +2147,20 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* #### Code section: module_declarations ### */
 
-/* Module declarations from "mpi" */
-static PyObject *__pyx_f_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(struct __pyx_obj_3mpi_MultiPrecisionInteger *, PyObject *); /*proto*/
+/* Module declarations from "src.gcr.mpi" */
+static PyObject *__pyx_f_3src_3gcr_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *, PyObject *); /*proto*/
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "mpi"
-extern int __pyx_module_is_main_mpi;
-int __pyx_module_is_main_mpi = 0;
+#define __Pyx_MODULE_NAME "src.gcr.mpi"
+extern int __pyx_module_is_main_src__gcr__mpi;
+int __pyx_module_is_main_src__gcr__mpi = 0;
 
-/* Implementation of "mpi" */
+/* Implementation of "src.gcr.mpi" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
 static const char __pyx_k__2[] = ".";
 static const char __pyx_k__9[] = "?";
 static const char __pyx_k_gc[] = "gc";
-static const char __pyx_k_mpi[] = "mpi";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_main[] = "__main__";
@@ -2184,6 +2183,7 @@ static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_PickleError[] = "PickleError";
+static const char __pyx_k_src_gcr_mpi[] = "src.gcr.mpi";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "<stringsource>";
@@ -2199,10 +2199,10 @@ static const char __pyx_k_Incompatible_checksums_0x_x_vs_0[] = "Incompatible che
 static const char __pyx_k_MultiPrecisionInteger___reduce_c[] = "MultiPrecisionInteger.__reduce_cython__";
 static const char __pyx_k_MultiPrecisionInteger___setstate[] = "MultiPrecisionInteger.__setstate_cython__";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger___reduce_cython__(struct __pyx_obj_3mpi_MultiPrecisionInteger *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger_2__setstate_cython__(struct __pyx_obj_3mpi_MultiPrecisionInteger *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_3mpi___pyx_unpickle_MultiPrecisionInteger(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_3mpi_MultiPrecisionInteger(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_3src_3gcr_3mpi_21MultiPrecisionInteger___reduce_cython__(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_3mpi_21MultiPrecisionInteger_2__setstate_cython__(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_3src_3gcr_3mpi___pyx_unpickle_MultiPrecisionInteger(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_3src_3gcr_3mpi_MultiPrecisionInteger(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2231,9 +2231,9 @@ typedef struct {
   PyTypeObject *__pyx_CoroutineType;
   #endif
   #if CYTHON_USE_MODULE_STATE
-  PyObject *__pyx_type_3mpi_MultiPrecisionInteger;
+  PyObject *__pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger;
   #endif
-  PyTypeObject *__pyx_ptype_3mpi_MultiPrecisionInteger;
+  PyTypeObject *__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger;
   PyObject *__pyx_kp_s_Incompatible_checksums_0x_x_vs_0;
   PyObject *__pyx_n_s_MultiPrecisionInteger;
   PyObject *__pyx_n_s_MultiPrecisionInteger___reduce_c;
@@ -2253,7 +2253,6 @@ typedef struct {
   PyObject *__pyx_n_s_is_coroutine;
   PyObject *__pyx_kp_u_isenabled;
   PyObject *__pyx_n_s_main;
-  PyObject *__pyx_n_s_mpi;
   PyObject *__pyx_n_s_name;
   PyObject *__pyx_n_s_new;
   PyObject *__pyx_n_s_pickle;
@@ -2269,6 +2268,7 @@ typedef struct {
   PyObject *__pyx_n_s_self;
   PyObject *__pyx_n_s_setstate;
   PyObject *__pyx_n_s_setstate_cython;
+  PyObject *__pyx_n_s_src_gcr_mpi;
   PyObject *__pyx_n_s_state;
   PyObject *__pyx_kp_s_stringsource;
   PyObject *__pyx_n_s_test;
@@ -2326,8 +2326,8 @@ static int __pyx_m_clear(PyObject *m) {
   #ifdef __Pyx_FusedFunction_USED
   Py_CLEAR(clear_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_CLEAR(clear_module_state->__pyx_ptype_3mpi_MultiPrecisionInteger);
-  Py_CLEAR(clear_module_state->__pyx_type_3mpi_MultiPrecisionInteger);
+  Py_CLEAR(clear_module_state->__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger);
+  Py_CLEAR(clear_module_state->__pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger);
   Py_CLEAR(clear_module_state->__pyx_kp_s_Incompatible_checksums_0x_x_vs_0);
   Py_CLEAR(clear_module_state->__pyx_n_s_MultiPrecisionInteger);
   Py_CLEAR(clear_module_state->__pyx_n_s_MultiPrecisionInteger___reduce_c);
@@ -2347,7 +2347,6 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_is_coroutine);
   Py_CLEAR(clear_module_state->__pyx_kp_u_isenabled);
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
-  Py_CLEAR(clear_module_state->__pyx_n_s_mpi);
   Py_CLEAR(clear_module_state->__pyx_n_s_name);
   Py_CLEAR(clear_module_state->__pyx_n_s_new);
   Py_CLEAR(clear_module_state->__pyx_n_s_pickle);
@@ -2363,6 +2362,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_self);
   Py_CLEAR(clear_module_state->__pyx_n_s_setstate);
   Py_CLEAR(clear_module_state->__pyx_n_s_setstate_cython);
+  Py_CLEAR(clear_module_state->__pyx_n_s_src_gcr_mpi);
   Py_CLEAR(clear_module_state->__pyx_n_s_state);
   Py_CLEAR(clear_module_state->__pyx_kp_s_stringsource);
   Py_CLEAR(clear_module_state->__pyx_n_s_test);
@@ -2398,8 +2398,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_VISIT(traverse_module_state->__pyx_ptype_3mpi_MultiPrecisionInteger);
-  Py_VISIT(traverse_module_state->__pyx_type_3mpi_MultiPrecisionInteger);
+  Py_VISIT(traverse_module_state->__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger);
+  Py_VISIT(traverse_module_state->__pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger);
   Py_VISIT(traverse_module_state->__pyx_kp_s_Incompatible_checksums_0x_x_vs_0);
   Py_VISIT(traverse_module_state->__pyx_n_s_MultiPrecisionInteger);
   Py_VISIT(traverse_module_state->__pyx_n_s_MultiPrecisionInteger___reduce_c);
@@ -2419,7 +2419,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_is_coroutine);
   Py_VISIT(traverse_module_state->__pyx_kp_u_isenabled);
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
-  Py_VISIT(traverse_module_state->__pyx_n_s_mpi);
   Py_VISIT(traverse_module_state->__pyx_n_s_name);
   Py_VISIT(traverse_module_state->__pyx_n_s_new);
   Py_VISIT(traverse_module_state->__pyx_n_s_pickle);
@@ -2435,6 +2434,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_self);
   Py_VISIT(traverse_module_state->__pyx_n_s_setstate);
   Py_VISIT(traverse_module_state->__pyx_n_s_setstate_cython);
+  Py_VISIT(traverse_module_state->__pyx_n_s_src_gcr_mpi);
   Py_VISIT(traverse_module_state->__pyx_n_s_state);
   Py_VISIT(traverse_module_state->__pyx_kp_s_stringsource);
   Py_VISIT(traverse_module_state->__pyx_n_s_test);
@@ -2479,9 +2479,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_CoroutineType __pyx_mstate_global->__pyx_CoroutineType
 #endif
 #if CYTHON_USE_MODULE_STATE
-#define __pyx_type_3mpi_MultiPrecisionInteger __pyx_mstate_global->__pyx_type_3mpi_MultiPrecisionInteger
+#define __pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger __pyx_mstate_global->__pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger
 #endif
-#define __pyx_ptype_3mpi_MultiPrecisionInteger __pyx_mstate_global->__pyx_ptype_3mpi_MultiPrecisionInteger
+#define __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger __pyx_mstate_global->__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger
 #define __pyx_kp_s_Incompatible_checksums_0x_x_vs_0 __pyx_mstate_global->__pyx_kp_s_Incompatible_checksums_0x_x_vs_0
 #define __pyx_n_s_MultiPrecisionInteger __pyx_mstate_global->__pyx_n_s_MultiPrecisionInteger
 #define __pyx_n_s_MultiPrecisionInteger___reduce_c __pyx_mstate_global->__pyx_n_s_MultiPrecisionInteger___reduce_c
@@ -2501,7 +2501,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_is_coroutine __pyx_mstate_global->__pyx_n_s_is_coroutine
 #define __pyx_kp_u_isenabled __pyx_mstate_global->__pyx_kp_u_isenabled
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
-#define __pyx_n_s_mpi __pyx_mstate_global->__pyx_n_s_mpi
 #define __pyx_n_s_name __pyx_mstate_global->__pyx_n_s_name
 #define __pyx_n_s_new __pyx_mstate_global->__pyx_n_s_new
 #define __pyx_n_s_pickle __pyx_mstate_global->__pyx_n_s_pickle
@@ -2517,6 +2516,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_self __pyx_mstate_global->__pyx_n_s_self
 #define __pyx_n_s_setstate __pyx_mstate_global->__pyx_n_s_setstate
 #define __pyx_n_s_setstate_cython __pyx_mstate_global->__pyx_n_s_setstate_cython
+#define __pyx_n_s_src_gcr_mpi __pyx_mstate_global->__pyx_n_s_src_gcr_mpi
 #define __pyx_n_s_state __pyx_mstate_global->__pyx_n_s_state
 #define __pyx_kp_s_stringsource __pyx_mstate_global->__pyx_kp_s_stringsource
 #define __pyx_n_s_test __pyx_mstate_global->__pyx_n_s_test
@@ -2541,15 +2541,15 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mpi_21MultiPrecisionInteger_1__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_3src_3gcr_3mpi_21MultiPrecisionInteger_1__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_3mpi_21MultiPrecisionInteger_1__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3mpi_21MultiPrecisionInteger_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mpi_21MultiPrecisionInteger_1__reduce_cython__(PyObject *__pyx_v_self, 
+static PyMethodDef __pyx_mdef_3src_3gcr_3mpi_21MultiPrecisionInteger_1__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_3mpi_21MultiPrecisionInteger_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3src_3gcr_3mpi_21MultiPrecisionInteger_1__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2574,14 +2574,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(__pyx_nargs > 0)) {
     __Pyx_RaiseArgtupleInvalid("__reduce_cython__", 1, 0, 0, __pyx_nargs); return NULL;}
   if (unlikely(__pyx_kwds) && __Pyx_NumKwargs_FASTCALL(__pyx_kwds) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__reduce_cython__", 0))) return NULL;
-  __pyx_r = __pyx_pf_3mpi_21MultiPrecisionInteger___reduce_cython__(((struct __pyx_obj_3mpi_MultiPrecisionInteger *)__pyx_v_self));
+  __pyx_r = __pyx_pf_3src_3gcr_3mpi_21MultiPrecisionInteger___reduce_cython__(((struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger___reduce_cython__(struct __pyx_obj_3mpi_MultiPrecisionInteger *__pyx_v_self) {
+static PyObject *__pyx_pf_3src_3gcr_3mpi_21MultiPrecisionInteger___reduce_cython__(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -2777,7 +2777,7 @@ static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger___reduce_cython__(struct 
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("mpi.MultiPrecisionInteger.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.mpi.MultiPrecisionInteger.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -2795,15 +2795,15 @@ static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger___reduce_cython__(struct 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mpi_21MultiPrecisionInteger_3__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_3src_3gcr_3mpi_21MultiPrecisionInteger_3__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_3mpi_21MultiPrecisionInteger_3__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3mpi_21MultiPrecisionInteger_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mpi_21MultiPrecisionInteger_3__setstate_cython__(PyObject *__pyx_v_self, 
+static PyMethodDef __pyx_mdef_3src_3gcr_3mpi_21MultiPrecisionInteger_3__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_3mpi_21MultiPrecisionInteger_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3src_3gcr_3mpi_21MultiPrecisionInteger_3__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2873,11 +2873,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("mpi.MultiPrecisionInteger.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.mpi.MultiPrecisionInteger.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mpi_21MultiPrecisionInteger_2__setstate_cython__(((struct __pyx_obj_3mpi_MultiPrecisionInteger *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_3src_3gcr_3mpi_21MultiPrecisionInteger_2__setstate_cython__(((struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   {
@@ -2890,7 +2890,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger_2__setstate_cython__(struct __pyx_obj_3mpi_MultiPrecisionInteger *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_3src_3gcr_3mpi_21MultiPrecisionInteger_2__setstate_cython__(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2905,7 +2905,7 @@ static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger_2__setstate_cython__(stru
  *     __pyx_unpickle_MultiPrecisionInteger__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None) || __Pyx_RaiseUnexpectedTypeError("tuple", __pyx_v___pyx_state))) __PYX_ERR(0, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_3src_3gcr_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
@@ -2921,7 +2921,7 @@ static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger_2__setstate_cython__(stru
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("mpi.MultiPrecisionInteger.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.mpi.MultiPrecisionInteger.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2936,15 +2936,15 @@ static PyObject *__pyx_pf_3mpi_21MultiPrecisionInteger_2__setstate_cython__(stru
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3mpi_1__pyx_unpickle_MultiPrecisionInteger(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_3src_3gcr_3mpi_1__pyx_unpickle_MultiPrecisionInteger(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_3mpi_1__pyx_unpickle_MultiPrecisionInteger = {"__pyx_unpickle_MultiPrecisionInteger", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3mpi_1__pyx_unpickle_MultiPrecisionInteger, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3mpi_1__pyx_unpickle_MultiPrecisionInteger(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_3src_3gcr_3mpi_1__pyx_unpickle_MultiPrecisionInteger = {"__pyx_unpickle_MultiPrecisionInteger", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_3mpi_1__pyx_unpickle_MultiPrecisionInteger, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3src_3gcr_3mpi_1__pyx_unpickle_MultiPrecisionInteger(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3044,11 +3044,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("mpi.__pyx_unpickle_MultiPrecisionInteger", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.mpi.__pyx_unpickle_MultiPrecisionInteger", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3mpi___pyx_unpickle_MultiPrecisionInteger(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_3src_3gcr_3mpi___pyx_unpickle_MultiPrecisionInteger(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   {
@@ -3061,7 +3061,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3mpi___pyx_unpickle_MultiPrecisionInteger(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_3src_3gcr_3mpi___pyx_unpickle_MultiPrecisionInteger(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = 0;
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
@@ -3143,7 +3143,7 @@ static PyObject *__pyx_pf_3mpi___pyx_unpickle_MultiPrecisionInteger(CYTHON_UNUSE
  *     if __pyx_state is not None:
  *         __pyx_unpickle_MultiPrecisionInteger__set_state(<MultiPrecisionInteger> __pyx_result, __pyx_state)
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_3mpi_MultiPrecisionInteger), __pyx_n_s_new); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger), __pyx_n_s_new); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -3188,7 +3188,7 @@ static PyObject *__pyx_pf_3mpi___pyx_unpickle_MultiPrecisionInteger(CYTHON_UNUSE
  * cdef __pyx_unpickle_MultiPrecisionInteger__set_state(MultiPrecisionInteger __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None) || __Pyx_RaiseUnexpectedTypeError("tuple", __pyx_v___pyx_state))) __PYX_ERR(0, 9, __pyx_L1_error)
-    __pyx_t_1 = __pyx_f_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(((struct __pyx_obj_3mpi_MultiPrecisionInteger *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_3src_3gcr_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(((struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
@@ -3224,7 +3224,7 @@ static PyObject *__pyx_pf_3mpi___pyx_unpickle_MultiPrecisionInteger(CYTHON_UNUSE
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("mpi.__pyx_unpickle_MultiPrecisionInteger", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.mpi.__pyx_unpickle_MultiPrecisionInteger", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -3242,7 +3242,7 @@ static PyObject *__pyx_pf_3mpi___pyx_unpickle_MultiPrecisionInteger(CYTHON_UNUSE
  *         __pyx_result.__dict__.update(__pyx_state[0])
  */
 
-static PyObject *__pyx_f_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(struct __pyx_obj_3mpi_MultiPrecisionInteger *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_3src_3gcr_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -3345,7 +3345,7 @@ static PyObject *__pyx_f_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(st
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("mpi.__pyx_unpickle_MultiPrecisionInteger__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.gcr.mpi.__pyx_unpickle_MultiPrecisionInteger__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3353,7 +3353,7 @@ static PyObject *__pyx_f_3mpi___pyx_unpickle_MultiPrecisionInteger__set_state(st
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_3mpi_MultiPrecisionInteger(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_3src_3gcr_3mpi_MultiPrecisionInteger(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
@@ -3369,10 +3369,10 @@ static PyObject *__pyx_tp_new_3mpi_MultiPrecisionInteger(PyTypeObject *t, CYTHON
   return o;
 }
 
-static void __pyx_tp_dealloc_3mpi_MultiPrecisionInteger(PyObject *o) {
+static void __pyx_tp_dealloc_3src_3gcr_3mpi_MultiPrecisionInteger(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_3mpi_MultiPrecisionInteger) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_3src_3gcr_3mpi_MultiPrecisionInteger) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -3387,33 +3387,33 @@ static void __pyx_tp_dealloc_3mpi_MultiPrecisionInteger(PyObject *o) {
   #endif
 }
 
-static PyMethodDef __pyx_methods_3mpi_MultiPrecisionInteger[] = {
-  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3mpi_21MultiPrecisionInteger_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
-  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3mpi_21MultiPrecisionInteger_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
+static PyMethodDef __pyx_methods_3src_3gcr_3mpi_MultiPrecisionInteger[] = {
+  {"__reduce_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_3mpi_21MultiPrecisionInteger_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
+  {"__setstate_cython__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_3gcr_3mpi_21MultiPrecisionInteger_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_3mpi_MultiPrecisionInteger_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_3mpi_MultiPrecisionInteger},
-  {Py_tp_methods, (void *)__pyx_methods_3mpi_MultiPrecisionInteger},
-  {Py_tp_new, (void *)__pyx_tp_new_3mpi_MultiPrecisionInteger},
+static PyType_Slot __pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_3src_3gcr_3mpi_MultiPrecisionInteger},
+  {Py_tp_methods, (void *)__pyx_methods_3src_3gcr_3mpi_MultiPrecisionInteger},
+  {Py_tp_new, (void *)__pyx_tp_new_3src_3gcr_3mpi_MultiPrecisionInteger},
   {0, 0},
 };
-static PyType_Spec __pyx_type_3mpi_MultiPrecisionInteger_spec = {
-  "mpi.MultiPrecisionInteger",
-  sizeof(struct __pyx_obj_3mpi_MultiPrecisionInteger),
+static PyType_Spec __pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger_spec = {
+  "src.gcr.mpi.MultiPrecisionInteger",
+  sizeof(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
-  __pyx_type_3mpi_MultiPrecisionInteger_slots,
+  __pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_3mpi_MultiPrecisionInteger = {
+static PyTypeObject __pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger = {
   PyVarObject_HEAD_INIT(0, 0)
-  "mpi.""MultiPrecisionInteger", /*tp_name*/
-  sizeof(struct __pyx_obj_3mpi_MultiPrecisionInteger), /*tp_basicsize*/
+  "src.gcr.mpi.""MultiPrecisionInteger", /*tp_name*/
+  sizeof(struct __pyx_obj_3src_3gcr_3mpi_MultiPrecisionInteger), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_3mpi_MultiPrecisionInteger, /*tp_dealloc*/
+  __pyx_tp_dealloc_3src_3gcr_3mpi_MultiPrecisionInteger, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -3446,7 +3446,7 @@ static PyTypeObject __pyx_type_3mpi_MultiPrecisionInteger = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_3mpi_MultiPrecisionInteger, /*tp_methods*/
+  __pyx_methods_3src_3gcr_3mpi_MultiPrecisionInteger, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -3458,7 +3458,7 @@ static PyTypeObject __pyx_type_3mpi_MultiPrecisionInteger = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_3mpi_MultiPrecisionInteger, /*tp_new*/
+  __pyx_tp_new_3src_3gcr_3mpi_MultiPrecisionInteger, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -3525,7 +3525,6 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_is_coroutine, __pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 0, 1, 1},
     {&__pyx_kp_u_isenabled, __pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0, 0},
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
-    {&__pyx_n_s_mpi, __pyx_k_mpi, sizeof(__pyx_k_mpi), 0, 0, 1, 1},
     {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
     {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
     {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
@@ -3541,6 +3540,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
     {&__pyx_n_s_setstate, __pyx_k_setstate, sizeof(__pyx_k_setstate), 0, 0, 1, 1},
     {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
+    {&__pyx_n_s_src_gcr_mpi, __pyx_k_src_gcr_mpi, sizeof(__pyx_k_src_gcr_mpi), 0, 0, 1, 1},
     {&__pyx_n_s_state, __pyx_k_state, sizeof(__pyx_k_state), 0, 0, 1, 1},
     {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
     {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -3665,27 +3665,27 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_3mpi_MultiPrecisionInteger = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_3mpi_MultiPrecisionInteger_spec, NULL); if (unlikely(!__pyx_ptype_3mpi_MultiPrecisionInteger)) __PYX_ERR(1, 3, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_3mpi_MultiPrecisionInteger_spec, __pyx_ptype_3mpi_MultiPrecisionInteger) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger_spec, NULL); if (unlikely(!__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger)) __PYX_ERR(1, 3, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger_spec, __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   #else
-  __pyx_ptype_3mpi_MultiPrecisionInteger = &__pyx_type_3mpi_MultiPrecisionInteger;
+  __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger = &__pyx_type_3src_3gcr_3mpi_MultiPrecisionInteger;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_3mpi_MultiPrecisionInteger) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
-  __pyx_ptype_3mpi_MultiPrecisionInteger->tp_print = 0;
+  __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger->tp_print = 0;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_3mpi_MultiPrecisionInteger->tp_dictoffset && __pyx_ptype_3mpi_MultiPrecisionInteger->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_ptype_3mpi_MultiPrecisionInteger->tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger->tp_dictoffset && __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger->tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MultiPrecisionInteger, (PyObject *) __pyx_ptype_3mpi_MultiPrecisionInteger) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_MultiPrecisionInteger, (PyObject *) __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_3mpi_MultiPrecisionInteger) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   #endif
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -3968,14 +3968,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_mpi) {
+  if (__pyx_module_is_main_src__gcr__mpi) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(1, 3, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "mpi")) {
-      if (unlikely((PyDict_SetItemString(modules, "mpi", __pyx_m) < 0))) __PYX_ERR(1, 3, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "src.gcr.mpi")) {
+      if (unlikely((PyDict_SetItemString(modules, "src.gcr.mpi", __pyx_m) < 0))) __PYX_ERR(1, 3, __pyx_L1_error)
     }
   }
   #endif
@@ -4001,11 +4001,11 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3mpi_21MultiPrecisionInteger_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MultiPrecisionInteger___reduce_c, NULL, __pyx_n_s_mpi, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3src_3gcr_3mpi_21MultiPrecisionInteger_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MultiPrecisionInteger___reduce_c, NULL, __pyx_n_s_src_gcr_mpi, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_3mpi_MultiPrecisionInteger, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_3mpi_MultiPrecisionInteger);
+  PyType_Modified(__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger);
 
   /* "(tree fragment)":16
  *     else:
@@ -4013,23 +4013,23 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_MultiPrecisionInteger__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3mpi_21MultiPrecisionInteger_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MultiPrecisionInteger___setstate, NULL, __pyx_n_s_mpi, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3src_3gcr_3mpi_21MultiPrecisionInteger_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_MultiPrecisionInteger___setstate, NULL, __pyx_n_s_src_gcr_mpi, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_3mpi_MultiPrecisionInteger, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_3mpi_MultiPrecisionInteger);
+  PyType_Modified(__pyx_ptype_3src_3gcr_3mpi_MultiPrecisionInteger);
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_MultiPrecisionInteger(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3mpi_1__pyx_unpickle_MultiPrecisionInteger, 0, __pyx_n_s_pyx_unpickle_MultiPrecisionInt, NULL, __pyx_n_s_mpi, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3src_3gcr_3mpi_1__pyx_unpickle_MultiPrecisionInteger, 0, __pyx_n_s_pyx_unpickle_MultiPrecisionInt, NULL, __pyx_n_s_src_gcr_mpi, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_MultiPrecisionInt, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mpi.pyx":3
+  /* "src/gcr/mpi.pyx":3
  * 
  * 
  * cdef class MultiPrecisionInteger():             # <<<<<<<<<<<<<<
@@ -4047,7 +4047,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init mpi", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init src.gcr.mpi", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -4061,7 +4061,7 @@ if (!__Pyx_RefNanny) {
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init mpi");
+    PyErr_SetString(PyExc_ImportError, "init src.gcr.mpi");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

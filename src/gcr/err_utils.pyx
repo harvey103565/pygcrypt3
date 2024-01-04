@@ -12,7 +12,7 @@ from cython import cast, p_uchar, p_char
 from ..errors import GcrSexpFormatError
 
 
-cdef void on_err_raise (err_code: gcry_error_t, str_src: p_char):
+cdef void on_err_raise (gcry_error_t err_code, char * str_src):
 
     if not err_code:
         return

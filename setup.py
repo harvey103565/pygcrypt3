@@ -29,7 +29,7 @@ grcy_demo_sources =  [
 ]
 
 s_exp_sources =  [
-    "./src/gcr/cerr.pyx",
+    "./src/gcr/err_utils.pyx",
     "./src/gcr/mpi.pyx",
     "./src/gcr/s_exp.pyx",
 ]
