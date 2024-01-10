@@ -23,15 +23,13 @@ from .gcry_err cimport gcry_error_t
 from .gcry_mpi cimport gcry_mpi_t
 from .err_utils cimport on_err_raise
 
+from .mpi cimport MultiPrecisionInteger
 
 ##  Python imports
 from typing import Iterator, NoReturn, Self
 
-# import cython
+
 import cython
-
-from .mpi cimport MultiPrecisionInteger
-
 from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpOutOfBoundaryError
 
 
@@ -278,22 +276,29 @@ cdef class SymbolicExpression():
         """
         cdef size_t len_cnt = 0
 
-        len_cnt = gcry_sexp_sprint (self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
+        len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
 
         assert len_cnt > 0
         return len_cnt
 
 
     @staticmethod
-    cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, hodler: bint = False):
+    cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, holder: bint = False):
         """Create 
         """
+        cdef size_t len_cnt = 0
+        cdef char[1024] buff
+
         assert s_exp
 
         cdef SymbolicExpression wrapper_object = SymbolicExpression.__new__(SymbolicExpression)
 
+        len_cnt = gcry_sexp_sprint(s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buff, 0)
+
+        print(f"expression len: {len_cnt}; {cython.cast(bytes, buff).decode('utf-8')}")
+
         wrapper_object._s_exp = s_exp
-        wrapper_object._holder = hodler
+        wrapper_object._holder = holder
 
         return wrapper_object
 
