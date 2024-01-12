@@ -28,9 +28,8 @@ from .mpi cimport MultiPrecisionInteger
 ##  Python imports
 from typing import Iterator, NoReturn, Self
 
-
 import cython
-from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpOutOfBoundaryError
+from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpNilError, GcrSexpOutOfBoundaryError
 
 
 cdef class SymbolicExpression():
@@ -182,15 +181,10 @@ cdef class SymbolicExpression():
         """
         return the item count number of the S-Expression, in the list perspect of view (including car)
         """
-        cdef int lst_cnt = 0
-
-        lst_cnt = gcry_sexp_length(self._s_exp)
-
-        assert lst_cnt > 0
-        return lst_cnt
+        return gcry_sexp_length(self._s_exp)
 
 
-    def __getattr__(self: Self, name: str) -> tuple[bytes]:
+    def __getattr__(self: Self, name: str) -> Self:
         """
             S-Express has a basic form (car . cdr)
             use object.car or object.cdr to get corresponding value
@@ -198,28 +192,33 @@ cdef class SymbolicExpression():
         cdef size_t      data_len = 0
         cdef gcry_sexp_t tar_s_exp = NULL
 
-        c_name_str: bytes = name.encode('utf-8')
+        c_name_str: bytes = name.encode(SymbolicExpression._DEFAULT_ENCODING_)
 
         tar_s_exp = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, c_name_str), data_len)
         SymbolicExpression._on_null_expression_raise(tar_s_exp)
 
+        tar_s_exp = gcry_sexp_nth(tar_s_exp, 1)
+        return SymbolicExpression.from_exp_t(tar_s_exp)
+
+
 
     def __hasattr__(self: Self, name: str) -> bool:
-        return False
+        bin_name = name.encode(SymbolicExpression._DEFAULT_ENCODING_)
+        p = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, bin_name), len(name))
+
+        return True if p else False
 
 
     def __getitem__(self: Self, index: int) -> Self:
         """
             use index to get an expression
         """
-        cdef gcry_sexp_t sub_s_exp = NULL
 
-        assert index and isinstance(index, int)
+        if not index < len(self):
+            raise IndexError('Index out of range', [f"index={index}", f"lenght:{len(self)}"])
 
         sub_s_exp = gcry_sexp_nth(self._s_exp, index)
-        SymbolicExpression._on_null_expression_raise(sub_s_exp)
-
-        return SymbolicExpression.from_exp_t(sub_s_exp)   
+        return SymbolicExpression.from_exp_t(sub_s_exp)
 
 
     @property
@@ -234,33 +233,28 @@ cdef class SymbolicExpression():
     @property
     def cdr(self: Self) -> Self:
 
-        cdef size_t len_cnt = 0
-        cdef char[1024] buff
-
         cdef gcry_sexp_t sub_s_exp = gcry_sexp_cdr(self._s_exp)
         SymbolicExpression._on_null_expression_raise(sub_s_exp)
  
-        len_cnt = gcry_sexp_sprint(sub_s_exp, gcry_sexp_format.GCRYSEXP_FMT_DEFAULT, buff, 0)
-
         return SymbolicExpression.from_exp_t(sub_s_exp)
-
 
     @property
     def data(self: Self) -> bytes:
         """ data()
         Get data in bytes from expression
         """
-
         cdef size_t data_len = 0
-        cdef gcry_sexp_t p_s_exp = NULL
-        cdef const char * p_data = NULL
+        cdef const char * data_ptr = NULL
 
         if not self.is_atom():
             # TODO: raise when this is not a plain data
             raise
 
-        p_data = gcry_sexp_nth_data(p_s_exp, 0, &data_len)
-        return cython.cast(bytes, p_data[:data_len])
+        if self.__len__() != 1:
+            raise
+
+        data_ptr = gcry_sexp_nth_data(self._s_exp, 0, &data_len)
+        return cython.cast(bytes, data_ptr[:data_len])
 
 
     @property
@@ -301,7 +295,7 @@ cdef class SymbolicExpression():
 
     @staticmethod
     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, holder: bint = False):
-        """Create Sym
+        """Create SymbolicExpression from gcry_s_expression
         """
 
         assert s_exp
@@ -318,5 +312,5 @@ cdef class SymbolicExpression():
     cdef void _on_null_expression_raise(gcry_sexp_t s_exp):
         if s_exp == NULL:
             # TODO: raise proper Exception
-            raise 
+            raise GcrSexpNilError("nil expression")
 

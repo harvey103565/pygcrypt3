@@ -208,8 +208,14 @@ cdef extern from "gcrypt.h":
     #       the parameter ’x’ as an opaque MPI into mpi_x, 
     #       the parameters ’e’ and ’d’ again as an unsigned MPI into mpi_e and mpi_d 
     #       and finally the parameter ’foo’ as a signed MPI into mpi_foo.
-    # path is an optional string used to locate a token. The exclamation mark separated tokens are used via gcry_sexp_find_token to find a start point inside the S-expression.
-    # In buffer descriptor mode a pointer to a gcry_buffer_t descriptor is expected instead of a pointer to an MPI. The caller may use two different operation modes here: If the data field of the provided descriptor is NULL, the function allocates a new buffer and stores it at data; the other fields are set accordingly with off set to 0. If data is not NULL, the function assumes that the data, size, and off fields specify a buffer where to put the value of the respective parameter; on return the len field receives the number of bytes copied to that buffer; in case the buffer is too small, the function immediately returns with an error code (and len is set to 0).
+    # path is an optional string used to locate a token. The exclamation mark separated tokens are used via gcry_sexp_find_token to find a start point 
+    # inside the S-expression.
+    # In buffer descriptor mode a pointer to a gcry_buffer_t descriptor is expected instead of a pointer to an MPI. 
+    # The caller may use two different operation modes here: If the data field of the provided descriptor is NULL, 
+    # the function allocates a new buffer and stores it at data; the other fields are set accordingly with off set to 0. 
+    # If data is not NULL, the function assumes that the data, size, and off fields specify a buffer where to put the value of the respective parameter; 
+    # on return the len field receives the number of bytes copied to that buffer; in case the buffer is too small, the function immediately returns 
+    # with an error code (and len is set to 0).
     # The function returns 0 on success. On error an error code is returned, all passed MPIs that might have been allocated up to this point are deallocated and set to NULL, and all passed buffers are either truncated if the caller supplied the buffer, or deallocated if the function allocated the buffer.
     # """
     gpg_error_t gcry_sexp_extract_param ( gcry_sexp_t sexp, const char *path, const char *list, ...)

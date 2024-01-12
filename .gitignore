@@ -166,4 +166,4 @@ cython_debug/
 # vscode
 .vscode/
 
-./src/gcr/*.c
+src/gcr/*.c

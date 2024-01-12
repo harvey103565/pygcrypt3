@@ -24,14 +24,11 @@ more information, such as the ld(1) and ld.so(8) manual pages.
 """
 
 
-grcy_demo_sources =  [
-    "./src/gcr/gcr_demo.pyx"
-]
-
-s_exp_sources =  [
+gcr_sources =  [
     "./src/gcr/err_utils.pyx",
     "./src/gcr/mpi.pyx",
     "./src/gcr/s_exp.pyx",
+    "./src/gcr/gcr_demo.pyx"
 ]
 
 c_include_dirs = ["/usr/include/python3.11", "/usr/local/include"]
@@ -43,15 +40,9 @@ extension = []
 setup(ext_modules=cythonize([
 
         Extension("src.gcr.pygcr", 
-                    s_exp_sources, 
+                    gcr_sources, 
                     include_dirs=c_include_dirs, 
                     libraries=c_libraries, 
                     library_dirs=c_library_dirs),
-
-        # Extension("src.gcr.gcr_demo", 
-        #             grcy_demo_sources, 
-        #             include_dirs=c_include_dirs, 
-        #             libraries=c_libraries, 
-        #             library_dirs=c_library_dirs)
       ])
 )

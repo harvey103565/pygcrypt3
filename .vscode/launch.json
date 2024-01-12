@@ -8,8 +8,7 @@
             "name": "Python: Unit-Test",
             "type": "python",
             "request": "launch",
-            "program": "./__init__.py",
-            "console": "integratedTerminal",
+            "program": "./run_test.py",
             "justMyCode": true
         }
     ]
