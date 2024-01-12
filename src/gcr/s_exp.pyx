@@ -95,11 +95,11 @@ cdef class SymbolicExpression():
     _DEFAULT_ENCODING_ = 'utf-8'
 
     cdef gcry_sexp_t _s_exp
-    cdef cython.bint _holder
+    cdef cython.bint _c_obj_holder
 
     def __cinit__(self: Self, exp_str: str = None) -> NoReturn:
         """ __cinit__
-
+        Create SymbolicExpression object from string syntax.
         """
         cdef size_t       offset = 0
         cdef gcry_error_t e_code = 0
@@ -107,11 +107,11 @@ cdef class SymbolicExpression():
 
         if exp_str:
             s_exp_bin_s: bytes = exp_str.encode(SymbolicExpression._DEFAULT_ENCODING_)
-            e_code = gcry_sexp_sscan(&self._s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
 
+            e_code = gcry_sexp_sscan(&self._s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
             on_err_raise(e_code, s_exp_bin_s[ : offset])
 
-            self._holder = True
+            self._c_obj_holder = True
 
 
     def __dealloc__(self):
@@ -119,7 +119,7 @@ cdef class SymbolicExpression():
         Called right before SymbolicExpression object is released. Do cleaning up here.
         """
 
-        if self._holder and self._s_exp:
+        if self._c_obj_holder and self._s_exp:
             gcry_sexp_release(self._s_exp)
             self._s_exp = NULL
 
@@ -137,31 +137,43 @@ cdef class SymbolicExpression():
 
     def __repr__(self: Self) -> str:
         """ __repr__() function
-
         Export the string form of the S-Expression.
-
         """
         cdef size_t len_cnt = 0
         cdef char * mem_buf = NULL
 
         try:
-            len_cnt = self.size()
-            len_cnt = len_cnt + 4
+            len_cnt = self.size() + 4
             mem_buf = cython.cast(cython.p_char, malloc(len_cnt))
 
             len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, mem_buf, len_cnt)
-
-            # TODO: logging 
-
-        except:
-            # TODO: logging
-            pass
-
+        except Exception as e:
+            print(f"Error serializing s-expression object. {e} with context: {e.args}")
         else:
             return cython.cast(bytes, mem_buf[:len_cnt])
 
         finally:
+            if mem_buf:
+                free(mem_buf)
 
+    def __str__(self):
+        """ __str__() function
+        Return S-Expression object in readable format.
+        """
+        cdef size_t len_cnt = 0
+        cdef char * mem_buf = NULL
+
+        try:
+            len_cnt = self.size() + 4
+            mem_buf = cython.cast(cython.p_char, malloc(len_cnt))
+
+            len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, mem_buf, len_cnt)
+        except Exception as e:
+            print(f"Error serializing s-expression object. {e} with context: {e.args}")
+        else:
+            return cython.cast(bytes, mem_buf[:len_cnt]).decode(SymbolicExpression._DEFAULT_ENCODING_)
+
+        finally:
             if mem_buf:
                 free(mem_buf)
 
@@ -222,9 +234,14 @@ cdef class SymbolicExpression():
     @property
     def cdr(self: Self) -> Self:
 
+        cdef size_t len_cnt = 0
+        cdef char[1024] buff
+
         cdef gcry_sexp_t sub_s_exp = gcry_sexp_cdr(self._s_exp)
         SymbolicExpression._on_null_expression_raise(sub_s_exp)
-        
+ 
+        len_cnt = gcry_sexp_sprint(sub_s_exp, gcry_sexp_format.GCRYSEXP_FMT_DEFAULT, buff, 0)
+
         return SymbolicExpression.from_exp_t(sub_s_exp)
 
 
@@ -284,21 +301,15 @@ cdef class SymbolicExpression():
 
     @staticmethod
     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, holder: bint = False):
-        """Create 
+        """Create Sym
         """
-        cdef size_t len_cnt = 0
-        cdef char[1024] buff
 
         assert s_exp
 
         cdef SymbolicExpression wrapper_object = SymbolicExpression.__new__(SymbolicExpression)
 
-        len_cnt = gcry_sexp_sprint(s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buff, 0)
-
-        print(f"expression len: {len_cnt}; {cython.cast(bytes, buff).decode('utf-8')}")
-
         wrapper_object._s_exp = s_exp
-        wrapper_object._holder = holder
+        wrapper_object._c_obj_holder = holder
 
         return wrapper_object
 
