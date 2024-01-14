@@ -11,16 +11,21 @@ try:
     car = s_exp.car
     cdr = s_exp.cdr
 
-    assert isinstance(car, SymbolicExpression)
-    assert isinstance(cdr, SymbolicExpression)
+    assert isinstance(car, bytes)
+    assert isinstance(cdr, bytes)
 
-    assert car.data == b'a'
-    assert cdr.data == b'b'
+    assert car == b'a'
+    assert cdr == b'b'
 
     assert len(car) == 1
     assert len(cdr) == 1
 
     assert len(s_exp) == 4
+
+    for exp in s_exp:
+        assert isinstance(exp, SymbolicExpression)
+        for sub_exp in exp:
+            print(f"{exp} - {sub_exp}")
 
     # Indexability
     for i in range(len(s_exp)):

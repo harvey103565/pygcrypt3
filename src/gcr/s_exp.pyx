@@ -26,7 +26,7 @@ from .err_utils cimport on_err_raise
 from .mpi cimport MultiPrecisionInteger
 
 ##  Python imports
-from typing import Iterator, NoReturn, Self
+from typing import NoReturn, Self, Generator
 
 import cython
 from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpNilError, GcrSexpOutOfBoundaryError
@@ -96,25 +96,23 @@ cdef class SymbolicExpression():
     cdef gcry_sexp_t _s_exp
     cdef cython.bint _c_obj_holder
 
-    def __cinit__(self: Self, exp_str: str = None) -> NoReturn:
-        """ __cinit__
+    def __cinit__(self: Self, s_exp_bin_str: bytes = None) -> NoReturn:
+        """ __cinit__()
         Create SymbolicExpression object from string syntax.
         """
         cdef size_t       offset = 0
         cdef gcry_error_t e_code = 0
         self._s_exp = NULL
 
-        if exp_str:
-            s_exp_bin_s: bytes = exp_str.encode(SymbolicExpression._DEFAULT_ENCODING_)
-
-            e_code = gcry_sexp_sscan(&self._s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
-            on_err_raise(e_code, s_exp_bin_s[ : offset])
+        if s_exp_bin_str:
+            e_code = gcry_sexp_sscan(&self._s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_str), len(s_exp_bin_str))
+            on_err_raise(e_code, s_exp_bin_str[ : offset])
 
             self._c_obj_holder = True
 
 
-    def __dealloc__(self):
-        """ __dealloc__
+    def __dealloc__(self: Self):
+        """ __dealloc__()
         Called right before SymbolicExpression object is released. Do cleaning up here.
         """
 
@@ -122,42 +120,30 @@ cdef class SymbolicExpression():
             gcry_sexp_release(self._s_exp)
             self._s_exp = NULL
 
+    def iterator(self: Self):
+        cdef size_t cnt = gcry_sexp_length(self._s_exp)
+        for i in range(cnt):
+            exp_p = gcry_sexp_nth(self._s_exp, i)
+            yield SymbolicExpression.from_exp_t(exp_p)
 
-    def __next__(self: Self) -> Self:
-        
+    def _iter(self: Self) -> Generator:
+        """ _iter() magic method Generator protocol
+        """
+        self._iter = self.iterator()
+
+    def __next__(self: Self) -> NoReturn:
+        """ __next__() magic method Generator protocol
+        """
         try:
             assert self._iter
-            
             self._iter.__next__()
         except StopIteration as stop_sig:
             self._iter = None
             raise stop_sig
 
-
-    def __repr__(self: Self) -> str:
-        """ __repr__() function
-        Export the string form of the S-Expression.
-        """
-        cdef size_t len_cnt = 0
-        cdef char * mem_buf = NULL
-
-        try:
-            len_cnt = self.size() + 4
-            mem_buf = cython.cast(cython.p_char, malloc(len_cnt))
-
-            len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, mem_buf, len_cnt)
-        except Exception as e:
-            print(f"Error serializing s-expression object. {e} with context: {e.args}")
-        else:
-            return cython.cast(bytes, mem_buf[:len_cnt])
-
-        finally:
-            if mem_buf:
-                free(mem_buf)
-
-    def __str__(self):
-        """ __str__() function
-        Return S-Expression object in readable format.
+    def __str__(self: Self):
+        """ __str__() magic method for built in function: str()
+        Serialize expression
         """
         cdef size_t len_cnt = 0
         cdef char * mem_buf = NULL
@@ -177,15 +163,15 @@ cdef class SymbolicExpression():
                 free(mem_buf)
 
 
-    def __len__(self) -> int:
-        """
+    def __len__(self: Self) -> int:
+        """ __len__() magic method for built in function: len() 
         return the item count number of the S-Expression, in the list perspect of view (including car)
         """
         return gcry_sexp_length(self._s_exp)
 
 
     def __getattr__(self: Self, name: str) -> Self:
-        """
+        """ __getattr__() magic method for '.property' accessing
             S-Express has a basic form (car . cdr)
             use object.car or object.cdr to get corresponding value
         """
@@ -201,17 +187,9 @@ cdef class SymbolicExpression():
         return SymbolicExpression.from_exp_t(tar_s_exp)
 
 
-
-    def __hasattr__(self: Self, name: str) -> bool:
-        bin_name = name.encode(SymbolicExpression._DEFAULT_ENCODING_)
-        p = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, bin_name), len(name))
-
-        return True if p else False
-
-
     def __getitem__(self: Self, index: int) -> Self:
-        """
-            use index to get an expression
+        """ __getitem__() magic method for [] operation
+        Use index to get an expression from given
         """
 
         if not index < len(self):
@@ -222,26 +200,40 @@ cdef class SymbolicExpression():
 
 
     @property
-    def car(self: Self) -> Self:
+    def car(self: Self) -> bytes:
+        """ car() 
+        Return data in bytes from expression's car
+        NOTE: libgcry always return atom expression when calling gcry_sexp_car()
+        """
+        cdef size_t data_len = 0
+        cdef const char * data_ptr = NULL
 
         cdef gcry_sexp_t sub_s_exp = gcry_sexp_car(self._s_exp)
         SymbolicExpression._on_null_expression_raise(sub_s_exp)
         
-        return SymbolicExpression.from_exp_t(sub_s_exp)
+        data_ptr = gcry_sexp_nth_data(sub_s_exp, 0, &data_len)
+        return cython.cast(bytes, data_ptr[:data_len])
 
 
     @property
-    def cdr(self: Self) -> Self:
+    def cdr(self: Self) -> bytes:
+        """ cdr()
+        Return data in bytes from expression's cdr
+        NOTE: libgcry always return atom expression when calling gcry_sexp_cdr()
+        """
+        cdef size_t data_len = 0
+        cdef const char * data_ptr = NULL
 
         cdef gcry_sexp_t sub_s_exp = gcry_sexp_cdr(self._s_exp)
         SymbolicExpression._on_null_expression_raise(sub_s_exp)
  
-        return SymbolicExpression.from_exp_t(sub_s_exp)
+        data_ptr = gcry_sexp_nth_data(sub_s_exp, 0, &data_len)
+        return cython.cast(bytes, data_ptr[:data_len])
 
     @property
     def data(self: Self) -> bytes:
         """ data()
-        Get data in bytes from expression
+        Return data in bytes from expression
         """
         cdef size_t data_len = 0
         cdef const char * data_ptr = NULL
@@ -275,7 +267,7 @@ cdef class SymbolicExpression():
 
 
     def is_atom(self: Self) -> bool:
-        """
+        """ is_atom()
         If there is only one data bolb contained in expression, it is an atom.
         """
         return (1 == len(self))
@@ -295,9 +287,9 @@ cdef class SymbolicExpression():
 
     @staticmethod
     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, holder: bint = False):
-        """Create SymbolicExpression from gcry_s_expression
+        """ from_exp_t()
+        StaticClass method to create SymbolicExpression object directly from gcry_s_expression
         """
-
         assert s_exp
 
         cdef SymbolicExpression wrapper_object = SymbolicExpression.__new__(SymbolicExpression)
