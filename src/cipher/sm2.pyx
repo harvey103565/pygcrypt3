@@ -10,10 +10,8 @@ from typing import Union
 
 import cython
 
-from webapps.modules.pygcrypt.errors import GcryptException
-
-from cython.cimports.libc.stdlib import malloc, free
-from cython.cimports.libc.string import strlen
+from libc.stdlib cimport malloc, free
+from libc.string cimport strlen
 
 
 from ..gcr.s_exp cimport SymbolicExpression

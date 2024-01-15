@@ -93,8 +93,8 @@ cdef class SymbolicExpression():
 
     _DEFAULT_ENCODING_ = 'utf-8'
 
-    cdef gcry_sexp_t _s_exp
-    cdef cython.bint _c_obj_holder
+    # cdef gcry_sexp_t _s_exp
+    # cdef cython.bint _c_obj_holder
 
     def __cinit__(self: Self, s_exp_bin_str: bytes = None) -> NoReturn:
         """ __cinit__()
@@ -124,22 +124,22 @@ cdef class SymbolicExpression():
         cdef size_t cnt = gcry_sexp_length(self._s_exp)
         for i in range(cnt):
             exp_p = gcry_sexp_nth(self._s_exp, i)
-            yield SymbolicExpression.from_exp_t(exp_p)
+            yield SymbolicExpression.from_exp_t(exp_p, True)
 
     def _iter(self: Self) -> Generator:
         """ _iter() magic method Generator protocol
         """
-        self._iter = self.iterator()
+        return self.iterator()
 
-    def __next__(self: Self) -> NoReturn:
-        """ __next__() magic method Generator protocol
-        """
-        try:
-            assert self._iter
-            self._iter.__next__()
-        except StopIteration as stop_sig:
-            self._iter = None
-            raise stop_sig
+    # def __next__(self: Self) -> NoReturn:
+    #     """ __next__() magic method Generator protocol
+    #     """
+    #     try:
+    #         assert self._iter
+    #         self._iter.__next__()
+    #     except StopIteration as stop_sig:
+    #         self._iter = None
+    #         raise stop_sig
 
     def __str__(self: Self):
         """ __str__() magic method for built in function: str()
@@ -184,7 +184,7 @@ cdef class SymbolicExpression():
         SymbolicExpression._on_null_expression_raise(tar_s_exp)
 
         tar_s_exp = gcry_sexp_nth(tar_s_exp, 1)
-        return SymbolicExpression.from_exp_t(tar_s_exp)
+        return SymbolicExpression.from_exp_t(tar_s_exp, True)
 
 
     def __getitem__(self: Self, index: int) -> Self:
@@ -196,7 +196,7 @@ cdef class SymbolicExpression():
             raise IndexError('Index out of range', [f"index={index}", f"lenght:{len(self)}"])
 
         sub_s_exp = gcry_sexp_nth(self._s_exp, index)
-        return SymbolicExpression.from_exp_t(sub_s_exp)
+        return SymbolicExpression.from_exp_t(sub_s_exp, True)
 
 
     @property
@@ -286,7 +286,7 @@ cdef class SymbolicExpression():
 
 
     @staticmethod
-    cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, holder: bint = False):
+    cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, cython.bint holder=True):
         """ from_exp_t()
         StaticClass method to create SymbolicExpression object directly from gcry_s_expression
         """

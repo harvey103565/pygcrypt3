@@ -1,16 +1,15 @@
-from .gcry_err cimport gcry_error_t, gcry_buffer_t
+# cython: c_string_type=unicode, c_string_encoding=utf8
+# cython: language_level=3
+
+from .gcry_comm cimport gcry_error_t, gcry_buffer_t, gpg_error_t
+from .gcry_comm cimport gcry_sexp_t
 from .gcry_mpi cimport gcry_mpi_t
-from .gcry_err cimport gpg_error_t
 
 ctypedef unsigned char * s_exp_str_t
 
 
 cdef extern from "gcrypt.h":
 
-
-    ctypedef struct gcry_sexp:
-        pass
-    ctypedef gcry_sexp* gcry_sexp_t
 
     ctypedef void (* p_freefnc) (void* )
 

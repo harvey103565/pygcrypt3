@@ -1,8 +1,9 @@
+
 from ..gcr import gcr_demo
 from ..gcr.s_exp import SymbolicExpression
 
 try:
-    s_exp = SymbolicExpression('(a b (c d) ((e f) g h))')
+    s_exp = SymbolicExpression(b'(a b (c d) ((e f) g h))')
 
     # basic function
     assert s_exp.car
@@ -42,6 +43,4 @@ try:
 except Exception as e:
     print(e)
 finally:
-    pass
-
-print("ALL test case done.")
+    print("ALL test case done.")

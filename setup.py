@@ -28,7 +28,8 @@ gcr_sources =  [
     "./src/gcr/err_utils.pyx",
     "./src/gcr/mpi.pyx",
     "./src/gcr/s_exp.pyx",
-    "./src/gcr/gcr_demo.pyx"
+    "./src/gcr/gcr_demo.pyx",
+    # "./src/cipher/sm2.pyx"
 ]
 
 c_include_dirs = ["/usr/include/python3.11", "/usr/local/include"]
