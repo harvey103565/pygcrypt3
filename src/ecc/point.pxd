@@ -2,7 +2,5 @@
 # cython: language_level=3
 
 
-from ..gcr
-
-cdef class EllipticCurve():
-    cdef gcry_ctx_t ec_ctx
+cdef class ECPoint:
+    pass

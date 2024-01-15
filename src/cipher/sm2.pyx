@@ -593,7 +593,7 @@ cdef class Sm2():
 
         s_exp_key = GM_T_0003_2_SM2.s_exp_wrapped(s_value=key_hex)
 
-        s_exp_bin_s = f"({'public-key' if pub_key else 'private-key'} (ecc (curve {GM_T_0003_2_SM2._CANON_NAME_}) ({'q' if pub_key else 'd'} {s_exp_key})))".encode('utf-8')
+        
 
         err_code = gcr.gcry_sexp_sscan(&key_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
         GM_T_0003_2_SM2.check_err_no_for_exception(err_code)

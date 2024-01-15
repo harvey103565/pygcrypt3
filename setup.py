@@ -26,7 +26,7 @@ more information, such as the ld(1) and ld.so(8) manual pages.
 
 gcr_sources =  [
     "./src/gcr/loader.py",
-    "./src/gcr/err_utils.pyx",
+    "./src/gcr/utils.pyx",
     "./src/gcr/mpi.pyx",
     "./src/gcr/s_exp.pyx",
     "./src/gcr/gcry_post.pyx",

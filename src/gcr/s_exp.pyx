@@ -21,7 +21,7 @@ from .gcry_s_exp cimport gcry_sexp_t, \
 
 from .gcry_err cimport gcry_error_t
 from .gcry_mpi cimport gcry_mpi_t
-from .err_utils cimport on_err_raise
+from .utils cimport on_err_raise
 
 from .mpi cimport MultiPrecisionInteger
 
