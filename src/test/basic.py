@@ -1,5 +1,6 @@
 
-from ..gcr import gcr_demo
+from ..gcr import loader
+from ..gcr import gcry_post
 from ..gcr.s_exp import SymbolicExpression
 
 try:

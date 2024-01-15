@@ -25,10 +25,11 @@ more information, such as the ld(1) and ld.so(8) manual pages.
 
 
 gcr_sources =  [
+    "./src/gcr/loader.py",
     "./src/gcr/err_utils.pyx",
     "./src/gcr/mpi.pyx",
     "./src/gcr/s_exp.pyx",
-    "./src/gcr/gcr_demo.pyx",
+    "./src/gcr/gcry_post.pyx",
     # "./src/cipher/sm2.pyx"
 ]
 
@@ -40,7 +41,7 @@ extension = []
 
 setup(ext_modules=cythonize([
 
-        Extension("src.gcr.pygcr", 
+        Extension("src.gcr.loader", 
                     gcr_sources, 
                     include_dirs=c_include_dirs, 
                     libraries=c_libraries, 
