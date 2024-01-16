@@ -1,4 +1,4 @@
-print(f"Programe entry point: file: {__file__}; name: {__name__}; package: {__package__}")
+print(f"Programe loader >>> file: {__file__}; name: {__name__}; package: {__package__}")
 
 import sys
 import importlib.machinery
@@ -17,10 +17,8 @@ class GcryMetaPathFinder(MetaPathFinder):
 
     def find_spec(self, fullname, path, target=None):
         if fullname.startswith(self.package_name):
-            print(f"loading module {fullname} from {__file__}")
             # use this extension-file but PyInit-function of another module:
             loader = importlib.machinery.ExtensionFileLoader(fullname, __file__)
-            # loader = importlib.machinery.ExtensionFileLoader(fullname, f"{dirname(__file__)}/pygcr.cpython-311-x86_64-linux-gnu.so")
             return importlib.util.spec_from_loader(fullname, loader)
 
 # For illustrative purposes only.

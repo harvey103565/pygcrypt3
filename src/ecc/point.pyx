@@ -2,5 +2,8 @@
 # cython: language_level=3
 
 
-cdef class ECPoint:
+from ..gcr.gcry_mpi cimport gcry_mpi_t
+
+
+cdef class ECPoint():
     pass

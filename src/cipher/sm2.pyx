@@ -14,7 +14,7 @@ from libc.stdlib cimport malloc, free
 from libc.string cimport strlen
 
 
-from ..gcr.s_exp cimport SymbolicExpression
+from ..s_exp cimport SymbolicExpression
 
 
 cdef class Sm2():
@@ -47,10 +47,10 @@ cdef class Sm2():
 
     cdef SymbolicExpression _pub_key_exp
 
-    # cdef gcr.gcry_sexp_t _a_pub_key_s_exp
+    # cdef gcry_sexp_t _a_pub_key_s_exp
     cdef SymbolicExpression _sec_key_exp
 
-    # cdef gcr.gcry_ctx_t _ecc_curve_ctx
+    # cdef gcry_ctx_t _ecc_curve_ctx
 
     _Qa: bytes
     _e: bytes
@@ -80,26 +80,26 @@ cdef class Sm2():
     def __dealloc__(self):
 
         if self._pub_key_exp:
-            gcr.gcry_sexp_release(self._pub_key_exp)
+            gcry_sexp_release(self._pub_key_exp)
             self._pub_key_exp = NULL
 
         if self._sec_key_exp:
-            gcr.gcry_sexp_release(self._sec_key_exp)
+            gcry_sexp_release(self._sec_key_exp)
             self._sec_key_exp = NULL
 
         if self._a_pub_key_s_exp:
-            gcr.gcry_sexp_release(self._a_pub_key_s_exp)
+            gcry_sexp_release(self._a_pub_key_s_exp)
             self._a_pub_key_s_exp = NULL
 
         if self._ecc_curve_ctx:
-            gcr.gcry_ctx_release(self._ecc_curve_ctx)
+            gcry_ctx_release(self._ecc_curve_ctx)
             self._ecc_curve_ctx = NULL
 
 
     def verify(self, signature :Union[str, bytes]=None, _M :Union[str, bytes]=None, asn1 :bool=False) -> bool:
 
-        cdef gcr.gcry_sexp_t data_s_exp = NULL
-        cdef gcr.gcry_sexp_t sig_s_exp = NULL
+        cdef gcry_sexp_t data_s_exp = NULL
+        cdef gcry_sexp_t sig_s_exp = NULL
 
         try:
 
@@ -110,7 +110,7 @@ cdef class Sm2():
             # print(f"Verifying data: '_e': '{self._e.hex().upper()}' ;  '_M': '{_bM.hex().upper()}';  (@verify())")
             sig_s_exp = GM_T_0003_2_SM2.s_exp_signature(sig =signature)
 
-            err_code = gcr.gcry_pk_verify(sig_s_exp, data_s_exp, self._a_pub_key_s_exp)
+            err_code = gcry_pk_verify(sig_s_exp, data_s_exp, self._a_pub_key_s_exp)
             GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
             return True
@@ -121,10 +121,10 @@ cdef class Sm2():
 
         finally:
             if sig_s_exp:
-                gcr.gcry_sexp_release(sig_s_exp)
+                gcry_sexp_release(sig_s_exp)
 
             if data_s_exp:
-                gcr.gcry_sexp_release(data_s_exp)
+                gcry_sexp_release(data_s_exp)
 
 
 
@@ -132,13 +132,13 @@ cdef class Sm2():
         """
             signature_text = "(sig-val (sm2 (r #..hex32...#) (s #..hex32...#)))"
         """
-        cdef gcr.gcry_error_t err_code = 0
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t data_s_exp = NULL
-        cdef gcr.gcry_sexp_t sig_s_exp = NULL
+        cdef gcry_sexp_t data_s_exp = NULL
+        cdef gcry_sexp_t sig_s_exp = NULL
 
 #         " ====================== DEBUG SIGN-SELF GENERATED START ======================="
-#         cdef gcr.gcry_sexp_t pkey_s_exp = NULL
+#         cdef gcry_sexp_t pkey_s_exp = NULL
 #         cdef size_t size = 0
 #         cdef cython.p_char ch_buf = NULL
 #         " ====================== DEBUG SIGN-SELF GENERATED END ========================="
@@ -146,7 +146,7 @@ cdef class Sm2():
         try:
             data_s_exp = GM_T_0003_2_SM2.s_exp_data(data=data)
 
-            err_code = gcr.gcry_pk_sign(&sig_s_exp, data_s_exp, self._sec_key_exp)
+            err_code = gcry_pk_sign(&sig_s_exp, data_s_exp, self._sec_key_exp)
             GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
             r = GM_T_0003_2_SM2.extract_s_exp_mpi(sig_s_exp, self._SIGNATURE_R_, len(self._SIGNATURE_R_), 1)
@@ -157,10 +157,10 @@ cdef class Sm2():
 #             " ====================== DEBUG SIGN-SELF GENERATED START ======================="
 #             print(f" ========================= DEBUG SIGN-SELF GENERATED START =========================")
 
-#             size = gcr.gcry_sexp_sprint (sig_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
+#             size = gcry_sexp_sprint (sig_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
 #             ch_buf = cython.cast(cython.p_char, malloc(size + 5))
 
-#             size = gcr.gcry_sexp_sprint (sig_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, ch_buf, size + 5)
+#             size = gcry_sexp_sprint (sig_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, ch_buf, size + 5)
 #             print(f" SIGNATURE S-EXPRESS <{size}> {cython.cast(bytes, ch_buf)}")
 
 #             free (ch_buf)
@@ -172,7 +172,7 @@ cdef class Sm2():
 # """)
 
 #             pkey_s_exp = GM_T_0003_2_SM2.s_exp_key(True, key =b'\x04' + self._pub_key_octets)
-#             err_code = gcr.gcry_pk_verify(sig_s_exp, data_s_exp, pkey_s_exp)
+#             err_code = gcry_pk_verify(sig_s_exp, data_s_exp, pkey_s_exp)
 #             if err_code ==0:
 #                 print (f"sign() -- on filed pk_verify() signature MATCH!")
 
@@ -185,10 +185,10 @@ cdef class Sm2():
 
         finally:
             if data_s_exp:
-                gcr.gcry_sexp_release(data_s_exp)
+                gcry_sexp_release(data_s_exp)
 
             if sig_s_exp:
-                gcr.gcry_sexp_release(sig_s_exp)
+                gcry_sexp_release(sig_s_exp)
 
 
     def _Za(self, id :str='1234567812345678'):
@@ -212,16 +212,16 @@ cdef class Sm2():
 
 
     cdef bytes sm3_hash(self, buffs: tuple[bytes]=None):
-        cdef gcr.gcry_error_t err_code = 0
+        cdef gcry_error_t err_code = 0
 
         cdef int buffcnt = len(buffs)
 
-        cdef int hash_len = gcr.gcry_md_get_algo_dlen(gcr.gcry_md_algos.GCRY_MD_SM3)
+        cdef int hash_len = gcry_md_get_algo_dlen(gcry_md_algos.GCRY_MD_SM3)
         cdef cython.p_uchar digest = cython.cast(cython.p_uchar, malloc(hash_len))
         if digest == NULL:
             raise MemoryError("MemoryError: not able to allocate memory for hash")
 
-        cdef gcr.gcry_buffer_t *iovs = <gcr.gcry_buffer_t *>malloc(buffcnt * cython.sizeof(gcr.gcry_buffer_t))
+        cdef gcry_buffer_t *iovs = <gcry_buffer_t *>malloc(buffcnt * cython.sizeof(gcry_buffer_t))
         if iovs == NULL:
             raise MemoryError("MemoryError: not able to allocate memory for hash")
 
@@ -232,12 +232,12 @@ cdef class Sm2():
             iovs[i].data = cython.cast(cython.p_uchar, buffs[i])
 
         try:
-            err_code = gcr.gcry_md_hash_buffers(gcr.gcry_md_algos.GCRY_MD_SM3, 0, digest, iovs, buffcnt)
+            err_code = gcry_md_hash_buffers(gcry_md_algos.GCRY_MD_SM3, 0, digest, iovs, buffcnt)
             GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
 # #####
 #             " ==== Single buffer version. ===="
-#             gcr.gcry_md_hash_buffer(gcr.gcry_md_algos.GCRY_MD_SM3, digest, cython.cast(cython.p_uchar, data), data_len)
+#             gcry_md_hash_buffer(gcry_md_algos.GCRY_MD_SM3, digest, cython.cast(cython.p_uchar, data), data_len)
 # #####
             hash_bytes = digest[ : hash_len]
 
@@ -279,10 +279,10 @@ cdef class Sm2():
                 THIS FUNCTION HAS NOT BEEN WELL DESINED (and/or) FULLY TESTED. 
                 DEBUG BEFORE INVOKE.
         """
-        cdef gcr.gcry_error_t err_code = 0
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t cipher_s_exp = NULL
-        cdef gcr.gcry_sexp_t plain_s_exp = NULL
+        cdef gcry_sexp_t cipher_s_exp = NULL
+        cdef gcry_sexp_t plain_s_exp = NULL
 
         cdef const char *plain_data = NULL
         cdef size_t data_len = 0, data_cnt = 2
@@ -292,18 +292,18 @@ cdef class Sm2():
         try:
             cipher_s_exp = GM_T_0003_2_SM2.s_exp_cipher(c1=c1, c2=c2, c3=c3)
 
-            err_code = gcr.gcry_pk_decrypt(&plain_s_exp, cipher_s_exp, self._sec_key_exp)
+            err_code = gcry_pk_decrypt(&plain_s_exp, cipher_s_exp, self._sec_key_exp)
             GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
-            data_cnt = gcr.gcry_sexp_length (plain_s_exp)
-            plain_data = gcr.gcry_sexp_nth_data(plain_s_exp, data_cnt - 1, &data_len)
+            data_cnt = gcry_sexp_length (plain_s_exp)
+            plain_data = gcry_sexp_nth_data(plain_s_exp, data_cnt - 1, &data_len)
 
             return cython.cast(bytes, plain_data[:data_len])
 # #####
 #             print(f"  ============== DEBUG Decryption START ==============")
 #             print(plain_data)
 
-#             gcr.gcry_sexp_sprint(plain_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 8192)
+#             gcry_sexp_sprint(plain_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 8192)
 
 #             s_exp_bin = cython.cast(bytes, buffer[:256])
 #             s_exp_str = s_exp_bin
@@ -318,10 +318,10 @@ cdef class Sm2():
         finally:
 
             if cipher_s_exp:
-                gcr.gcry_sexp_release(cipher_s_exp)
+                gcry_sexp_release(cipher_s_exp)
 
             if plain_s_exp:
-                gcr.gcry_sexp_release(plain_s_exp)
+                gcry_sexp_release(plain_s_exp)
 
 
 
@@ -329,13 +329,13 @@ cdef class Sm2():
         """
             ciphertext = "(enc-val (flags sm2) (sm2 (a #..hex130...#) (b #..hex64...#) (c #..hex38...#)))"
         """
-        cdef gcr.gcry_error_t err_code = 0
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t plain_txt_s_exp = NULL
-        cdef gcr.gcry_sexp_t cipher_s_exp = NULL
+        cdef gcry_sexp_t plain_txt_s_exp = NULL
+        cdef gcry_sexp_t cipher_s_exp = NULL
 # #####
-#         cdef gcr.gcry_sexp_t cipher_s_exp_dbg = NULL
-#         cdef gcr.gcry_sexp_t plain_s_exp = NULL
+#         cdef gcry_sexp_t cipher_s_exp_dbg = NULL
+#         cdef gcry_sexp_t plain_s_exp = NULL
 #         cdef char *buffer = <char *>malloc(2048)
 # #####
         try:
@@ -343,15 +343,15 @@ cdef class Sm2():
 
             plain_txt_s_exp = GM_T_0003_2_SM2.s_exp_data(data=data)
 
-            err_code = gcr.gcry_pk_encrypt(&cipher_s_exp, plain_txt_s_exp, self._pub_key_exp)
+            err_code = gcry_pk_encrypt(&cipher_s_exp, plain_txt_s_exp, self._pub_key_exp)
             GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
 # #####
 #             print(f"  ============== DEBUG Encryption START ==============\n")
-#             err_code = gcr.gcry_pk_encrypt(&cipher_s_exp_dbg, plain_txt_s_exp, self._a_pub_key_s_exp)
+#             err_code = gcry_pk_encrypt(&cipher_s_exp_dbg, plain_txt_s_exp, self._a_pub_key_s_exp)
 #             GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
-#             gcr.gcry_sexp_sprint(cipher_s_exp_dbg, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 2048)
+#             gcry_sexp_sprint(cipher_s_exp_dbg, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 2048)
 
 #             s_exp_bin = cython.cast(bytes, buffer)
 #             s_exp_str = s_exp_bin.decode('utf-8')
@@ -359,16 +359,16 @@ cdef class Sm2():
 #             print(f"Cipher text in string : {s_exp_str}")
 #             print(f"  ==============  Encryption/Decryption  ==============\n")
 
-#             err_code = gcr.gcry_pk_decrypt(&plain_s_exp, cipher_s_exp_dbg, self._a_sec_key_s_exp)
+#             err_code = gcry_pk_decrypt(&plain_s_exp, cipher_s_exp_dbg, self._a_sec_key_s_exp)
 #             GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
-#             gcr.gcry_sexp_sprint(plain_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 2048)
+#             gcry_sexp_sprint(plain_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 2048)
 
 #             s_exp_bin = cython.cast(bytes, buffer[:strlen(buffer)])
 #             s_exp_str = s_exp_bin.decode('utf-8')
 
 #             free(buffer)
-#             gcr.gcry_sexp_release(cipher_s_exp_dbg)
+#             gcry_sexp_release(cipher_s_exp_dbg)
 
 #             print(f"Plain text in string : {s_exp_str}")
 #             print(f"  ============== DEBUG Decryption ENDED ==============\n")
@@ -387,10 +387,10 @@ cdef class Sm2():
         finally:
 
             if plain_txt_s_exp:
-                gcr.gcry_sexp_release(plain_txt_s_exp)
+                gcry_sexp_release(plain_txt_s_exp)
 
             if cipher_s_exp:
-                gcr.gcry_sexp_release(cipher_s_exp)
+                gcry_sexp_release(cipher_s_exp)
 
 
     @staticmethod
@@ -399,31 +399,31 @@ cdef class Sm2():
 
 
     @staticmethod
-    cdef gcr.gcry_ctx_t create_ecc_context(s_exp :gcr.gcry_sexp_t):
-        cdef gcr.gcry_error_t err_code = 0
+    cdef gcry_ctx_t create_ecc_context(s_exp :gcry_sexp_t):
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_ctx_t ctx = NULL
+        cdef gcry_ctx_t ctx = NULL
 
-        err_code = gcr.gcry_mpi_ec_new(&ctx, s_exp, NULL)
+        err_code = gcry_mpi_ec_new(&ctx, s_exp, NULL)
         GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
         return ctx
 
 
     @staticmethod
-    cdef gcr.gcry_sexp_t get_ecc_param_s_exp(ctx :gcr.gcry_ctx_t):
-        cdef gcr.gcry_error_t err_code = 0
+    cdef gcry_sexp_t get_ecc_param_s_exp(ctx :gcry_ctx_t):
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t pubkey_s_exp = NULL
+        cdef gcry_sexp_t pubkey_s_exp = NULL
 # #####
 #         cdef unsigned char *buffer = <unsigned char *>malloc(2048)
 # #####
-        err_code = gcr.gcry_pubkey_get_sexp(&pubkey_s_exp, gcr.gcry_ecc_ctx_get.GCRY_PK_GET_PUBKEY, ctx)
+        err_code = gcry_pubkey_get_sexp(&pubkey_s_exp, gcry_ecc_ctx_get.GCRY_PK_GET_PUBKEY, ctx)
         GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
 # #####
 #         print(f"  ============== DEBUG GET_ECC_PUB_KEY START ==============\n")
-#         gcr.gcry_sexp_sprint(pubkey_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 2048)
+#         gcry_sexp_sprint(pubkey_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 2048)
 
 #         s_exp_bin = cython.cast(bytes, buffer)
 #         s_exp_str = s_exp_bin.decode('utf-8')
@@ -436,88 +436,32 @@ cdef class Sm2():
 
 
     @staticmethod
-    cdef bytes get_q(ecc_ctx :gcr.gcry_ctx_t):
-        cdef gcr.gcry_error_t err_code = 0
-
-        cdef gcr.gcry_mpi_point_t point = NULL
-
-        cdef unsigned char *q_x_bin_s = NULL
-        cdef unsigned char *q_y_bin_s = NULL
-
-        cdef int infinity = 0
-
-        cdef gcr.gcry_mpi_t affine_coord_x = NULL
-        cdef gcr.gcry_mpi_t affine_coord_y = NULL
-
-        cdef cython.size_t coord_x_len = 0, coord_y_len = 0
-
-        try:
-            point = gcr.gcry_mpi_ec_get_point('q', ecc_ctx, 1)
-            if not point:
-                raise GcryptException(f"Context error: No Q point exist.")
-
-            affine_coord_x = gcr.gcry_mpi_new(GM_T_0003_2_SM2._MPI_N_BITS_)
-            affine_coord_y = gcr.gcry_mpi_new(GM_T_0003_2_SM2._MPI_N_BITS_)
-
-            infinity = gcr.gcry_mpi_ec_get_affine(affine_coord_x, affine_coord_y, point, ecc_ctx)
-            if infinity:
-                raise GcryptException(f"Invalid Q-Point: <ECC::ZERO>")
-
-            q_x_bin_s = cython.cast(cython.p_uchar, malloc(GM_T_0003_2_SM2._MPI_N_BITS_))
-            q_y_bin_s = cython.cast(cython.p_uchar, malloc(GM_T_0003_2_SM2._MPI_N_BITS_))
-
-            err_code = gcr.gcry_mpi_print(gcr.gcry_mpi_format.GCRYMPI_FMT_USG, q_x_bin_s, GM_T_0003_2_SM2._MPI_N_BITS_, &coord_x_len, affine_coord_x)
-            GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
-
-            err_code = gcr.gcry_mpi_print(gcr.gcry_mpi_format.GCRYMPI_FMT_USG, q_y_bin_s, GM_T_0003_2_SM2._MPI_N_BITS_, &coord_y_len, affine_coord_y)
-            GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
-
-            point_hex = cython.cast(bytes, q_x_bin_s[ : coord_x_len]) + cython.cast(bytes, q_y_bin_s[ : coord_y_len])
-
-            print(f"A - public key: {point_hex.hex().upper()}")
-
-            return point_hex
-
-        finally:
-            if affine_coord_x:
-                gcr.gcry_mpi_release(affine_coord_y)
-
-            if affine_coord_x:
-                gcr.gcry_mpi_release(affine_coord_x)
-
-            if point:
-                gcr.gcry_mpi_point_release(point)
-
-            if q_y_bin_s:
-                free(q_y_bin_s)
-
-            if q_x_bin_s:
-                free(q_x_bin_s)
+    cdef bytes get_q(ecc_ctx :gcry_ctx_t):
 
 
     @staticmethod
     cdef void check_err_no_for_exception(error_no :cython.int):
         if error_no:
-            description = <bytes>gcr.gcry_strerror(error_no)
-            strsource = <bytes>gcr.gcry_strsource(error_no)
+            description = <bytes>gcry_strerror(error_no)
+            strsource = <bytes>gcry_strsource(error_no)
             print(f"<C lib-gcrypt error - #{error_no}>: '{description.decode('utf-8')}': @^'{strsource.decode('utf-8')}'.")
             raise GcryptException(f"<C lib-gcrypt error - #{error_no}>: '{description.decode('utf-8')}': @^'{strsource.decode('utf-8')}'.")
 
 
     @staticmethod
-    cdef bytes extract_s_exp_data(s_exp_dataset :gcr.gcry_sexp_t, token :cython.p_char, tok_len: cython.size_t, list_index :cython.size_t):
-        cdef gcr.gcry_error_t err_code = 0
+    cdef bytes extract_s_exp_data(s_exp_dataset :gcry_sexp_t, token :cython.p_char, tok_len: cython.size_t, list_index :cython.size_t):
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t tar_s_exp = NULL
+        cdef gcry_sexp_t tar_s_exp = NULL
 
         cdef size_t data_len = 0
 
         try:
-            tar_s_exp = gcr.gcry_sexp_find_token(s_exp_dataset, token, tok_len)
+            tar_s_exp = gcry_sexp_find_token(s_exp_dataset, token, tok_len)
             if not tar_s_exp:
                 raise GcryptException(f"<error: 'token: {token}' not found in S-Expression (@gcry_sexp_find_token).")
 
-            data_v = gcr.gcry_sexp_nth_data(tar_s_exp, list_index, &data_len)
+            data_v = gcry_sexp_nth_data(tar_s_exp, list_index, &data_len)
             if not data_v:
                 raise GcryptException(f"List index #{list_index} out of boundary exception. (@gcry_sexp_nth_data)")
 
@@ -529,29 +473,29 @@ cdef class Sm2():
         finally:
 
             if tar_s_exp:
-                gcr.gcry_sexp_release(tar_s_exp)
+                gcry_sexp_release(tar_s_exp)
 
 
     @staticmethod
-    cdef bytes extract_s_exp_mpi(s_exp_dataset :gcr.gcry_sexp_t, token :cython.p_char, tok_len: cython.size_t, list_index :cython.size_t):
-        cdef gcr.gcry_error_t err_code = 0
+    cdef bytes extract_s_exp_mpi(s_exp_dataset :gcry_sexp_t, token :cython.p_char, tok_len: cython.size_t, list_index :cython.size_t):
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t tar_s_exp = NULL
-        cdef gcr.gcry_mpi_t s_exp_mpi = NULL
+        cdef gcry_sexp_t tar_s_exp = NULL
+        cdef gcry_mpi_t s_exp_mpi = NULL
         cdef unsigned char * ch_buf = NULL
 
         cdef size_t data_len = 0
 
         try:
-            tar_s_exp = gcr.gcry_sexp_find_token(s_exp_dataset, token, tok_len)
+            tar_s_exp = gcry_sexp_find_token(s_exp_dataset, token, tok_len)
             if not tar_s_exp:
                 raise GcryptException(f"<error: #{err_code}>: token: {token} not found in S-Expression (@extract_s_exp_mpi).")
 
-            s_exp_mpi = gcr.gcry_sexp_nth_mpi(tar_s_exp, list_index, gcr.gcry_mpi_format.GCRYMPI_FMT_STD)
+            s_exp_mpi = gcry_sexp_nth_mpi(tar_s_exp, list_index, gcry_mpi_format.GCRYMPI_FMT_STD)
             if not s_exp_mpi:
                 raise GcryptException(f"List index #{list_index} out of boundary exception. (@extract_s_exp_mpi)")
 
-            err_code = gcr.gcry_mpi_aprint(gcr.gcry_mpi_format.GCRYMPI_FMT_STD, &ch_buf, &data_len, s_exp_mpi)
+            err_code = gcry_mpi_aprint(gcry_mpi_format.GCRYMPI_FMT_STD, &ch_buf, &data_len, s_exp_mpi)
             GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
             s_exp_data = cython.cast(bytes, ch_buf[:data_len])
@@ -567,21 +511,21 @@ cdef class Sm2():
 
         finally:
             if s_exp_mpi:
-                gcr.gcry_mpi_release(s_exp_mpi)
+                gcry_mpi_release(s_exp_mpi)
 
             if tar_s_exp:
-                gcr.gcry_sexp_release(tar_s_exp)
+                gcry_sexp_release(tar_s_exp)
 
             if ch_buf:
-                gcr.gcry_free(ch_buf)
+                gcry_free(ch_buf)
 
 
 
     @staticmethod
-    cdef gcr.gcry_sexp_t s_exp_key(pub_key :bool, key :Union[str, bytes]=None):
-        cdef gcr.gcry_error_t err_code = 0
+    cdef gcry_sexp_t s_exp_key(pub_key :bool, key :Union[str, bytes]=None):
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t key_s_exp = NULL
+        cdef gcry_sexp_t key_s_exp = NULL
         cdef size_t offset = 0
 
 # #####
@@ -595,12 +539,12 @@ cdef class Sm2():
 
         
 
-        err_code = gcr.gcry_sexp_sscan(&key_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
+        err_code = gcry_sexp_sscan(&key_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
         GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
 # #####
 #         print(f"  ============== DEBUG S-EXP KEY START ==============\n")
-#         gcr.gcry_sexp_sprint(key_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 2048)
+#         gcry_sexp_sprint(key_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, buffer, 2048)
 
 #         s_exp_bin = cython.cast(bytes, buffer[:strlen(buffer)])
 #         s_exp_str = s_exp_bin.decode('utf-8')
@@ -615,10 +559,10 @@ cdef class Sm2():
 
 
     @staticmethod
-    cdef gcr.gcry_sexp_t s_exp_signature(sig :Union[str, bytes]=None):
-        cdef gcr.gcry_error_t err_code = 0
+    cdef gcry_sexp_t s_exp_signature(sig :Union[str, bytes]=None):
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t sig_s_exp = NULL
+        cdef gcry_sexp_t sig_s_exp = NULL
         cdef size_t offset = 0
 
         hex = GM_T_0003_2_SM2.hex_unified(_in_d =sig)
@@ -638,17 +582,17 @@ cdef class Sm2():
         s_exp_bin_s = f"(sig-val (sm2 (r {r_exp_v}) (s {s_exp_v})))".encode('utf-8')
 
 
-        err_code = gcr.gcry_sexp_sscan(&sig_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
+        err_code = gcry_sexp_sscan(&sig_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
         GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
         return sig_s_exp
 
 
     @staticmethod
-    cdef gcr.gcry_sexp_t s_exp_data(data :Union[str, bytes]=None):
-        cdef gcr.gcry_error_t err_code = 0
+    cdef gcry_sexp_t s_exp_data(data :Union[str, bytes]=None):
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t data_s_exp = NULL
+        cdef gcry_sexp_t data_s_exp = NULL
         cdef size_t offset = 0
 #####
         # cdef size_t size = 0
@@ -662,15 +606,15 @@ cdef class Sm2():
         s_exp_bin_s = f"(data (flags sm2) (value {s_exp_v}))".encode('utf-8')
 
 
-        err_code = gcr.gcry_sexp_sscan(&data_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
+        err_code = gcry_sexp_sscan(&data_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
         GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
 #####
 
-        # size = gcr.gcry_sexp_sprint (data_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
+        # size = gcry_sexp_sprint (data_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
         # ch_buf = cython.cast(cython.p_char, malloc(size + 5))
 
-        # size = gcr.gcry_sexp_sprint (data_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, ch_buf, size + 5)
+        # size = gcry_sexp_sprint (data_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, ch_buf, size + 5)
         # print(f" DATA S-EXPRESS <{size}> {cython.cast(bytes, ch_buf)}")
 
         # free (ch_buf)
@@ -679,10 +623,10 @@ cdef class Sm2():
 
 
     @staticmethod
-    cdef gcr.gcry_sexp_t s_exp_cipher(c1 :Union[str, bytes]=None, c2 :Union[str, bytes]=None, c3 :Union[str, bytes]=None):
-        cdef gcr.gcry_error_t err_code = 0
+    cdef gcry_sexp_t s_exp_cipher(c1 :Union[str, bytes]=None, c2 :Union[str, bytes]=None, c3 :Union[str, bytes]=None):
+        cdef gcry_error_t err_code = 0
 
-        cdef gcr.gcry_sexp_t cipher_s_exp = NULL
+        cdef gcry_sexp_t cipher_s_exp = NULL
         cdef size_t offset = 0
 # ####
 #         cdef size_t size = 0
@@ -705,41 +649,17 @@ cdef class Sm2():
   )
  )""".encode('utf-8')
 
-        err_code = gcr.gcry_sexp_sscan(&cipher_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
+        err_code = gcry_sexp_sscan(&cipher_s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_s), len(s_exp_bin_s))
         GM_T_0003_2_SM2.check_err_no_for_exception(err_code)
 
 # #####
 
-#         size = gcr.gcry_sexp_sprint (cipher_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
+#         size = gcry_sexp_sprint (cipher_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
 #         ch_buf = cython.cast(cython.p_char, malloc(size + 5))
 
-#         size = gcr.gcry_sexp_sprint (cipher_s_exp, gcr.gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, ch_buf, size + 5)
+#         size = gcry_sexp_sprint (cipher_s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, ch_buf, size + 5)
 #         print(f" DATA S-EXPRESS <{size}> {cython.cast(bytes, ch_buf)}")
 
 #         free (ch_buf)
 # #####
         return cipher_s_exp
-
-
-    @staticmethod
-    def hex_unified(_in_d: Union[str, bytes]) -> str:
-        if isinstance(_in_d, bytes):
-            return _in_d.hex()
-        else:
-            return _in_d
-
-
-    @staticmethod
-    def binary_unified(_in_d: Union[str, bytes]) -> bytes:
-        if isinstance(_in_d, bytes):
-            return _in_d
-        else:
-            return bytes.fromhex(_in_d)
-
-
-    @staticmethod
-    def s_exp_wrapped(s_value :Union[str, bytes]=None) -> str:
-
-        return f"#{GM_T_0003_2_SM2.hex_unified(s_value)}#"
-
-

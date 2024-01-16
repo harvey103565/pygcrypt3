@@ -7,7 +7,7 @@ from libc.stdlib cimport malloc, free
 
 from .gcry_err cimport gcry_error_t
 
-from .err_utils cimport on_err_raise
+from .utils cimport on_err_raise
 
 from .gcry_s_exp cimport gcry_sexp_t, gcry_sexp_sscan, gcry_sexp_length, gcry_sexp_nth_data, gcry_sexp_nth, gcry_sexp_car, gcry_sexp_cdr, gcry_sexp_find_token, gcry_sexp_release, gcry_sexp_sprint, gcry_sexp_format, gcry_sexp_nth
 

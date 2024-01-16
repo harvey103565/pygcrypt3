@@ -191,7 +191,6 @@ cdef class SymbolicExpression():
         """ __getitem__() magic method for [] operation
         Use index to get an expression from given
         """
-
         if not index < len(self):
             raise IndexError('Index out of range', [f"index={index}", f"lenght:{len(self)}"])
 
