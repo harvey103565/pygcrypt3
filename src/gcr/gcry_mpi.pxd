@@ -11,6 +11,22 @@ cdef extern from "gcrypt.h":
         pass
     ctypedef gcry_mpi* gcry_mpi_t
 
+    cdef enum gcry_mpi_format:
+        GCRYMPI_FMT_NONE= 0,
+        GCRYMPI_FMT_STD = 1,
+        GCRYMPI_FMT_PGP = 2,
+        GCRYMPI_FMT_SSH = 3,
+        GCRYMPI_FMT_HEX = 4,
+        GCRYMPI_FMT_USG = 5,
+        GCRYMPI_FMT_OPAQUE = 8
+
+    ctypedef struct gcry_mpi_point:
+        pass 
+    ctypedef gcry_mpi_point* gcry_mpi_point_t
+
+
+
+
     # """
     # Allocate a new context for elliptic curve operations. If keyparam is given, it specifies the parameters of the curve (see ecc_keyparam). 
     # If curvename is given in addition to keyparam and the key parameters do not include a named curve reference, 
@@ -29,4 +45,42 @@ cdef extern from "gcrypt.h":
     # Release the context object ctx and all associated resources. A NULL passed as ctx is ignored.
     # """
     void gcry_ctx_release (gcry_ctx_t ctx)
+
+    # """ 
+    # large numbers are called MPIs (multi-precision-integers). 
+    # Public key cryptography is based on mathematics with large numbers. These functions are exposed 
+    # """
+    gcry_mpi_t gcry_mpi_new (unsigned int nbits)
+
+    void gcry_mpi_release (gcry_mpi_t a)
+
+    gcry_error_t gcry_mpi_print (gcry_mpi_format format, unsigned char *buffer, size_t buflen, size_t *nwritten, const gcry_mpi_t a)
+
+    gcry_error_t gcry_mpi_aprint (gcry_mpi_format format, unsigned char **buffer, size_t *nbytes, const gcry_mpi_t a)
+
+
+    # """ 
+    # Points in MPI coordinate system 
+    # projective coordinates from a Point on each axis of 3-Dimensionality system are MPI.
+    # Currently Only ECC functions implement context. Use gcry_mpi_ec_new to create one.
+    # """
+
+    gpg_error_t gcry_mpi_ec_new (gcry_ctx_t *r_ctx, gcry_sexp_t keyparam, const char *curvename)
+
+    void gcry_ctx_release (gcry_ctx_t ctx)
+
+    void gcry_mpi_point_release (gcry_mpi_point_t point)
+
+    gcry_mpi_point_t gcry_mpi_ec_get_point (const char *name, gcry_ctx_t ctx, int copy)
+
+    void gcry_mpi_point_get (gcry_mpi_t x, gcry_mpi_t y, gcry_mpi_t z, gcry_mpi_point_t point)
+
+    int gcry_mpi_ec_get_affine ( gcry_mpi_t x, gcry_mpi_t y, gcry_mpi_point_t point, gcry_ctx_t ctx)
+
+
+    gpg_error_t gcry_mpi_ec_set_point (const char *name,  gcry_ctx_t ctx)
+    
+    gpg_error_t gcry_mpi_ec_set_mpi (const char *name, gcry_mpi_t newvalue, gcry_ctx_t ctx)
+
+    gcry_mpi_t gcry_mpi_ec_get_mpi (const char *name, gcry_ctx_t ctx, int copy)
 
