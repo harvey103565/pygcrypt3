@@ -166,4 +166,9 @@ cython_debug/
 # vscode
 .vscode/
 
+c_libs/bin/
+c_libs/lib/
+c_libs/share/
+c_libs/libgcrypt*/
+c_libs/libgpg-erro*/
 src/gcr/*.c
