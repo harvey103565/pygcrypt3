@@ -29,6 +29,7 @@ from .mpi cimport MultiPrecisionInteger
 from typing import NoReturn, Self, Generator
 
 import cython
+
 from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpNilError, GcrSexpOutOfBoundaryError
 
 

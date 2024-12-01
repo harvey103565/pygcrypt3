@@ -10,7 +10,8 @@ source ~/studio/python/bin/activate
 
 echo ' ==>(0): Determine library evnironment.'
 echo 'library: gcrypt could be found and linked via: '
-/opt/python/lib/libgpg/bin/libgcrypt-config --libs
+c_libs/bin/gpgrt-config --libs 2>/dev/null
+c_libs/bin/gpgrt-config --cflags 2>/dev/null
 
 echo ' ==>(1): compile cypthon.'
 rm -rf ./build/ 
