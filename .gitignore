@@ -167,12 +167,9 @@ cython_debug/
 .vscode/
 .devcontainer/
 
-# libgcrypt & libgpg-error dependencies
-c_libs/bin/
-c_libs/lib/
-c_libs/share/
-c_libs/libgcrypt*/
-c_libs/libgpg-erro*/
-
-# cython builds
+# cython builded artificials
 *.c
+
+# c build dependencies
+# This project depends libgpg-error & libgcrypt (c libs)
+c_libs/
