@@ -1,6 +1,6 @@
 
 from ..gcr import loader
-from ..gcr import gcry_post
+# from ..gcr import gcry_post
 from ..gcr.s_exp import SymbolicExpression
 
 try:
@@ -24,11 +24,14 @@ try:
 
     assert len(s_exp) == 4
 
+    print("Iteration test - trade s-exp as list.")
+
     for exp in s_exp:
         assert isinstance(exp, SymbolicExpression)
         for sub_exp in exp:
             print(f"{exp} - {sub_exp}")
 
+    print("Indexability test - trade s-exp as list.")
     # Indexability
     for i in range(len(s_exp)):
         sub_s_exp = s_exp[i]

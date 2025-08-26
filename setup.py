@@ -25,24 +25,25 @@ more information, such as the ld(1) and ld.so(8) manual pages.
 
 
 gcr_sources =  [
-    "./src/gcr/utils.pyx",
-    "./src/gcr/mpi.pyx",
     "./src/gcr/s_exp.pyx",
-    "./src/gcr/gcry_post.pyx",
+    "./src/gcr/mpi.pyx",
 ]
 
 c_include_dirs = ["./c_libs/include"]
 c_libraries = ["gcrypt"]
 c_library_dirs =["./c_libs/lib"]
 
-extension = []
+ext = Extension("pygcrypt", 
+    gcr_sources, 
+    include_dirs=c_include_dirs, 
+    libraries=c_libraries, 
+    library_dirs=c_library_dirs,
+    extra_link_args=[
+        "-Wl,-rpath,$ORIGIN/../../c_libs/lib",      # 关键：$ORIGIN表示二进制文件所在目录
+        "-Wl,--disable-new-dtags",                  # 关键：禁用新DTAGS，设置RPATH 而非 RUNPATH，前者将具有遗传特性，
+        "-L/workspaces/webdak/webapps/c_libs/lib"   # 编译时库路径
+    ])
 
-setup(ext_modules=cythonize([
-
-        Extension("src.gcr.loader", 
-                    gcr_sources, 
-                    include_dirs=c_include_dirs, 
-                    libraries=c_libraries, 
-                    library_dirs=c_library_dirs),
-      ])
+setup(
+    ext_modules=cythonize([ext])
 )
