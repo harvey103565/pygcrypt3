@@ -20,6 +20,12 @@ cdef class SymbolicExpression():
     cdef cython.bint _c_obj_holder
 
     @staticmethod
+    cdef string_size(gcry_sexp_t _s_exp, int mode)
+
+    @staticmethod
+    cdef stringify(gcry_sexp_t _s_exp, int mode)
+
+    @staticmethod
     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, cython.bint holder=?)
 
     @staticmethod

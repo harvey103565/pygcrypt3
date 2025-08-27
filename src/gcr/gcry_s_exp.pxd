@@ -8,6 +8,9 @@ from .gcry_mpi cimport gcry_mpi_t
 ctypedef unsigned char * s_exp_str_t
 
 
+# cdef extern from "stddef.h":
+#     ctypedef unsigned int size_t  # 或者 unsigned long，取决于你的平台
+
 cdef extern from "gcrypt.h":
 
 

@@ -4,7 +4,18 @@ from ..gcr import loader
 from ..gcr.s_exp import SymbolicExpression
 
 try:
-    s_exp = SymbolicExpression(b'(a b (c d) ((e f) g h))')
+
+    s_exp = SymbolicExpression(b'a')
+    print(str(s_exp))
+    print(repr(s_exp))
+    
+    assert s_exp.is_atom()
+    assert s_exp.car == b'a'
+
+    s_exp = SymbolicExpression(b'(a brown (fox jumping) ((lazy dog) over the))')
+
+    print(str(s_exp))
+    print(repr(s_exp))
 
     # basic function
     assert s_exp.car

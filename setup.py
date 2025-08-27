@@ -27,6 +27,7 @@ more information, such as the ld(1) and ld.so(8) manual pages.
 gcr_sources =  [
     "./src/gcr/s_exp.pyx",
     "./src/gcr/mpi.pyx",
+    "./src/gcr/utils.pyx",
 ]
 
 c_include_dirs = ["./c_libs/include"]

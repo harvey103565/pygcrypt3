@@ -94,8 +94,6 @@ cdef class SymbolicExpression():
 
     _DEFAULT_ENCODING_ = 'utf-8'
 
-    # cdef gcry_sexp_t _s_exp
-    # cdef cython.bint _c_obj_holder
 
     def __cinit__(self: Self, s_exp_bin_str: bytes = None) -> NoReturn:
         """ __cinit__()
@@ -144,24 +142,18 @@ cdef class SymbolicExpression():
 
     def __str__(self: Self):
         """ __str__() magic method for built in function: str()
-        Serialize expression
+
+        Convert symbolic expression to string in advanced(human friendly) form
         """
-        cdef size_t len_cnt = 0
-        cdef char * mem_buf = NULL
+        return SymbolicExpression.stringify(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED)
 
-        try:
-            len_cnt = self.size() + 4
-            mem_buf = cython.cast(cython.p_char, malloc(len_cnt))
 
-            len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, mem_buf, len_cnt)
-        except Exception as e:
-            print(f"Error serializing s-expression object. {e} with context: {e.args}")
-        else:
-            return cython.cast(bytes, mem_buf[:len_cnt]).decode(SymbolicExpression._DEFAULT_ENCODING_)
+    def __repr__(self: Self):
+        """ __repr__() magic method for built in function: repr()
 
-        finally:
-            if mem_buf:
-                free(mem_buf)
+        Convert symbolic expression to string in canonical(strict) form
+        """
+        return SymbolicExpression.stringify(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_CANON)
 
 
     def __len__(self: Self) -> int:
@@ -208,6 +200,12 @@ cdef class SymbolicExpression():
         cdef size_t data_len = 0
         cdef const char * data_ptr = NULL
 
+        if self.is_atom():
+            raise GcrSexpFormatError("Can't get car from an atom expression")
+
+        if len(self) == 1:
+            raise GcrSexpOutOfBoundaryError("No car in an empty expression")
+
         cdef gcry_sexp_t sub_s_exp = gcry_sexp_car(self._s_exp)
         SymbolicExpression._on_null_expression_raise(sub_s_exp)
         
@@ -242,7 +240,7 @@ cdef class SymbolicExpression():
             # TODO: raise when this is not a plain data
             raise
 
-        if self.__len__() != 1:
+        if self.__len__() > 1:
             raise
 
         data_ptr = gcry_sexp_nth_data(self._s_exp, 0, &data_len)
@@ -270,19 +268,48 @@ cdef class SymbolicExpression():
         """ is_atom()
         If there is only one data bolb contained in expression, it is an atom.
         """
-        return (1 == len(self))
+        return (0 == len(self))
 
 
-    def size(self: Self) -> int:
+    @staticmethod
+    cdef string_size(gcry_sexp_t _s_exp, int mode):
         """ size()
         return the S-Expression's memory footprint in bytes
         """
-        cdef size_t len_cnt = 0
-
-        len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
+        cdef size_t len_cnt = gcry_sexp_sprint(_s_exp, mode, NULL, 0)
 
         assert len_cnt > 0
         return len_cnt
+
+
+    @staticmethod
+    cdef stringify(gcry_sexp_t _s_exp, int mode):
+        """ stringify()
+        Serialize expression and return a string
+        """
+        cdef char * mem_buf = NULL
+        cdef size_t size_cnt = 0
+
+        try:
+            if gcry_sexp_length(_s_exp) == 0:
+                cdef const char * data_ptr = gcry_sexp_nth_data(_s_exp, 0, &size_cnt)
+                mem_buf = cython.cast(cython.p_char, malloc(size_cnt))
+                return cython.cast(bytes, data_ptr[:size_cnt])
+            else:
+                size_cnt = SymbolicExpression.string_size(_s_exp, mode)
+                mem_buf = cython.cast(cython.p_char, malloc(size_cnt))
+                size_cnt = gcry_sexp_sprint(_s_exp, mode, mem_buf, size_cnt)
+
+            print(f"string size_cnt={size_cnt}")
+
+        except Exception as e:
+            print(f"Error serializing s-expression object. {e} with context: {e.args}")
+        else:
+            return cython.cast(bytes, mem_buf[:size_cnt]).decode(SymbolicExpression._DEFAULT_ENCODING_)
+
+        finally:
+            if mem_buf:
+                free(mem_buf)
 
 
     @staticmethod
