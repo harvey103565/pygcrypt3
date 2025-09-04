@@ -16,13 +16,15 @@ from .gcry_s_exp cimport gcry_sexp_t, \
     gcry_sexp_cdr, \
     gcry_sexp_find_token, \
     gcry_sexp_release, \
-    gcry_sexp_sprint
+    gcry_sexp_sprint, \
+    gcry_sexp_nth_mpi
 
+from .gcry_mpi cimport gcry_mpi_format
 
 from .gcry_err cimport gcry_error_t
-from .gcry_mpi cimport gcry_mpi_t
 from .utils cimport on_err_raise
 
+from .gcry_mpi cimport gcry_mpi_t, gcry_mpi_release
 from .mpi cimport MultiPrecisionInteger
 
 ##  Python imports
@@ -31,7 +33,7 @@ from typing import NoReturn, Self, Generator
 import cython
 
 from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpNilError, GcrSexpOutOfBoundaryError
-
+from cpython.bytes cimport PyBytes_FromStringAndSize
 
 cdef class SymbolicExpression():
     """ class SymbolicExpression
@@ -94,8 +96,6 @@ cdef class SymbolicExpression():
 
     _DEFAULT_ENCODING_ = 'utf-8'
 
-    # cdef gcry_sexp_t _s_exp
-    # cdef cython.bint _c_obj_holder
 
     def __cinit__(self: Self, s_exp_bin_str: bytes = None) -> NoReturn:
         """ __cinit__()
@@ -103,11 +103,14 @@ cdef class SymbolicExpression():
         """
         cdef size_t       offset = 0
         cdef gcry_error_t e_code = 0
-        self._s_exp = NULL
+        cdef gcry_sexp_t _s_exp = NULL
 
         if s_exp_bin_str:
             e_code = gcry_sexp_sscan(&self._s_exp, &offset, cython.cast(cython.p_char, s_exp_bin_str), len(s_exp_bin_str))
             on_err_raise(e_code, s_exp_bin_str[ : offset])
+
+            if self._s_exp == NULL:
+                raise GcrSexpFormatError(f"S-Expression from '{s_exp_bin_str.decode(SymbolicExpression._DEFAULT_ENCODING_)}' is not allowed.")
 
             self._c_obj_holder = True
 
@@ -144,31 +147,25 @@ cdef class SymbolicExpression():
 
     def __str__(self: Self):
         """ __str__() magic method for built in function: str()
-        Serialize expression
+
+        Convert symbolic expression to string in advanced(human friendly) form
         """
-        cdef size_t len_cnt = 0
-        cdef char * mem_buf = NULL
+        return self.stringify(gcry_sexp_format.GCRYSEXP_FMT_ADVANCED)
 
-        try:
-            len_cnt = self.size() + 4
-            mem_buf = cython.cast(cython.p_char, malloc(len_cnt))
 
-            len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, mem_buf, len_cnt)
-        except Exception as e:
-            print(f"Error serializing s-expression object. {e} with context: {e.args}")
-        else:
-            return cython.cast(bytes, mem_buf[:len_cnt]).decode(SymbolicExpression._DEFAULT_ENCODING_)
+    def __repr__(self: Self):
+        """ __repr__() magic method for built in function: repr()
 
-        finally:
-            if mem_buf:
-                free(mem_buf)
+        Convert symbolic expression to string in canonical(strict) form
+        """
+        return self.stringify(gcry_sexp_format.GCRYSEXP_FMT_CANON)
 
 
     def __len__(self: Self) -> int:
         """ __len__() magic method for built in function: len() 
         return the item count number of the S-Expression, in the list perspect of view (including car)
         """
-        return gcry_sexp_length(self._s_exp)
+        return gcry_sexp_length(self._s_exp) if self._s_exp else 0
 
 
     def __getattr__(self: Self, name: str) -> Self:
@@ -182,25 +179,75 @@ cdef class SymbolicExpression():
         c_name_str: bytes = name.encode(SymbolicExpression._DEFAULT_ENCODING_)
 
         tar_s_exp = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, c_name_str), data_len)
-        SymbolicExpression._on_null_expression_raise(tar_s_exp)
+        assert tar_s_exp, f"No such token '{name}' in expression."
 
         tar_s_exp = gcry_sexp_nth(tar_s_exp, 1)
         return SymbolicExpression.from_exp_t(tar_s_exp, True)
 
 
-    def __getitem__(self: Self, index: int) -> Self:
+    def __getitem__(self: Self, index: int) -> bytes:
         """ __getitem__() magic method for [] operation
-        Use index to get an expression from given
+        Return atom data in bytes from expression(list)'s indexed position
+        NOTE: None if there is an sub-exp at that position
         """
+        cdef size_t      data_len = 0
+        cdef const char* data_ptr = NULL
+
         if not index < len(self):
             raise IndexError('Index out of range', [f"index={index}", f"lenght:{len(self)}"])
 
-        sub_s_exp = gcry_sexp_nth(self._s_exp, index)
-        return SymbolicExpression.from_exp_t(sub_s_exp, True)
+        data_ptr = gcry_sexp_nth_data (self._s_exp, index, &data_len)
+
+        if data_ptr != NULL and data_len > 0:
+            # 创建 Python bytes 对象（自动复制数据）
+            return PyBytes_FromStringAndSize(data_ptr, data_len)
+        else:
+            raise GcrSexpError(f"No direct data at index {index}, it may be a sub-expression.")
+
+
+    def is_atom(self: Self) -> bool:
+        """ is_atom()
+        If there is only one data bolb contained in expression, it is an atom.
+        """
+        if self._s_exp == NULL:
+            if self._atom_data is not None:
+                return True
+            else:
+                raise GcrSexpNilError("both nil expression (empty list & atom)")
+        else:
+            return False
+
+
+    cdef stringify(self: Self, int mode):
+        """ stringify()
+        Serialize expression and return a string
+        """
+        cdef char * mem_buf = NULL
+        cdef size_t data_len = 0
+        cdef const char * data_ptr = NULL
+        cdef gcry_sexp_t _s_exp = self._s_exp
+
+        try:
+            if self.is_atom():
+                str_bytes = self._atom_data
+            else:
+                data_len = SymbolicExpression.string_size(_s_exp, mode)
+                mem_buf = cython.cast(cython.p_char, malloc(data_len))
+                data_len = gcry_sexp_sprint(_s_exp, mode, mem_buf, data_len)
+                str_bytes = PyBytes_FromStringAndSize(mem_buf, data_len)
+
+        except Exception as e:
+            raise GcrSexpError("Error serializing s-expression object") from e
+        else:
+            return str_bytes.decode(SymbolicExpression._DEFAULT_ENCODING_)
+        finally:
+            if mem_buf:
+                free(mem_buf)
+            print("free mem_buf")
 
 
     @property
-    def car(self: Self) -> bytes:
+    def car(self: Self) -> SymbolicExpression:
         """ car() 
         Return data in bytes from expression's car
         NOTE: libgcry always return atom expression when calling gcry_sexp_car()
@@ -208,94 +255,120 @@ cdef class SymbolicExpression():
         cdef size_t data_len = 0
         cdef const char * data_ptr = NULL
 
+        if not self._s_exp:
+            raise GcrSexpNilError("nil expression(empty list / atom)")
+
         cdef gcry_sexp_t sub_s_exp = gcry_sexp_car(self._s_exp)
         SymbolicExpression._on_null_expression_raise(sub_s_exp)
-        
+        assert gcry_sexp_length(sub_s_exp) == 1
+
         data_ptr = gcry_sexp_nth_data(sub_s_exp, 0, &data_len)
-        return cython.cast(bytes, data_ptr[:data_len])
+        assert data_ptr != NULL and data_len > 0, "Unkown error getting atom data from car."
+
+        return SymbolicExpression.from_exp_t(NULL, False, data_ptr, data_len)
 
 
     @property
-    def cdr(self: Self) -> bytes:
+    def cdr(self: Self) -> SymbolicExpression:
         """ cdr()
         Return data in bytes from expression's cdr
         NOTE: libgcry always return atom expression when calling gcry_sexp_cdr()
         """
         cdef size_t data_len = 0
         cdef const char * data_ptr = NULL
+        cdef gcry_sexp_t cdr_exp = NULL
+
+        print(f"calling cdr .")
+
+        if not self._s_exp:
+            raise GcrSexpNilError("nil expression(empty list / atom)")
+
+        if gcry_sexp_length(self._s_exp) == 1:
+            raise GcrSexpOutOfBoundaryError("Out of boundary: no cdr in expression")
 
         cdef gcry_sexp_t sub_s_exp = gcry_sexp_cdr(self._s_exp)
         SymbolicExpression._on_null_expression_raise(sub_s_exp)
- 
-        data_ptr = gcry_sexp_nth_data(sub_s_exp, 0, &data_len)
-        return cython.cast(bytes, data_ptr[:data_len])
+
+        if gcry_sexp_length(sub_s_exp) == 1:
+            data_ptr = gcry_sexp_nth_data(sub_s_exp, 0, &data_len)
+            print(f"data_ptr={PyBytes_FromStringAndSize(data_ptr, data_len).encode('utf-8')}, data_len={data_len}")
+            assert data_ptr != NULL and data_len > 0, "Unkown error getting atom data from cdr."
+
+            cdr_exp = gcry_sexp_find_token(self._s_exp, data_ptr, data_len)
+            print("cdr is an atom")
+            if cdr_exp == NULL:
+                print(f"cdr token not found: {data_ptr[:data_len].decode(SymbolicExpression._DEFAULT_ENCODING_)}")
+                return SymbolicExpression.from_exp_t(NULL, False, data_ptr, data_len)
+            else:
+                print(f"found cdr token: {data_ptr[:data_len].decode(SymbolicExpression._DEFAULT_ENCODING_)}")
+                return SymbolicExpression.from_exp_t(cdr_exp, True)
+
+        print("cdr is a sub-expression")
+        return SymbolicExpression.from_exp_t(sub_s_exp, True)
+
 
     @property
     def data(self: Self) -> bytes:
         """ data()
         Return data in bytes from expression
         """
-        cdef size_t data_len = 0
-        cdef const char * data_ptr = NULL
+        if self.is_atom():
+            return self._atom_data
 
-        if not self.is_atom():
-            # TODO: raise when this is not a plain data
-            raise
-
-        if self.__len__() != 1:
-            raise
-
-        data_ptr = gcry_sexp_nth_data(self._s_exp, 0, &data_len)
-        return cython.cast(bytes, data_ptr[:data_len])
+        raise GcrSexpError("No direct data in list expression, use indexing access inner data")
 
 
     @property
-    def mpi(self: Self) -> bytes:
+    def mpi(self: Self) -> MultiPrecisionInteger:
         """ mpi()
         Get data and convert it to MultiPrecisionInteger class object from expression
         """
-        cdef size_t data_len = 0
-        cdef gcry_sexp_t p_s_exp = NULL
-        cdef const char * p_data = NULL
+        cdef gcry_mpi_t p_mpi = NULL
 
         if not self.is_atom():
             # TODO: raise when this is not a plain data
             raise
 
-        p_data = gcry_sexp_nth_data(p_s_exp, 0, &data_len)
-        return MultiPrecisionInteger(p_data)
-
-
-    def is_atom(self: Self) -> bool:
-        """ is_atom()
-        If there is only one data bolb contained in expression, it is an atom.
-        """
-        return (1 == len(self))
-
-
-    def size(self: Self) -> int:
-        """ size()
-        return the S-Expression's memory footprint in bytes
-        """
-        cdef size_t len_cnt = 0
-
-        len_cnt = gcry_sexp_sprint(self._s_exp, gcry_sexp_format.GCRYSEXP_FMT_ADVANCED, NULL, 0)
-
-        assert len_cnt > 0
-        return len_cnt
+        try:
+            p_mpi = gcry_sexp_nth_mpi(self._s_exp, 0, gcry_mpi_format.GCRYMPI_FMT_USG)
+            if p_mpi == NULL:
+                raise GcrSexpError("Failed to get MPI data from S-Expression")
+            return MultiPrecisionInteger.from_mpi_t(p_mpi)
+        except Exception as e:
+            if p_mpi:
+                # release the mpi object if it was created
+                gcry_mpi_release(p_mpi)
+            print(f"Error getting MPI data from s-expression object. {e} with context:")
 
 
     @staticmethod
-    cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, cython.bint holder=True):
+    cdef string_size(gcry_sexp_t _s_exp, int mode):
+        """ size()
+        return the S-Expression's memory footprint in bytes
+        """
+        cdef size_t data_len = gcry_sexp_sprint(_s_exp, mode, NULL, 0)
+        assert data_len > 0
+
+        return data_len
+
+
+
+    @staticmethod
+    cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, cython.bint holder=True, const char * atom_data=NULL, int data_len=0):
         """ from_exp_t()
         StaticClass method to create SymbolicExpression object directly from gcry_s_expression
         """
-        assert s_exp
-
         cdef SymbolicExpression wrapper_object = SymbolicExpression.__new__(SymbolicExpression)
 
-        wrapper_object._s_exp = s_exp
-        wrapper_object._c_obj_holder = holder
+        if atom_data == NULL:
+            assert s_exp != NULL, "s-expression must not be null when no atom data provided."
+            wrapper_object._s_exp = s_exp
+            wrapper_object._c_obj_holder = holder
+            wrapper_object._atom_data = None
+        else:
+            assert s_exp == NULL, "s-expression must be null when atom data provided."
+            wrapper_object._atom_data = PyBytes_FromStringAndSize(atom_data, data_len)
+            wrapper_object._s_exp = NULL
 
         return wrapper_object
 

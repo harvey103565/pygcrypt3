@@ -4,7 +4,63 @@ from ..gcr import loader
 from ..gcr.s_exp import SymbolicExpression
 
 try:
-    s_exp = SymbolicExpression(b'(a b (c d) ((e f) g h))')
+    try:
+        SymbolicExpression(b'()')
+    except:
+        pass
+    else:
+        raise Exception("Empty s-exp test failed.")
+    
+    try:
+        SymbolicExpression(b'a')
+    except:
+        pass
+    else:
+        raise Exception("Non-parenthesized atom s-exp test failed.")
+    
+    try:
+        SymbolicExpression(b'(a')
+    except:
+        pass
+    else:
+        raise Exception("Malformatted s-exp test failed.")
+
+    s_exp = SymbolicExpression(b'(a)')
+    print(str(s_exp))
+    print(repr(s_exp))
+    print(f"s_exp[0]={s_exp[0]}")
+
+    s_car = s_exp.car
+    print(str(s_car))
+    assert s_car.is_atom()
+    assert s_car.data == b'a'
+
+    s_exp = SymbolicExpression(b'(a b)')
+    print(str(s_exp))
+    print(repr(s_exp))
+    print(f"s_exp[1]={s_exp[1]}")
+
+    s_cdr = s_exp.cdr
+    print(str(s_cdr))
+    assert s_cdr.is_atom()
+    assert s_cdr.data == b'b'
+
+    s_exp = SymbolicExpression(b'(a b c)')
+    print(str(s_exp))
+    print(repr(s_exp))
+    print(str(s_exp.cdr))
+    # try:
+    #     print(f"s_exp[2]={s_exp[2]}")
+    # except:
+    #     pass
+    # else:
+    #     raise Exception("s-exp with sub-expressions test failed.")
+
+
+    s_exp = SymbolicExpression(b'(a brown (fox jumping) ((lazy dog) over the))')
+
+    print(str(s_exp))
+    print(repr(s_exp))
 
     # basic function
     assert s_exp.car

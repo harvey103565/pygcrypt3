@@ -20,7 +20,7 @@ cdef class SymbolicExpression():
     cdef cython.bint _c_obj_holder
 
     @staticmethod
-    cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, cython.bint holder=?)
+    cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, cython.bint holder=?, const char * atom_data=?, int data_len=?)
 
     @staticmethod
     cdef void _on_null_expression_raise(gcry_sexp_t s_exp)
