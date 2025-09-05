@@ -2,5 +2,12 @@
 # cython: language_level=3
 
 
+from .gcry_mpi cimport gcry_mpi_t, gcry_mpi_release
+
+
 cdef class MultiPrecisionInteger:
-    pass
+
+    cdef gcry_mpi_t _p_mpi_t
+
+    @staticmethod
+    cdef MultiPrecisionInteger from_mpi_t(gcry_mpi_t mpi_ptr)

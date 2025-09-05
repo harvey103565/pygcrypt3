@@ -16,6 +16,7 @@ cdef class MultiPrecisionInteger():
         """
         self._p_mpi_t = NULL
 
+
     def __dealloc__(self: Self):
         """ __dealloc__()
         Called right before SymbolicExpression object is released. Do cleaning up here.
@@ -24,6 +25,7 @@ cdef class MultiPrecisionInteger():
         if self._p_mpi_t != NULL:
             gcry_mpi_release(self._p_mpi_t)
             self._p_mpi_t = NULL
+
 
     @staticmethod
     cdef MultiPrecisionInteger from_mpi_t(gcry_mpi_t mpi_ptr):

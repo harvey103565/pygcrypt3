@@ -18,9 +18,18 @@ import cython
 cdef class SymbolicExpression():
     cdef gcry_sexp_t _s_exp
     cdef cython.bint _c_obj_holder
+    cdef bytes       _atom_data
+
+    @staticmethod
+    cdef cdr_lst_bstr(int n, gcry_sexp_t s_exp)
 
     @staticmethod
     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, cython.bint holder=?, const char * atom_data=?, int data_len=?)
 
     @staticmethod
     cdef void _on_null_expression_raise(gcry_sexp_t s_exp)
+
+    @staticmethod
+    cdef string_size(gcry_sexp_t _s_exp, int mode)
+
+    cdef stringify(SymbolicExpression self, int mode)

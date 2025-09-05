@@ -35,17 +35,20 @@ try:
     assert s_car.is_atom()
     assert s_car.data == b'a'
 
-    s_exp = SymbolicExpression(b'(a b)')
-    print(str(s_exp))
+    s_exp = SymbolicExpression(b'((a c) b (d (e f)))')
     print(repr(s_exp))
     print(f"s_exp[1]={s_exp[1]}")
+    s_car = s_exp.cdr
+    print(f"s_exp[0]={s_car[0]}")
+    print(f"s_exp[1]={s_car[1]}")
+
 
     s_cdr = s_exp.cdr
     print(str(s_cdr))
     assert s_cdr.is_atom()
     assert s_cdr.data == b'b'
 
-    s_exp = SymbolicExpression(b'(a b c)')
+    s_exp = SymbolicExpression(b'(a (b c) d)')
     print(str(s_exp))
     print(repr(s_exp))
     print(str(s_exp.cdr))

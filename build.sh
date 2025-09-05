@@ -19,8 +19,8 @@ rm -rf ./build/
 echo ' ==>(2): compile cypthon.'
 python setup.py build_ext
 
-# echo ' ==>(2): compiling cypthon.'
-# mv -f ./pygcr/s_exp.cpython-311-x86_64-linux-gnu.so ./pygcr/s_exp.so
+echo ' ==>(3): mv.'
+mv -f build/lib.linux-x86_64-cpython-313/pygcrypt.cpython-313-x86_64-linux-gnu.so src/gcr/pygcrypt.so
 
 # echo ' ==>(3): Clean stale builds.'
 # rm -rf ./build/* 2>&1 >/dev/null
