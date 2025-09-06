@@ -124,17 +124,6 @@ cdef class SymbolicExpression():
             gcry_sexp_release(self._s_exp)
             self._s_exp = NULL
 
-    def iterator(self: Self):
-        cdef size_t cnt = gcry_sexp_length(self._s_exp)
-        for i in range(cnt):
-            exp_p = gcry_sexp_nth(self._s_exp, i)
-            yield SymbolicExpression.from_exp_t(exp_p, True)
-
-    def _iter(self: Self) -> Generator:
-        """ _iter() magic method Generator protocol
-        """
-        return self.iterator()
-
     # def __next__(self: Self) -> NoReturn:
     #     """ __next__() magic method Generator protocol
     #     """
@@ -174,15 +163,22 @@ cdef class SymbolicExpression():
             use object.car or object.cdr to get corresponding value
         """
         cdef size_t      data_len = 0
-        cdef gcry_sexp_t tar_s_exp = NULL
+        cdef gcry_sexp_t t_s_exp = NULL
 
         c_name_str: bytes = name.encode(SymbolicExpression._DEFAULT_ENCODING_)
 
-        tar_s_exp = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, c_name_str), data_len)
-        assert tar_s_exp, f"No such token '{name}' in expression."
+        t_s_exp = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, c_name_str), data_len)
+        if t_s_exp == NULL:
+            raise GcrSexpError(f"No such token '{name}' in expression.")
 
-        tar_s_exp = gcry_sexp_nth(tar_s_exp, 1)
-        return SymbolicExpression.from_exp_t(tar_s_exp, True)
+        try:
+            if 1 >= gcry_sexp_length(t_s_exp):
+                raise GcrSexpError(f"attr {name} represents atom data, not s-expression.")
+        except:
+            gcry_sexp_release(t_s_exp)
+            raise
+        
+        return SymbolicExpression.from_exp_t(t_s_exp, True)
 
 
     def __getitem__(self: Self, index: int) -> bytes:
@@ -190,8 +186,8 @@ cdef class SymbolicExpression():
         Return atom data in bytes from expression(list)'s indexed position
         NOTE: None if there is an sub-exp at that position
         """
-        cdef size_t      data_len = 0
-        cdef const char* data_ptr = NULL
+        cdef size_t       data_len = 0
+        cdef const char * data_ptr = NULL
 
         if not index < len(self):
             raise IndexError('Index out of range', [f"index={index}", f"lenght:{len(self)}"])
@@ -218,34 +214,61 @@ cdef class SymbolicExpression():
             return False
 
 
+    def iterator(self: Self):
+
+        cdef gcry_sexp_t  s_exp     = NULL
+        cdef size_t       data_len  = 0
+        cdef const char * data_ptr  = NULL
+        cdef size_t       n         = gcry_sexp_length(self._s_exp)
+
+        for i in range(n):
+            try:
+                s_exp = gcry_sexp_nth(self._s_exp, i)
+                if s_exp != NULL:
+                    yield SymbolicExpression.from_exp_t(s_exp, True)
+
+                    s_exp = NULL
+                else:
+                    data_ptr = gcry_sexp_nth_data (self._s_exp, i, &data_len)
+                    assert data_ptr != NULL and data_len > 0, "Unkown error getting atom data from car."
+
+                    yield SymbolicExpression.from_exp_t(NULL, False, data_ptr, data_len)
+
+                    data_ptr = NULL
+                    n = 0
+            except:
+                if s_exp != NULL:
+                    gcry_sexp_release(s_exp)
+
+
     @property
     def car(self: Self) -> SymbolicExpression:
         """ car() 
         Return data in bytes from expression's car
         NOTE: libgcry always return atom expression when calling gcry_sexp_car()
         """
-        cdef size_t data_len = 0
+        cdef size_t       data_len = 0
         cdef const char * data_ptr = NULL
 
         if not self._s_exp:
             raise GcrSexpNilError("nil expression(empty list / atom)")
 
-        cdef gcry_sexp_t sub_s_exp = gcry_sexp_car(self._s_exp)
-        SymbolicExpression._on_null_expression_raise(sub_s_exp)
+        cdef gcry_sexp_t car_exp = gcry_sexp_car(self._s_exp)
+        SymbolicExpression._on_null_expression_raise(car_exp)
 
-        if gcry_sexp_length(sub_s_exp) == 1:
+        if gcry_sexp_length(car_exp) == 1:
             try:
-                data_ptr = gcry_sexp_nth_data(sub_s_exp, 0, &data_len)
+                data_ptr = gcry_sexp_nth_data(car_exp, 0, &data_len)
                 assert data_ptr != NULL and data_len > 0, "Unkown error getting atom data from car."
 
                 return SymbolicExpression.from_exp_t(NULL, False, data_ptr, data_len)
             except:
+                if car_exp != NULL:
+                    gcry_sexp_release(car_exp)
                 raise
-            finally:
-                gcry_sexp_release(sub_s_exp)
 
         else:
-            return SymbolicExpression.from_exp_t(sub_s_exp, True)
+            return SymbolicExpression.from_exp_t(car_exp, True)
 
 
     @property
@@ -254,9 +277,9 @@ cdef class SymbolicExpression():
         Return data in bytes from expression's cdr
         NOTE: libgcry always return atom expression when calling gcry_sexp_cdr()
         """
-        cdef size_t data_len = 0
+        cdef size_t       data_len = 0
         cdef const char * data_ptr = NULL
-        cdef gcry_sexp_t cadr_exp = NULL
+        cdef gcry_sexp_t  cadr_exp = NULL
 
         if not self._s_exp:
             raise GcrSexpNilError("nil expression(empty list / atom)")
@@ -274,19 +297,17 @@ cdef class SymbolicExpression():
                     assert data_ptr != NULL and data_len > 0, "Unkown error getting atom data from cdr."
                     return SymbolicExpression.from_exp_t(NULL, False, data_ptr, data_len)
                 except:
+                    if cadr_exp != NULL:
+                        gcry_sexp_release(cadr_exp)
                     raise
-                finally:
-                    gcry_sexp_release(cadr_exp)
             else:
                 return SymbolicExpression.from_exp_t(cadr_exp, True)
         else:
             cdr_lst = SymbolicExpression.cdr_lst_bstr(n, self._s_exp)
             byt_str = b'(' + b''.join(cdr_lst) + b')'
-            print(f"multi-elment cdr {byt_str.decode('utf-8')}")
             return SymbolicExpression(byt_str)
 
 
-    @property
     def data(self: Self) -> bytes:
         """ data()
         Return data in bytes from expression
@@ -297,7 +318,6 @@ cdef class SymbolicExpression():
         raise GcrSexpError("No direct data in list expression, use indexing access inner data")
 
 
-    @property
     def mpi(self: Self) -> MultiPrecisionInteger:
         """ mpi()
         Get data and convert it to MultiPrecisionInteger class object from expression
@@ -315,7 +335,6 @@ cdef class SymbolicExpression():
             return MultiPrecisionInteger.from_mpi_t(p_mpi)
         except Exception as e:
             if p_mpi:
-                # release the mpi object if it was created
                 gcry_mpi_release(p_mpi)
             print(f"Error getting MPI data from s-expression object. {e} with context:")
 

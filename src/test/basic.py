@@ -1,39 +1,13 @@
 
-from ..gcr import loader
-# from ..gcr import gcry_post
+from .s_exp import symbolic_expression_creating_test, \
+                  symbolic_expression_partial_exp_test
+
 from ..gcr.s_exp import SymbolicExpression
 
 try:
-    try:
-        SymbolicExpression(b'()')
-    except:
-        pass
-    else:
-        raise Exception("Empty s-exp test failed.")
-    
-    try:
-        SymbolicExpression(b'a')
-    except:
-        pass
-    else:
-        raise Exception("Non-parenthesized atom s-exp test failed.")
-    
-    try:
-        SymbolicExpression(b'(a')
-    except:
-        pass
-    else:
-        raise Exception("Malformatted s-exp test failed.")
+    symbolic_expression_creating_test()
 
-    s_exp = SymbolicExpression(b'(a)')
-    print(str(s_exp))
-    print(repr(s_exp))
-    print(f"s_exp[0]={s_exp[0]}")
-
-    s_car = s_exp.car
-    print(str(s_car))
-    assert s_car.is_atom()
-    assert s_car.data == b'a'
+    symbolic_expression_partial_exp_test()
 
     s_exp = SymbolicExpression(b'((a c) b (d (e f)))')
     print(repr(s_exp))
