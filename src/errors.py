@@ -14,3 +14,6 @@ class GcrSexpFormatError(GcrSexpError):
 
 class GcrSexpOutOfBoundaryError(GcrSexpError):
     pass
+
+class GcrEllipticCurveError(GcrSexpError):
+    pass

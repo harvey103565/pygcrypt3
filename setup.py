@@ -26,6 +26,8 @@ more information, such as the ld(1) and ld.so(8) manual pages.
 
 gcr_sources =  [
     "./src/gcr/s_exp.pyx",
+    "./src/gcr/elliptic_curve.pyx",
+    "./src/gcr/ec_point.pyx",
     "./src/gcr/mpi.pyx",
     "./src/gcr/utils.pyx",
 ]

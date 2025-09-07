@@ -17,7 +17,6 @@ import cython
 
 cdef class SymbolicExpression():
     cdef gcry_sexp_t _s_exp
-    cdef cython.bint _c_obj_holder
     cdef bytes       _atom_data
 
     @staticmethod
@@ -33,3 +32,5 @@ cdef class SymbolicExpression():
     cdef string_size(gcry_sexp_t _s_exp, int mode)
 
     cdef stringify(SymbolicExpression self, int mode)
+
+    cdef gcry_sexp_t expression(SymbolicExpression self)

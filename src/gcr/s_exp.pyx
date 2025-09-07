@@ -2,9 +2,14 @@
 # cython: language_level=3
 
 
-##  cython imports
-
+# # Cython cimports
 from libc.stdlib cimport malloc, free
+
+from cpython.bytes cimport PyBytes_FromStringAndSize
+
+from .gcry_err cimport gcry_error_t
+from .gcry_comm cimport _DEFAULT_ENCODING_, gcry_ctx_t, gcry_sexp_t, gcry_mpi_t, gcry_mpi_point_t
+from .gcry_mpi cimport gcry_mpi_format
 
 from .gcry_s_exp cimport gcry_sexp_t, \
     gcry_sexp_format, \
@@ -19,13 +24,13 @@ from .gcry_s_exp cimport gcry_sexp_t, \
     gcry_sexp_sprint, \
     gcry_sexp_nth_mpi
 
-from .gcry_mpi cimport gcry_mpi_format
+from .gcry_mpi cimport gcry_mpi_release
 
-from .gcry_err cimport gcry_error_t
 from .utils cimport on_err_raise
 
-from .gcry_mpi cimport gcry_mpi_t, gcry_mpi_release
 from .mpi cimport MultiPrecisionInteger
+
+
 
 ##  Python imports
 from typing import NoReturn, Self, Generator
@@ -33,7 +38,8 @@ from typing import NoReturn, Self, Generator
 import cython
 
 from ..errors import GcrSexpError, GcrSexpFormatError, GcrSexpNilError, GcrSexpOutOfBoundaryError
-from cpython.bytes cimport PyBytes_FromStringAndSize
+
+
 
 cdef class SymbolicExpression():
     """ class SymbolicExpression
@@ -94,7 +100,7 @@ cdef class SymbolicExpression():
         - Try to get value from 'nil' with any method will always result in an error
     """
 
-    _DEFAULT_ENCODING_ = 'utf-8'
+    # _DEFAULT_ENCODING_ = 'utf-8'
 
 
     def __cinit__(self: Self, s_exp_bin_str: bytes = None) -> NoReturn:
@@ -110,29 +116,18 @@ cdef class SymbolicExpression():
             on_err_raise(e_code, s_exp_bin_str[ : offset])
 
             if self._s_exp == NULL:
-                raise GcrSexpFormatError(f"S-Expression from '{s_exp_bin_str.decode(SymbolicExpression._DEFAULT_ENCODING_)}' is not allowed.")
+                raise GcrSexpFormatError(f"S-Expression from '{s_exp_bin_str.decode(_DEFAULT_ENCODING_)}' is not allowed.")
 
-            self._c_obj_holder = True
 
 
     def __dealloc__(self: Self):
         """ __dealloc__()
         Called right before SymbolicExpression object is released. Do cleaning up here.
         """
-
-        if self._c_obj_holder and self._s_exp:
+        if self._s_exp != NULL:
             gcry_sexp_release(self._s_exp)
             self._s_exp = NULL
 
-    # def __next__(self: Self) -> NoReturn:
-    #     """ __next__() magic method Generator protocol
-    #     """
-    #     try:
-    #         assert self._iter
-    #         self._iter.__next__()
-    #     except StopIteration as stop_sig:
-    #         self._iter = None
-    #         raise stop_sig
 
     def __str__(self: Self):
         """ __str__() magic method for built in function: str()
@@ -158,14 +153,13 @@ cdef class SymbolicExpression():
 
 
     def __getattr__(self: Self, name: str) -> Self:
-        """ __getattr__() magic method for '.property' accessing
-            S-Express has a basic form (car . cdr)
-            use object.car or object.cdr to get corresponding value
+        """ __getattr__() magic method for '.property' accessing  
+        return S-Express if the <property-name> leading sub-expression exists(for example: '(a (prop_name value))' return '(prop_name value)'), otherwise raise.
         """
         cdef size_t      data_len = 0
         cdef gcry_sexp_t t_s_exp = NULL
 
-        c_name_str: bytes = name.encode(SymbolicExpression._DEFAULT_ENCODING_)
+        c_name_str: bytes = name.encode(_DEFAULT_ENCODING_)
 
         t_s_exp = gcry_sexp_find_token(self._s_exp, cython.cast(cython.p_char, c_name_str), data_len)
         if t_s_exp == NULL:
@@ -203,7 +197,7 @@ cdef class SymbolicExpression():
 
     def is_atom(self: Self) -> bool:
         """ is_atom()
-        If there is only one data bolb contained in expression, it is an atom.
+        If expression is consist of one bare data bolb(for example '#atom-data' ), it is an atom.
         """
         if self._s_exp == NULL:
             if self._atom_data is not None:
@@ -215,7 +209,9 @@ cdef class SymbolicExpression():
 
 
     def iterator(self: Self):
-
+        """ is_atom()
+        If expression is consist of one bare data bolb(for example '#atom-data' ), it is an atom.
+        """
         cdef gcry_sexp_t  s_exp     = NULL
         cdef size_t       data_len  = 0
         cdef const char * data_ptr  = NULL
@@ -235,7 +231,7 @@ cdef class SymbolicExpression():
                     yield SymbolicExpression.from_exp_t(NULL, False, data_ptr, data_len)
 
                     data_ptr = NULL
-                    n = 0
+                    data_len = 0
             except:
                 if s_exp != NULL:
                     gcry_sexp_release(s_exp)
@@ -339,45 +335,8 @@ cdef class SymbolicExpression():
             print(f"Error getting MPI data from s-expression object. {e} with context:")
 
 
-    @staticmethod
-    cdef cdr_lst_bstr(int n, gcry_sexp_t s_exp):
-        cdef size_t data_len = 0
-        cdef char * buff_ptr = NULL
-        cdef const char * data_ptr = NULL
-        cdef gcry_sexp_t cadr_exp = NULL
-        cdef list parts = []
-
-        try:
-            for i in range(1, n):
-                cadr_exp = gcry_sexp_nth(cython.cast(gcry_sexp_t, s_exp), i)
-                SymbolicExpression._on_null_expression_raise(cadr_exp)
-
-                if gcry_sexp_length(cadr_exp) == 1:
-                    data_ptr = gcry_sexp_nth_data(cadr_exp, 0, &data_len)
-                    assert data_ptr != NULL and data_len > 0
-
-                    parts.append(PyBytes_FromStringAndSize(data_ptr, data_len))
-                else:
-                    data_len = SymbolicExpression.string_size(cadr_exp, gcry_sexp_format.GCRYSEXP_FMT_CANON)
-                    buff_ptr = cython.cast(cython.p_char, malloc(data_len))
-                    data_len = gcry_sexp_sprint(cadr_exp, gcry_sexp_format.GCRYSEXP_FMT_CANON, buff_ptr, data_len)
-
-                    parts.append(PyBytes_FromStringAndSize(buff_ptr, data_len))
-
-                gcry_sexp_release(cadr_exp)
-                cadr_exp = NULL
-                free(buff_ptr)
-                buff_ptr = NULL
-
-            return parts
-
-        except:
-            raise
-        finally:
-            if buff_ptr != NULL:
-                free(buff_ptr)
-            if cadr_exp != NULL:
-                gcry_sexp_release(cadr_exp)
+    cdef gcry_sexp_t expression(SymbolicExpression self):
+        return self._s_exp
 
 
     cdef stringify(self: Self, int mode):
@@ -400,10 +359,53 @@ cdef class SymbolicExpression():
         except Exception as e:
             raise GcrSexpError("Error serializing s-expression object") from e
         else:
-            return str_bytes.decode(SymbolicExpression._DEFAULT_ENCODING_)
+            return str_bytes.decode(_DEFAULT_ENCODING_)
         finally:
             if mem_buf:
                 free(mem_buf)
+
+
+    @staticmethod
+    cdef cdr_lst_bstr(int n, gcry_sexp_t s_exp):
+        cdef size_t data_len = 0
+        cdef char * buff_ptr = NULL
+        cdef const char * data_ptr = NULL
+        cdef gcry_sexp_t cadr_exp = NULL
+        cdef list parts = []
+
+        try:
+            for i in range(1, n):
+                cadr_exp = gcry_sexp_nth(s_exp, i)
+                SymbolicExpression._on_null_expression_raise(cadr_exp)
+
+                if gcry_sexp_length(cadr_exp) == 1:
+                    data_ptr = gcry_sexp_nth_data(cadr_exp, 0, &data_len)
+                    assert data_ptr != NULL and data_len > 0
+
+                    bytstr = PyBytes_FromStringAndSize(data_ptr, data_len)
+                    parts.append(bytstr)
+                else:
+                    data_len = SymbolicExpression.string_size(cadr_exp, gcry_sexp_format.GCRYSEXP_FMT_CANON)
+                    buff_ptr = cython.cast(cython.p_char, malloc(data_len))
+                    data_len = gcry_sexp_sprint(cadr_exp, gcry_sexp_format.GCRYSEXP_FMT_CANON, buff_ptr, data_len)
+
+                    bytstr = PyBytes_FromStringAndSize(buff_ptr, data_len)
+                    parts.append(bytstr)
+
+                gcry_sexp_release(cadr_exp)
+                cadr_exp = NULL
+                free(buff_ptr)
+                buff_ptr = NULL
+
+            return parts
+
+        except:
+            raise
+        finally:
+            if buff_ptr != NULL:
+                free(buff_ptr)
+            if cadr_exp != NULL:
+                gcry_sexp_release(cadr_exp)
 
 
     @staticmethod
@@ -417,7 +419,6 @@ cdef class SymbolicExpression():
         return data_len
 
 
-
     @staticmethod
     cdef SymbolicExpression from_exp_t(gcry_sexp_t s_exp, cython.bint holder=True, const char * atom_data=NULL, int data_len=0):
         """ from_exp_t()
@@ -428,7 +429,6 @@ cdef class SymbolicExpression():
         if atom_data == NULL:
             assert s_exp != NULL, "s-expression must not be null when no atom data provided."
             wrapper_object._s_exp = s_exp
-            wrapper_object._c_obj_holder = holder
             wrapper_object._atom_data = None
         else:
             assert s_exp == NULL, "s-expression must be null when atom data provided."

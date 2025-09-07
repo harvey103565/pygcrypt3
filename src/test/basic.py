@@ -1,37 +1,23 @@
 
 from .s_exp import symbolic_expression_creating_test, \
-                  symbolic_expression_partial_exp_test
+                   symbolic_expression_partial_exp_test, \
+                   symbolic_expression_nested_exp_test, \
+                   symbolic_expression_multiple_level_exp_test
 
 from ..gcr.s_exp import SymbolicExpression
 
 try:
+    print("\n=====Test case 1/38 =====.\n")
     symbolic_expression_creating_test()
 
+    print("\n=====Test case 2/38 =====.\n")
     symbolic_expression_partial_exp_test()
-
-    s_exp = SymbolicExpression(b'((a c) b (d (e f)))')
-    print(repr(s_exp))
-    print(f"s_exp[1]={s_exp[1]}")
-    s_car = s_exp.cdr
-    print(f"s_exp[0]={s_car[0]}")
-    print(f"s_exp[1]={s_car[1]}")
-
-
-    s_cdr = s_exp.cdr
-    print(str(s_cdr))
-    assert s_cdr.is_atom()
-    assert s_cdr.data == b'b'
-
-    s_exp = SymbolicExpression(b'(a (b c) d)')
-    print(str(s_exp))
-    print(repr(s_exp))
-    print(str(s_exp.cdr))
-    # try:
-    #     print(f"s_exp[2]={s_exp[2]}")
-    # except:
-    #     pass
-    # else:
-    #     raise Exception("s-exp with sub-expressions test failed.")
+    
+    print("\n=====Test case 3/38 =====.\n")
+    symbolic_expression_nested_exp_test()
+    
+    print("\n=====Test case 4/38 =====.\n")
+    symbolic_expression_multiple_level_exp_test()
 
 
     s_exp = SymbolicExpression(b'(a brown (fox jumping) ((lazy dog) over the))')

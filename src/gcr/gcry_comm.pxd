@@ -1,9 +1,6 @@
 
-# cython: c_string_type=unicode, c_string_encoding=utf8
-# cython: language_level=3
 
-from .gcry_err cimport gcry_error_t, gcry_buffer_t, gpg_error_t
-
+_DEFAULT_ENCODING_ = 'utf-8'
 
 
 cdef extern from "gcrypt.h":
@@ -15,3 +12,19 @@ cdef extern from "gcrypt.h":
     ctypedef struct gcry_context:
         pass 
     ctypedef gcry_context* gcry_ctx_t
+
+    ctypedef struct gcry_mpi:
+        pass
+    ctypedef gcry_mpi * gcry_mpi_t
+
+    ctypedef struct gcry_mpi_point:
+        pass
+    ctypedef gcry_mpi_point * gcry_mpi_point_t
+
+    ctypedef void (* p_freefnc) (void* )
+
+    cdef enum gcry_sexp_format:
+        GCRYSEXP_FMT_DEFAULT   = 0,
+        GCRYSEXP_FMT_CANON     = 1,
+        GCRYSEXP_FMT_BASE64    = 2,
+        GCRYSEXP_FMT_ADVANCED  = 3

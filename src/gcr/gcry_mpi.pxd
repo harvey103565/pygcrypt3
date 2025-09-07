@@ -1,15 +1,15 @@
 # cython: c_string_type=unicode, c_string_encoding=utf8
 # cython: language_level=3
 
-from .gcry_comm cimport gcry_error_t, gcry_buffer_t, gpg_error_t, gcry_ctx_t, gcry_sexp_t
-
+from .gcry_err cimport gcry_error_t, gcry_buffer_t, gpg_error_t
+from .gcry_comm cimport  gcry_ctx_t, gcry_sexp_t, gcry_mpi_t, gcry_mpi_point_t
 
 
 cdef extern from "gcrypt.h":
 
-    ctypedef struct gcry_mpi:
-        pass
-    ctypedef gcry_mpi* gcry_mpi_t
+    # ctypedef struct gcry_mpi:
+    #     pass
+    # ctypedef gcry_mpi * gcry_mpi_t
 
     cdef enum gcry_mpi_format:
         GCRYMPI_FMT_NONE= 0,
@@ -19,10 +19,6 @@ cdef extern from "gcrypt.h":
         GCRYMPI_FMT_HEX = 4,
         GCRYMPI_FMT_USG = 5,
         GCRYMPI_FMT_OPAQUE = 8
-
-    ctypedef struct gcry_mpi_point:
-        pass 
-    ctypedef gcry_mpi_point* gcry_mpi_point_t
 
 
 

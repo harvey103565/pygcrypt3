@@ -7,7 +7,9 @@ from .gcry_mpi cimport gcry_mpi_t, gcry_mpi_release
 
 cdef class MultiPrecisionInteger:
 
-    cdef gcry_mpi_t _p_mpi_t
+    cdef gcry_mpi_t _mpi_t
+
+    cdef gcry_mpi_t mpi(MultiPrecisionInteger self)
 
     @staticmethod
     cdef MultiPrecisionInteger from_mpi_t(gcry_mpi_t mpi_ptr)
